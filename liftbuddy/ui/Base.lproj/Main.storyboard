@@ -222,15 +222,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKK-vg-DJe">
-                                                    <rect key="frame" x="108" y="11" width="190" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lpz-Io-uzt">
+                                                    <rect key="frame" x="141" y="-2" width="92" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                </pickerView>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="repsPickerView" translatesAutoresizingMaskIntoConstraints="NO" id="8PE-iJ-cnE">
+                                                    <rect key="frame" x="15" y="-7" width="108" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="repsPickerView">
+                                                        <bool key="isElement" value="NO"/>
+                                                    </accessibility>
+                                                </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="repsPickerView" destination="8PE-iJ-cnE" id="b4X-5j-sad"/>
+                                            <outlet property="weightPickerView" destination="lpz-Io-uzt" id="rvS-wR-3mm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

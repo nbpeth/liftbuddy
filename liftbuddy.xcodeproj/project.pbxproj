@@ -73,6 +73,7 @@
 		2C3BA0A81F78531B00C90187 /* liftbuddy */ = {
 			isa = PBXGroup;
 			children = (
+				2CDEE6F91FB8E40F00B58011 /* component */,
 				2C53D8441FB7CF7700292961 /* CreateRoutine */,
 				2C3BA0BD1F78548400C90187 /* domain */,
 				2C3BA0BC1F78546800C90187 /* config */,
@@ -119,6 +120,13 @@
 				2CEB420B1FB89F2A0060E515 /* LiftCell.swift */,
 			);
 			path = CreateRoutine;
+			sourceTree = "<group>";
+		};
+		2CDEE6F91FB8E40F00B58011 /* component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = component;
 			sourceTree = "<group>";
 		};
 		41AE13E2ED7823C403321DE1 /* Frameworks */ = {
