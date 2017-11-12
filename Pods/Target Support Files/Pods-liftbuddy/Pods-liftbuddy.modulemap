@@ -1,0 +1,6 @@
+framework module Pods_liftbuddy {
+  umbrella header "Pods-liftbuddy-umbrella.h"
+
+  export *
+  module * { export * }
+}
