@@ -33,9 +33,9 @@ class Workout: Object {
 class Lift: Object {
     @objc dynamic var name = ""
     var reps = RealmOptional<Int>()
-    var weight = RealmOptional<Int>()
+    var weight = RealmOptional<Double>()
     
-    convenience init(name:String, reps: RealmOptional<Int>, weight: RealmOptional<Int>){
+    convenience init(name:String, reps: RealmOptional<Int>, weight: RealmOptional<Double>){
         self.init()
         self.name = name
         self.reps = reps

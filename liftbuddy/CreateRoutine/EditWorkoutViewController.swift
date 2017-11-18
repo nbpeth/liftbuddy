@@ -1,74 +1,54 @@
 import Foundation
 import UIKit
 
-extension EditWorkoutViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func data(_ max:Int) -> [Int] {
-        var numbers = [Int]()
-        for i in 1 ... max {
-            numbers.append(i)
-        }
-        return numbers
-    }
-    
-    func data(_ max:Double) -> [Double] {
-        var numbers = [Double]()
-        for i in stride(from: 0.0, to: max, by: 2.5) {
-            numbers.append(i)
-        }
-        return numbers
-    }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.restorationIdentifier == "repsPickerView" {
-            return data(100).count
-        }
-        else {
-            return data(1000.0).count
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        if pickerView.restorationIdentifier == "repsPickerView" {
-            return String(describing:data(100)[row])
-        }
-        else {
-            return String(describing:data(1000.0)[row])
-        }
-        
-    }
-}
-
 class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var workout:Workout?
     @IBOutlet weak var liftsInWorkoutTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
     
     @IBAction func addLiftButtonWasPressed(_ sender: Any) {
-        workout!.lifts.append(Lift())
+        guard let workoutToEdit = workout else { return }
+        
+        workoutToEdit.lifts.append(Lift())
         
         self.liftsInWorkoutTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            guard let workoutToDeleteFrom = workout else { return }
+            if workoutToDeleteFrom.lifts.count >= indexPath.row {
+                workoutToDeleteFrom.lifts.remove(at: indexPath.row)
+                self.liftsInWorkoutTableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            self.liftsInWorkoutTableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout!.lifts.count
+        return workout?.lifts.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftCell", for: indexPath) as? LiftCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftCell", for: indexPath) as? LiftCell,
+            let workoutToEdit = workout,
+            let liftToEdit = workout?.lifts[indexPath.row]
+        else {
             return UITableViewCell()
         }
         
-        cell.repsPickerView.dataSource = self
-        cell.repsPickerView.delegate = self
+        liftToEdit.name = workoutToEdit.name
+        cell.lift = liftToEdit
         
-        cell.weightPickerView.dataSource = self
-        cell.weightPickerView.delegate = self
+        cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: true)
+        
+        if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
+            cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: true)
+        }
         
         return cell
     }
@@ -79,8 +59,13 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
         liftsInWorkoutTableView.delegate = self
         liftsInWorkoutTableView.dataSource = self
         
-        workoutNameLabel.text = workout!.name
+        workoutNameLabel.text = workout?.name ?? ""
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.liftsInWorkoutTableView.reloadData()
     }
     
 }
