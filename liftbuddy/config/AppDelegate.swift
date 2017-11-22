@@ -1,13 +1,6 @@
-//
-//  AppDelegate.swift
-//  liftbuddy
-//
-//  Created by Bud Manstrong on 9/24/17.
-//  Copyright © 2017 Bud Manstrong. All rights reserved.
-//
 
 import UIKit
-
+import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -35,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("!!! \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
+        Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

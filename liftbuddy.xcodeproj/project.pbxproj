@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */; };
+		2C110CA11FC0DED6001E502B /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110CA01FC0DED6001E502B /* RoutineTableViewCell.swift */; };
 		2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA0A91F78531B00C90187 /* AppDelegate.swift */; };
-		2C3BA0AC1F78531B00C90187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA0AB1F78531B00C90187 /* ViewController.swift */; };
 		2C3BA0AF1F78531B00C90187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BA0AD1F78531B00C90187 /* Main.storyboard */; };
 		2C3BA0B11F78531B00C90187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BA0B01F78531B00C90187 /* Assets.xcassets */; };
 		2C3BA0B41F78531B00C90187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BA0B21F78531B00C90187 /* LaunchScreen.storyboard */; };
@@ -16,15 +17,18 @@
 		2C53D8431FB7CF6D00292961 /* NameYourRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */; };
 		2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53D8451FB7DA8100292961 /* WorkoutCell.swift */; };
 		2C6C53F21F78676E005BC981 /* CreateRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C53F11F78676E005BC981 /* CreateRoutineViewController.swift */; };
+		2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD168761FC205E6002A55E3 /* RealmManager.swift */; };
+		2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */; };
 		2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */; };
 		2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB420B1FB89F2A0060E515 /* LiftCell.swift */; };
 		D65F19493055860ED8ECCD75 /* Pods_liftbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68F26B8D9134C932A392D4A /* Pods_liftbuddy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListTableViewController.swift; sourceTree = "<group>"; };
+		2C110CA01FC0DED6001E502B /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
 		2C3BA0A61F78531B00C90187 /* liftbuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liftbuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3BA0A91F78531B00C90187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C3BA0AB1F78531B00C90187 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C3BA0AE1F78531B00C90187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C3BA0B01F78531B00C90187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C3BA0B31F78531B00C90187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +37,8 @@
 		2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameYourRoutineViewController.swift; sourceTree = "<group>"; };
 		2C53D8451FB7DA8100292961 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		2C6C53F11F78676E005BC981 /* CreateRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRoutineViewController.swift; sourceTree = "<group>"; };
+		2CD168761FC205E6002A55E3 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailViewController.swift; sourceTree = "<group>"; };
 		2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
 		2CEB420B1FB89F2A0060E515 /* LiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		324163A5BA1D12CF607F2C12 /* Pods-liftbuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liftbuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liftbuddy/Pods-liftbuddy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +58,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C110C9C1FC0DE41001E502B /* table cells */ = {
+			isa = PBXGroup;
+			children = (
+				2CEB420B1FB89F2A0060E515 /* LiftCell.swift */,
+				2C53D8451FB7DA8100292961 /* WorkoutCell.swift */,
+			);
+			path = "table cells";
+			sourceTree = "<group>";
+		};
+		2C110C9D1FC0DE61001E502B /* routines */ = {
+			isa = PBXGroup;
+			children = (
+				2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */,
+				2C110CA01FC0DED6001E502B /* RoutineTableViewCell.swift */,
+				2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */,
+			);
+			path = routines;
+			sourceTree = "<group>";
+		};
 		2C3BA09D1F78531B00C90187 = {
 			isa = PBXGroup;
 			children = (
@@ -73,14 +98,15 @@
 		2C3BA0A81F78531B00C90187 /* liftbuddy */ = {
 			isa = PBXGroup;
 			children = (
+				2C110C9D1FC0DE61001E502B /* routines */,
 				2CDEE6F91FB8E40F00B58011 /* component */,
-				2C53D8441FB7CF7700292961 /* CreateRoutine */,
+				2C53D8441FB7CF7700292961 /* create */,
 				2C3BA0BD1F78548400C90187 /* domain */,
 				2C3BA0BC1F78546800C90187 /* config */,
 				2C3BA0BB1F78545500C90187 /* ui */,
-				2C3BA0AB1F78531B00C90187 /* ViewController.swift */,
 				2C3BA0B01F78531B00C90187 /* Assets.xcassets */,
 				2C3BA0B51F78531B00C90187 /* Info.plist */,
+				2CD168761FC205E6002A55E3 /* RealmManager.swift */,
 			);
 			path = liftbuddy;
 			sourceTree = "<group>";
@@ -110,16 +136,15 @@
 			path = domain;
 			sourceTree = "<group>";
 		};
-		2C53D8441FB7CF7700292961 /* CreateRoutine */ = {
+		2C53D8441FB7CF7700292961 /* create */ = {
 			isa = PBXGroup;
 			children = (
+				2C110C9C1FC0DE41001E502B /* table cells */,
 				2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */,
 				2C6C53F11F78676E005BC981 /* CreateRoutineViewController.swift */,
-				2C53D8451FB7DA8100292961 /* WorkoutCell.swift */,
 				2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */,
-				2CEB420B1FB89F2A0060E515 /* LiftCell.swift */,
 			);
-			path = CreateRoutine;
+			path = create;
 			sourceTree = "<group>";
 		};
 		2CDEE6F91FB8E40F00B58011 /* component */ = {
@@ -282,13 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */,
 				2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */,
+				2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */,
 				2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */,
-				2C3BA0AC1F78531B00C90187 /* ViewController.swift in Sources */,
 				2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
+				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,
 				2C6C53F21F78676E005BC981 /* CreateRoutineViewController.swift in Sources */,
+				2C110CA11FC0DED6001E502B /* RoutineTableViewCell.swift in Sources */,
 				2C53D8431FB7CF6D00292961 /* NameYourRoutineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,16 +1,47 @@
 import RealmSwift
 import Foundation
 
+class RoutineManager {
+    
+    static func getRoutineBy(id:Int) -> Routine? {
+        return RealmManager.shared.realm.objects(Routine.self).filter("id == \(String(describing: id))").first
+    }
+}
+
 class Routine: Object {
     @objc dynamic var name = ""
-    @objc dynamic var date = ""
+    @objc dynamic var id = 0
     var workout = List<Workout>()
     
-    convenience init(name:String, date: String, workout:List<Workout>){
+    convenience init(name:String, workout:List<Workout>, id:Int){
         self.init()
+        self.id = id
         self.name = name
-        self.date = date
         self.workout = workout
+    }
+    
+    convenience init(name:String){
+        self.init()
+        self.id = getNextId()
+        self.name = name
+    }
+    
+    func addWorkout(id:Int){
+        let routine = RoutineManager.getRoutineBy(id: id)
+        routine?.workout.append(Workout())
+    }
+    
+    func removeWorkout(at index:Int){
+        RealmManager.shared.realm.delete(workout[index])
+    }
+    
+    func getNextId() -> Int {
+        let realm = try! Realm()
+        return (realm.objects(Routine.self).max(ofProperty: "id") as Int? ?? 0) + 1
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id"
     }
 }
 
@@ -28,6 +59,23 @@ class Workout: Object {
         self.lifts = lifts
     }
     
+    func setRest(rest:Int){
+        try! Realm().write {
+            self.rest.value = rest
+        }
+    }
+    
+    func addLift(){
+        try! Realm().write {
+            self.lifts.append(Lift(name: self.name))
+        }
+    }
+    
+    func removeLift(at index: Int){
+        try! Realm().write {
+            self.lifts.remove(at: index)
+        }
+    }
 }
 
 class Lift: Object {
@@ -35,12 +83,20 @@ class Lift: Object {
     var reps = RealmOptional<Int>()
     var weight = RealmOptional<Double>()
     
-    convenience init(name:String, reps: RealmOptional<Int>, weight: RealmOptional<Double>){
-        self.init()
-        self.name = name
-        self.reps = reps
-        self.weight = weight
+    func setReps(reps:Int){
+        try! Realm().write {
+            self.reps.value = reps
+        }
     }
     
+    func setWeight(weight:Double){
+        try! Realm().write {
+            self.weight.value = weight
+        }
+    }
     
+    convenience init(name:String){
+        self.init()
+        self.name = name
+    }
 }

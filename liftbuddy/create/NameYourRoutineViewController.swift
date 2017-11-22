@@ -9,11 +9,10 @@ class NameYourRoutineViewController: UIViewController {
         if let destinationViewController = segue.destination as? CreateRoutineViewController {
             let routineName = routineNameTextField.text ?? "Unnamed Workout"
             
-            routine = Routine()
-            routine?.name = routineName
+            routine = Routine(name: routineName)
             
             destinationViewController.routine = routine
         }
     }
-    
+
 }

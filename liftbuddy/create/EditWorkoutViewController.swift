@@ -9,7 +9,7 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func addLiftButtonWasPressed(_ sender: Any) {
         guard let workoutToEdit = workout else { return }
         
-        workoutToEdit.lifts.append(Lift())
+        workoutToEdit.addLift()
         
         self.liftsInWorkoutTableView.reloadData()
     }
@@ -41,7 +41,7 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
             return UITableViewCell()
         }
         
-        liftToEdit.name = workoutToEdit.name
+//        liftToEdit.name = workoutToEdit.name
         cell.lift = liftToEdit
         
         cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: true)
@@ -55,7 +55,7 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         liftsInWorkoutTableView.delegate = self
         liftsInWorkoutTableView.dataSource = self
         

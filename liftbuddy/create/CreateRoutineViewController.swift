@@ -4,31 +4,27 @@ import RealmSwift
 
 class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var routine: Routine?
+    var routineId: Int?
+    let realm = try! Realm()
     @IBOutlet weak var routineTableView: UITableView!
     @IBOutlet weak var routineNameLabel: UILabel!
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {
-        let realm = try! Realm()
-        guard let routineToSave = routine else { return }
-        
-//        try! realm.write {
-//            realm.add(routineToSave)
-//        }
-//        
-//        let saved = realm.objects(Routine.self)
-        
-//        print(saved)
+        RealmManager.shared.saveChanges()
     }
     
     @IBAction func cancelButtonWasPressed(_ sender: Any) {
+        RealmManager.shared.discardChanges()
+
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func addWorkoutButtonWasPressed(_ sender: Any) {
-        let newWorkout = Workout()
-        routine?.workout.append(newWorkout)
+        guard let routineId = routineId else { return }
         
+        routine?.addWorkout(id: routineId)
         self.routineTableView.reloadData()
+
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -61,7 +57,7 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         cell.workout = lift
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: lift.lifts.count))"
         cell.workoutNameTextField.text = cell.name
-        lift.name = cell.name
+//        lift.name = cell.name
         
         guard let rest = lift.rest.value else { return cell }
         cell.restPicker.selectRow(rest / 5 , inComponent: 0, animated: true)
@@ -83,6 +79,23 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         routineTableView.delegate = self
         routineTableView.dataSource = self
+        
+        RealmManager.shared.beginWrite()
+        
+        setRoutine()
+    }
+    
+    private func setRoutine(){
+        guard let id = routineId,
+            let existingRoutine = RoutineManager.getRoutineBy(id: id)
+        else {
+            routineId = routine?.id
+            RealmManager.shared.realm.add(routine!)
+            setLabels()
+            return
+        }
+        
+        self.routine = existingRoutine
         setLabels()
     }
     
