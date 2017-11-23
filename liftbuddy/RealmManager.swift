@@ -5,6 +5,8 @@ class RealmManager {
     let realm = try! Realm()
     static let shared = RealmManager()
     
+    //RealmManager.shared.realm.isInWriteTransaction
+    
     func beginWrite(){
         realm.beginWrite()
     }
@@ -14,6 +16,8 @@ class RealmManager {
     }
     
     func discardChanges(){
-        realm.cancelWrite()
+        if self.realm.isInWriteTransaction {
+            realm.cancelWrite()
+        }
     }
 }

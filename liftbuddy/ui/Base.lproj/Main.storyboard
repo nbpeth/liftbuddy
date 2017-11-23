@@ -9,27 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create-->
-        <scene sceneID="7u4-6U-QvB">
-            <objects>
-                <navigationController id="qhr-r0-FSS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create" id="oSX-xb-2cN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OWb-m9-aW5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="7ef-7a-RrW" kind="relationship" relationship="rootViewController" id="4iJ-CJ-sMp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G8y-YW-apM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="622" y="-584"/>
-        </scene>
         <!--Your Routines-->
         <scene sceneID="0bc-db-WaE">
             <objects>
-                <tableViewController title="Your Routines" id="LjZ-hh-ntY" customClass="RoutineListTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="RoutineListTableViewController" storyboardIdentifier="RoutineListTableViewController" title="Your Routines" id="LjZ-hh-ntY" customClass="RoutineListTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wyV-Si-BQO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +44,13 @@
                             <outlet property="delegate" destination="LjZ-hh-ntY" id="wKI-J1-cn4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="FKN-bP-ZxI"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="FKN-bP-ZxI">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="Zfg-YW-oRM">
+                            <connections>
+                                <segue destination="7ef-7a-RrW" kind="show" id="uaO-6a-YLd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ecQ-aC-DNw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -69,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKu-Sq-9bb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352.8" y="169.56521739130437"/>
+            <point key="canvasLocation" x="1322" y="-519"/>
         </scene>
         <!--Routine Detail-->
         <scene sceneID="X3H-BE-Kx2">
@@ -110,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgV-E9-2BE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="169.56521739130437"/>
+            <point key="canvasLocation" x="2121" y="-519"/>
         </scene>
         <!--Home-->
         <scene sceneID="bFb-gw-Gzt">
@@ -135,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goh-87-fwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-380" y="625"/>
+            <point key="canvasLocation" x="-191" y="269"/>
         </scene>
         <!--Routines-->
         <scene sceneID="e7E-U5-427">
@@ -152,7 +141,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jud-Kd-eKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="170"/>
+            <point key="canvasLocation" x="570" y="-519"/>
         </scene>
         <!--Item-->
         <scene sceneID="5cP-ft-9GK">
@@ -203,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVc-BS-1eC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-584"/>
+            <point key="canvasLocation" x="1321" y="269"/>
         </scene>
         <!--Build a Routine-->
         <scene sceneID="f05-32-zWP">
@@ -318,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjw-vV-TtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="-584"/>
+            <point key="canvasLocation" x="2121" y="269"/>
         </scene>
         <!--Edit Lifts -->
         <scene sceneID="6J7-Ky-Ktp">
@@ -407,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsU-Yq-PXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2908" y="-586.05697151424295"/>
+            <point key="canvasLocation" x="2903" y="269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="peO-Xa-2YB">
@@ -420,16 +409,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="VOU-uo-c0v" kind="relationship" relationship="viewControllers" id="sdh-bk-ZTL"/>
-                        <segue destination="qhr-r0-FSS" kind="relationship" relationship="viewControllers" id="NgV-Ox-6tr"/>
                         <segue destination="N9i-uk-xVG" kind="relationship" relationship="viewControllers" id="Ol1-29-Fjs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2p-Th-61O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-380" y="-242"/>
+            <point key="canvasLocation" x="-191" y="-519"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OMB-SX-ftH"/>
+        <segue reference="G49-4X-Nj8"/>
     </inferredMetricsTieBreakers>
 </document>

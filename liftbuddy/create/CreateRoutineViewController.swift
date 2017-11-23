@@ -11,12 +11,18 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {
         RealmManager.shared.saveChanges()
+        navigateRoutineList()
     }
     
     @IBAction func cancelButtonWasPressed(_ sender: Any) {
         RealmManager.shared.discardChanges()
-        
-        self.navigationController?.popViewController(animated: true)
+        navigateRoutineList()
+    }
+    
+    private func navigateRoutineList(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newRoot = storyBoard.instantiateViewController(withIdentifier: "RoutineListTableViewController")
+        self.navigationController?.setViewControllers([newRoot], animated: true)
     }
     
     @IBAction func addWorkoutButtonWasPressed(_ sender: Any) {
@@ -79,31 +85,24 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         routineTableView.delegate = self
         routineTableView.dataSource = self
+        
         RealmManager.shared.beginWrite()
-
+        
         setRoutine()
+    }
+    
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController && RealmManager.shared.realm.isInWriteTransaction {
+            RealmManager.shared.discardChanges()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.routineTableView.reloadData()
     }
-    
-//    override func willMove(toParentViewController parent: UIViewController?) {
-//        super.willMove(toParentViewController: parent)
-//        print(parent)
-//    }
-//
-////    override func viewWillDisappear(_ animated: Bool) {
-////        super.viewWillDisappear(animated)
-////
-////        print(self.navigationController?.viewControllers)
-////
-////        if (self.isMovingToParentViewController == true){
-////            RealmManager.shared.discardChanges()
-////        }
-////    }
-//
 
     private func setRoutine(){
         guard let id = routineId,
@@ -123,8 +122,4 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         guard let routineName = routine?.name else { return }
         routineNameLabel.text = routineName
     }
-    
-   
-    
-    
 }

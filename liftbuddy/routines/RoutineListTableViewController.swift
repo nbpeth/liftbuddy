@@ -7,13 +7,12 @@ class RoutineListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        routines = realm.objects(Routine.self).map { routine in return routine }
+        routines = RoutineManager.getAllRoutines()
         
         self.tableView.reloadData()
     }
