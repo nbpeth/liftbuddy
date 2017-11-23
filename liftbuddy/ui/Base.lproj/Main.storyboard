@@ -44,7 +44,7 @@
                             <outlet property="delegate" destination="LjZ-hh-ntY" id="wKI-J1-cn4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="FKN-bP-ZxI">
+                    <navigationItem key="navigationItem" title="Your Routines" id="FKN-bP-ZxI">
                         <barButtonItem key="rightBarButtonItem" title="Create" id="Zfg-YW-oRM">
                             <connections>
                                 <segue destination="7ef-7a-RrW" kind="show" id="uaO-6a-YLd"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1322" y="-519"/>
         </scene>
-        <!--Routine Detail-->
+        <!--Routine Details-->
         <scene sceneID="X3H-BE-Kx2">
             <objects>
-                <viewController restorationIdentifier="RoutineDetailViewController" storyboardIdentifier="RoutineDetailViewController" title="Routine Detail" id="w96-Lo-J27" customClass="RoutineDetailViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoutineDetailViewController" storyboardIdentifier="RoutineDetailViewController" title="Routine Details" id="w96-Lo-J27" customClass="RoutineDetailViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9np-wF-qGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
-                                    <action selector="editRoutineWasPressed:" destination="w96-Lo-J27" eventType="touchUpInside" id="QfP-XE-4wd"/>
                                     <segue destination="Sgg-rO-hwk" kind="show" identifier="editExistingRoutineSegue" id="G49-4X-Nj8"/>
                                 </connections>
                             </button>
@@ -126,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="-191" y="269"/>
         </scene>
-        <!--Routines-->
+        <!--Your Routines-->
         <scene sceneID="e7E-U5-427">
             <objects>
-                <navigationController id="N9i-uk-xVG" sceneMemberID="viewController">
+                <navigationController title="Your Routines" id="N9i-uk-xVG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Routines" id="Mzd-N4-kXR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yEu-k7-WCp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -143,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="570" y="-519"/>
         </scene>
-        <!--Item-->
+        <!--Create Routine-->
         <scene sceneID="5cP-ft-9GK">
             <objects>
-                <viewController id="7ef-7a-RrW" customClass="NameYourRoutineViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Create Routine" id="7ef-7a-RrW" customClass="NameYourRoutineViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eAG-xk-CpS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

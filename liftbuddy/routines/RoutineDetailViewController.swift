@@ -5,9 +5,6 @@ import RealmSwift
 class RoutineDetailViewController: UIViewController {
     @IBOutlet weak var routineNameLabel: UILabel!
     var routineId: Int?
-
-    @IBAction func editRoutineWasPressed(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
