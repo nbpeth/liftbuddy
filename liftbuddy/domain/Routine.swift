@@ -6,6 +6,10 @@ class RoutineManager {
     static func getRoutineBy(id:Int) -> Routine? {
         return RealmManager.shared.realm.objects(Routine.self).filter("id == \(String(describing: id))").first
     }
+    
+    static func create(routine:Routine) {
+        RealmManager.shared.realm.add(routine)
+    }
 }
 
 class Routine: Object {
@@ -59,22 +63,12 @@ class Workout: Object {
         self.lifts = lifts
     }
     
-    func setRest(rest:Int){
-        try! Realm().write {
-            self.rest.value = rest
-        }
-    }
-    
     func addLift(){
-        try! Realm().write {
-            self.lifts.append(Lift(name: self.name))
-        }
+        self.lifts.append(Lift(name: self.name))
     }
     
     func removeLift(at index: Int){
-        try! Realm().write {
-            self.lifts.remove(at: index)
-        }
+        self.lifts.remove(at: index)
     }
 }
 
@@ -84,15 +78,11 @@ class Lift: Object {
     var weight = RealmOptional<Double>()
     
     func setReps(reps:Int){
-        try! Realm().write {
-            self.reps.value = reps
-        }
+        self.reps.value = reps
     }
     
     func setWeight(weight:Double){
-        try! Realm().write {
-            self.weight.value = weight
-        }
+        self.weight.value = weight
     }
     
     convenience init(name:String){

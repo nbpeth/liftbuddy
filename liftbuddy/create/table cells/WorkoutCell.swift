@@ -41,7 +41,7 @@ class WorkoutCell: UITableViewCell {
     var rest = 0
 
     @IBAction func workoutNameEditingChanged(_ sender: Any) {
-        name = workoutNameTextField.text ?? ""
+        workout?.name = workoutNameTextField.text ?? ""
     }
     
     override func awakeFromNib() {

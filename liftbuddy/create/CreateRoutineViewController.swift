@@ -15,7 +15,7 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func cancelButtonWasPressed(_ sender: Any) {
         RealmManager.shared.discardChanges()
-
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -23,8 +23,8 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         guard let routineId = routineId else { return }
         
         routine?.addWorkout(id: routineId)
+        
         self.routineTableView.reloadData()
-
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -51,15 +51,15 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell", for: indexPath) as? WorkoutCell,
-            let lift = routine?.workout[indexPath.row]
+            let workout = routine?.workout[indexPath.row]
         else { return UITableViewCell() }
 
-        cell.workout = lift
-        cell.numberOfSetsLabel.text = "Sets: \(String(describing: lift.lifts.count))"
-        cell.workoutNameTextField.text = cell.name
-//        lift.name = cell.name
+        cell.workout = workout
+        cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
+        cell.workoutNameTextField.text = workout.name
         
-        guard let rest = lift.rest.value else { return cell }
+        guard let rest = workout.rest.value else { return cell }
+        
         cell.restPicker.selectRow(rest / 5 , inComponent: 0, animated: true)
         
         return cell
@@ -79,18 +79,38 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         routineTableView.delegate = self
         routineTableView.dataSource = self
-        
         RealmManager.shared.beginWrite()
-        
+
         setRoutine()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.routineTableView.reloadData()
+    }
+    
+//    override func willMove(toParentViewController parent: UIViewController?) {
+//        super.willMove(toParentViewController: parent)
+//        print(parent)
+//    }
+//
+////    override func viewWillDisappear(_ animated: Bool) {
+////        super.viewWillDisappear(animated)
+////
+////        print(self.navigationController?.viewControllers)
+////
+////        if (self.isMovingToParentViewController == true){
+////            RealmManager.shared.discardChanges()
+////        }
+////    }
+//
+
     private func setRoutine(){
         guard let id = routineId,
             let existingRoutine = RoutineManager.getRoutineBy(id: id)
         else {
             routineId = routine?.id
-            RealmManager.shared.realm.add(routine!)
+            RoutineManager.create(routine: routine!) // refactor out force unwrap
             setLabels()
             return
         }
@@ -99,13 +119,12 @@ class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITabl
         setLabels()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.routineTableView.reloadData()
-    }
-    
     private func setLabels(){
         guard let routineName = routine?.name else { return }
         routineNameLabel.text = routineName
     }
+    
+   
+    
+    
 }
