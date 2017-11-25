@@ -21,7 +21,7 @@ class RoutineDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editExistingRoutineSegue" {
             
-            if let destination = segue.destination as? CreateRoutineViewController {
+            if let destination = segue.destination as? EditRoutineViewController {
                 destination.routineId = routineId
             }
         }

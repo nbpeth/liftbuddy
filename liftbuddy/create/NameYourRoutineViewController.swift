@@ -6,7 +6,7 @@ class NameYourRoutineViewController: UIViewController {
     @IBOutlet weak var routineNameTextField: UITextField!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? CreateRoutineViewController {
+        if let destinationViewController = segue.destination as? EditRoutineViewController {
             let routineName = routineNameTextField.text ?? "Unnamed Workout"
             
             routine = Routine(name: routineName)

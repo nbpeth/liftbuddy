@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class CreateRoutineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditRoutineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var routine: Routine?
     var routineId: Int?
     let realm = try! Realm()

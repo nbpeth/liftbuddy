@@ -196,7 +196,7 @@
         <!--Build a Routine-->
         <scene sceneID="f05-32-zWP">
             <objects>
-                <viewController storyboardIdentifier="CreateRoutineViewController" title="Build a Routine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sgg-rO-hwk" customClass="CreateRoutineViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateRoutineViewController" title="Build a Routine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sgg-rO-hwk" customClass="EditRoutineViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0i9-Xo-erS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

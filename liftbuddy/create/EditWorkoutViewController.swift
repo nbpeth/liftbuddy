@@ -41,9 +41,7 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
             return UITableViewCell()
         }
         
-//        liftToEdit.name = workoutToEdit.name
-        cell.lift = liftToEdit
-        
+        cell.lift = liftToEdit        
         cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: true)
         
         if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
