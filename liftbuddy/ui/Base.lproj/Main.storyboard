@@ -213,16 +213,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cd9-Ac-zvt">
-                                                    <rect key="frame" x="15" y="6" width="191" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="workoutNameEditingChanged:" destination="r9w-Et-YnL" eventType="editingChanged" id="kbr-bT-fs2"/>
-                                                    </connections>
-                                                </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sets: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-Kc-taw">
                                                     <rect key="frame" x="214" y="15" width="120" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,13 +232,20 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </pickerView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-Cg-MdC">
+                                                    <rect key="frame" x="15" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="numberOfSetsLabel" destination="FJc-Kc-taw" id="0qe-nU-kHV"/>
                                             <outlet property="restPicker" destination="zXC-uX-Ki0" id="tS2-m5-PE9"/>
-                                            <outlet property="workoutNameTextField" destination="Cd9-Ac-zvt" id="4Mf-0x-n5q"/>
+                                            <outlet property="workoutNameLabel" destination="qtx-Cg-MdC" id="VdV-8M-PzN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -306,7 +303,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjw-vV-TtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="269"/>
+            <point key="canvasLocation" x="2120.8000000000002" y="268.51574212893553"/>
+        </scene>
+        <!--Create Or Edit Workout View Controller-->
+        <scene sceneID="Tyo-z9-edh">
+            <objects>
+                <viewController storyboardIdentifier="CreateOrEditWorkoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N9n-2n-xXQ" customClass="CreateOrEditWorkoutViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VhJ-Wh-0yW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sets:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-Ep-CuG">
+                                <rect key="frame" x="60" y="220" width="254" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="15h-rO-WYY">
+                                <rect key="frame" x="43" y="101" width="289" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="workoutNameChanged:" destination="N9n-2n-xXQ" eventType="valueChanged" id="Eyt-di-tgx"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-d4-s2P">
+                                <rect key="frame" x="52" y="366" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Sets"/>
+                                <connections>
+                                    <segue destination="Fv0-sa-s2u" kind="show" identifier="addSetsToWorkoutSegue" id="zim-Nz-HH9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="zwC-Kz-NuC"/>
+                    </view>
+                    <connections>
+                        <outlet property="setsLabel" destination="y3h-Ep-CuG" id="FV6-ef-QM9"/>
+                        <outlet property="workoutNameTextField" destination="15h-rO-WYY" id="Q2z-ty-d5z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qc-G0-Vvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2898.4000000000001" y="268.51574212893553"/>
         </scene>
         <!--Edit Lifts -->
         <scene sceneID="6J7-Ky-Ktp">
@@ -395,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsU-Yq-PXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2903" y="269"/>
+            <point key="canvasLocation" x="3759" y="269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="peO-Xa-2YB">

@@ -32,17 +32,13 @@ extension WorkoutCell: UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 class WorkoutCell: UITableViewCell {
-    @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var numberOfSetsLabel: UILabel!
     @IBOutlet weak var restPicker: UIPickerView!
+    @IBOutlet weak var workoutNameLabel: UILabel!
     var workout:Workout?
     var name = ""
     var rest = 0
-
-    @IBAction func workoutNameEditingChanged(_ sender: Any) {
-        workout?.name = workoutNameTextField.text ?? ""
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

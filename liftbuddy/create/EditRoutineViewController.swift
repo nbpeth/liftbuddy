@@ -62,7 +62,7 @@ class EditRoutineViewController: UIViewController, UITableViewDelegate, UITableV
 
         cell.workout = workout
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
-        cell.workoutNameTextField.text = workout.name
+        cell.workoutNameLabel.text = workout.name
         
         guard let rest = workout.rest.value else { return cell }
         
@@ -71,9 +71,10 @@ class EditRoutineViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    @IBOutlet weak var workoutNameLabel: UILabel!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let destination = storyboard.instantiateViewController(withIdentifier: "EditWorkoutViewController") as? EditWorkoutViewController, let workout = routine?.workout[indexPath.row] {
+        if let destination = storyboard.instantiateViewController(withIdentifier: "CreateOrEditWorkoutViewController") as? CreateOrEditWorkoutViewController, let workout = routine?.workout[indexPath.row] {
             
             destination.workout = workout
             

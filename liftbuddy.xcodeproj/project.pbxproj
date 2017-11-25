@@ -17,6 +17,7 @@
 		2C53D8431FB7CF6D00292961 /* NameYourRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */; };
 		2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53D8451FB7DA8100292961 /* WorkoutCell.swift */; };
 		2C6C53F21F78676E005BC981 /* EditRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C53F11F78676E005BC981 /* EditRoutineViewController.swift */; };
+		2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */; };
 		2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD168761FC205E6002A55E3 /* RealmManager.swift */; };
 		2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */; };
 		2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */; };
@@ -37,6 +38,7 @@
 		2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameYourRoutineViewController.swift; sourceTree = "<group>"; };
 		2C53D8451FB7DA8100292961 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		2C6C53F11F78676E005BC981 /* EditRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRoutineViewController.swift; sourceTree = "<group>"; };
+		2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEditWorkoutViewController.swift; sourceTree = "<group>"; };
 		2CD168761FC205E6002A55E3 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailViewController.swift; sourceTree = "<group>"; };
 		2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				2C53D8421FB7CF6D00292961 /* NameYourRoutineViewController.swift */,
 				2C6C53F11F78676E005BC981 /* EditRoutineViewController.swift */,
 				2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */,
+				2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */,
 			);
 			path = create;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
+				2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */,
 				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,
 				2C6C53F21F78676E005BC981 /* EditRoutineViewController.swift in Sources */,
 				2C110CA11FC0DED6001E502B /* RoutineTableViewCell.swift in Sources */,
