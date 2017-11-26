@@ -25,6 +25,14 @@ class RoutineDetailViewController: UIViewController {
                 destination.routineId = routineId
             }
         }
+        
+        if segue.identifier == "startRoutineSegue" {
+            if let destination = segue.destination as? RoutineRunnerViewController,
+                let routineId = routineId,
+                let routine = RoutineManager.getRoutineBy(id: routineId) {
+                destination.routineInProgress = RoutineInProgress(routine:routine)
+            }
+        }
     }
     
 }

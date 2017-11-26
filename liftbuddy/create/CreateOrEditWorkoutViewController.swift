@@ -12,6 +12,17 @@ class CreateOrEditWorkoutViewController: UIViewController {
         workout.name = name
     }
     
+    @IBAction func workoutNameEditingChanged(_ sender: Any) {
+        guard let workout = workout, let name = workoutNameTextField.text else { return }
+        
+        workout.name = name
+    }
+    
+    @IBAction func workoutNameValueChanged(_ sender: Any) {
+        guard let workout = workout, let name = workoutNameTextField.text else { return }
+        
+        workout.name = name
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let setsCount = workout?.lifts.count else { return }

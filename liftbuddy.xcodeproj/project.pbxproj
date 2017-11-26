@@ -18,6 +18,9 @@
 		2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53D8451FB7DA8100292961 /* WorkoutCell.swift */; };
 		2C6C53F21F78676E005BC981 /* EditRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C53F11F78676E005BC981 /* EditRoutineViewController.swift */; };
 		2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */; };
+		2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB382621FCA2580006E62A8 /* RoutineRunner.swift */; };
+		2CB382651FCA2665006E62A8 /* RoutineInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */; };
+		2CB382671FCA2A73006E62A8 /* RoutineRunnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */; };
 		2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD168761FC205E6002A55E3 /* RealmManager.swift */; };
 		2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */; };
 		2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */; };
@@ -39,6 +42,9 @@
 		2C53D8451FB7DA8100292961 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		2C6C53F11F78676E005BC981 /* EditRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRoutineViewController.swift; sourceTree = "<group>"; };
 		2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEditWorkoutViewController.swift; sourceTree = "<group>"; };
+		2CB382621FCA2580006E62A8 /* RoutineRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRunner.swift; sourceTree = "<group>"; };
+		2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineInProgress.swift; sourceTree = "<group>"; };
+		2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRunnerViewController.swift; sourceTree = "<group>"; };
 		2CD168761FC205E6002A55E3 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailViewController.swift; sourceTree = "<group>"; };
 		2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 		2C3BA0A81F78531B00C90187 /* liftbuddy */ = {
 			isa = PBXGroup;
 			children = (
+				2CB382611FCA2525006E62A8 /* runner */,
 				2C110C9D1FC0DE61001E502B /* routines */,
 				2CDEE6F91FB8E40F00B58011 /* component */,
 				2C53D8441FB7CF7700292961 /* create */,
@@ -148,6 +155,16 @@
 				2CB3825F1FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift */,
 			);
 			path = create;
+			sourceTree = "<group>";
+		};
+		2CB382611FCA2525006E62A8 /* runner */ = {
+			isa = PBXGroup;
+			children = (
+				2CB382621FCA2580006E62A8 /* RoutineRunner.swift */,
+				2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */,
+				2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */,
+			);
+			path = runner;
 			sourceTree = "<group>";
 		};
 		2CDEE6F91FB8E40F00B58011 /* component */ = {
@@ -312,11 +329,14 @@
 			files = (
 				2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */,
 				2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */,
+				2CB382651FCA2665006E62A8 /* RoutineInProgress.swift in Sources */,
+				2CB382671FCA2A73006E62A8 /* RoutineRunnerViewController.swift in Sources */,
 				2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */,
 				2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */,
 				2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
+				2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */,
 				2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */,
 				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,
 				2C6C53F21F78676E005BC981 /* EditRoutineViewController.swift in Sources */,

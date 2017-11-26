@@ -48,6 +48,11 @@ class Routine: Object {
         return (realm.objects(Routine.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
+    func isComplete() -> Bool {
+        let incompleteWorkouts = workout.filter { workout in return !workout.isComplete() }
+        return incompleteWorkouts.count <= 0
+    }
+    
     override class func primaryKey() -> String? {
         return "id"
     }
@@ -74,10 +79,16 @@ class Workout: Object {
     func removeLift(at index: Int){
         self.lifts.remove(at: index)
     }
+    
+    func isComplete() -> Bool {
+        let incompleteLifts = lifts.filter { lift in return !lift.completed }
+        return incompleteLifts.count <= 0
+    }
 }
 
 class Lift: Object {
     @objc dynamic var name = ""
+    @objc dynamic var completed = false
     var reps = RealmOptional<Int>()
     var weight = RealmOptional<Double>()
     
@@ -88,7 +99,7 @@ class Lift: Object {
     func setWeight(weight:Double){
         self.weight.value = weight
     }
-    
+
     convenience init(name:String){
         self.init()
         self.name = name
