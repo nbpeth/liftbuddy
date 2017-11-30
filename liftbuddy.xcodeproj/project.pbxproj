@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */; };
 		2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */; };
 		2C110CA11FC0DED6001E502B /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110CA01FC0DED6001E502B /* RoutineTableViewCell.swift */; };
 		2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BA0A91F78531B00C90187 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInRunnerTableViewCell.swift; sourceTree = "<group>"; };
 		2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListTableViewController.swift; sourceTree = "<group>"; };
 		2C110CA01FC0DED6001E502B /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
 		2C3BA0A61F78531B00C90187 /* liftbuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liftbuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05DC4EDA1FD0887100504A10 /* table cells */ = {
+			isa = PBXGroup;
+			children = (
+				05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */,
+			);
+			path = "table cells";
+			sourceTree = "<group>";
+		};
 		2C110C9C1FC0DE41001E502B /* table cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		2CB382611FCA2525006E62A8 /* runner */ = {
 			isa = PBXGroup;
 			children = (
+				05DC4EDA1FD0887100504A10 /* table cells */,
 				2CB382621FCA2580006E62A8 /* RoutineRunner.swift */,
 				2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */,
 				2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */,
@@ -339,6 +350,7 @@
 				2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */,
 				2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */,
 				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,
+				05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */,
 				2C6C53F21F78676E005BC981 /* EditRoutineViewController.swift in Sources */,
 				2C110CA11FC0DED6001E502B /* RoutineTableViewCell.swift in Sources */,
 				2C53D8431FB7CF6D00292961 /* NameYourRoutineViewController.swift in Sources */,

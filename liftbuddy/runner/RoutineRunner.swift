@@ -16,13 +16,14 @@ class RoutineRunner {
         
 //        self.liftIterator = currentWorkout?.lifts.makeIterator()
     }
-    
+
     func nextWorkout() -> Workout? {
         guard let routine = routine else { return nil }
         
         if routine.workout.endIndex > workoutIndex {
             let next = routine.workout[workoutIndex]
             workoutIndex += 1
+            currentWorkout = next
             return next
         }
         
@@ -51,6 +52,13 @@ class RoutineRunner {
         guard let nextLift = iterator.next() else { return Lift() }
         
         return nextLift
+    }
+    
+    func numberOfWorkoutsInRoutine() -> Int {
+        guard let routine = routine else { return 0 }
+        
+        return routine.workout.count
+
     }
     
 }
