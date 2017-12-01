@@ -6,6 +6,8 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var workoutListTableView: UITableView!
     var routineInProgress:RoutineInProgress?
     var runner: RoutineRunner?
+    var timer:Timer!
+    var restTime = 0
     
     @IBOutlet weak var liftDataLabel: UILabel!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,16 +24,6 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    private func focusCurrentWorkoutInTable(){
-        guard let runner = runner else { return }
-        
-        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex ) {
-            let indexPath = IndexPath(row: runner.workoutIndex - 1 , section: 0)
-            workoutListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }
-     
-    }
-    
     @IBAction func nextLiftButton(_ sender: Any) {
         
         guard let runner = runner,
@@ -44,10 +36,41 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
             return
         }
         
+        fireRestTimer()
+        
         focusCurrentWorkoutInTable()
         
         liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
 
+    }
+   
+    private func focusCurrentWorkoutInTable(){
+        guard let runner = runner else { return }
+        
+        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex ) {
+            let indexPath = IndexPath(row: runner.workoutIndex - 1 , section: 0)
+            workoutListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+        
+    }
+    
+    @objc private func updateRestTimer() {
+        nameLabel.text = String(describing: restTime )
+
+        if restTime > 0 {
+            restTime -= 1
+        }
+        else{
+            timer.invalidate()
+            nameLabel.text = String(describing: restTime )
+
+        }
+    }
+    
+    func fireRestTimer(){
+        restTime = runner?.restTimeForCurrentWorkout() ?? 0
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
+        timer?.fire()
     }
     
     override func viewDidLoad() {

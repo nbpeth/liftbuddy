@@ -7,6 +7,7 @@ class RoutineRunner {
     var currentWorkout:Workout?
     var liftIndex = 0
     var workoutIndex = 1
+    var timer: Timer?
 //    var liftIterator:RLMIterator<Lift>? // iterator.next() keeps throwing bad access exception at runtime, but not in lldb
 //    var workoutIterator:RLMIterator<Workout>?
     
@@ -55,10 +56,13 @@ class RoutineRunner {
     }
     
     func numberOfWorkoutsInRoutine() -> Int {
-        guard let routine = routine else { return 0 }
-        
-        return routine.workout.count
-
+        return routine?.workout.count ?? 0
     }
+    
+    func restTimeForCurrentWorkout() -> Int {
+        return currentWorkout?.rest.value ?? 0
+    }
+    
+   
     
 }
