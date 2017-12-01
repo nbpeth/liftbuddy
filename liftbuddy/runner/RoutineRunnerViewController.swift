@@ -25,30 +25,28 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
-        if(runner.numberOfWorkoutsInRoutine() > runner.workoutIndex ) {
-            
-            let indexPath = IndexPath(row: runner.workoutIndex, section: 0)
+        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex ) {
+            let indexPath = IndexPath(row: runner.workoutIndex - 1 , section: 0)
             workoutListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
      
     }
     
     @IBAction func nextLiftButton(_ sender: Any) {
-        focusCurrentWorkoutInTable()
-    
-        nameLabel.text = runner?.currentWorkout?.name ?? "nope"
         
         guard let runner = runner,
-            let next = runner.nextLiftSet(),
-            let weight = next.weight.value,
-            let reps = next.reps.value
-            else {
-                liftDataLabel.text = " -- "
-                return
-                
+            let routine = runner.routine,
+            let workout = runner.currentWorkout,
+            let nextLift = runner.nextLiftSet(),
+            let weight = nextLift.weight.value,
+            let reps = nextLift.reps.value
+        else {
+            return
         }
-
-        liftDataLabel.text = "set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
+        
+        focusCurrentWorkoutInTable()
+        
+        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
 
     }
     
@@ -59,20 +57,6 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
-
-        
-        guard let runner = runner,
-            let next = runner.nextLiftSet(),
-            let weight = next.weight.value,
-            let reps = next.reps.value
-            else {
-                liftDataLabel.text = " -- "
-                return
-                
-        }
-        nameLabel.text = runner.currentWorkout?.name ?? "nothing here"
-
-        liftDataLabel.text = "set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
         
     }
     
