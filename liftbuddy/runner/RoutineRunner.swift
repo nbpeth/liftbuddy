@@ -63,6 +63,15 @@ class RoutineRunner {
         return currentWorkout?.rest.value ?? 0
     }
     
+    func changeWorkoutPosition(to index:Int){
+        guard let routine = routine,
+            let workout = routine.workout[index] as? Workout
+        else { return }
+        
+        self.currentWorkout = workout
+        workoutIndex = index + 1
+        liftIndex = 0
+    }
    
     
 }
