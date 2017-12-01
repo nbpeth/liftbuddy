@@ -11,6 +11,31 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     var timer:RestTimer!
     var restTime = 0
     
+    @IBAction func nextLiftButton(_ sender: Any) {
+        
+        guard let runner = runner else { return }
+        timer?.stop()
+        timer = RestTimer(delegate:self, rest: runner.restTimeForCurrentWorkout() )
+        timer.fireRestTimer()
+        
+        focusCurrentWorkoutInTable()
+        
+        setLabels()
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let routine = routineInProgress?.routine else { return }
+        
+        runner = RoutineRunner(routine: routine)
+        workoutListTableView.delegate = self
+        workoutListTableView.dataSource = self
+        
+        setLabels()
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         scrollTableToIndex(indexPath)
         
@@ -19,17 +44,8 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         
         runner?.changeWorkoutPosition(to: indexPath.row)
         
-        guard let runner = runner,
-            let workout = runner.currentWorkout,
-            let nextLift = workout.lifts.first,
-            let weight = nextLift.weight.value,
-            let reps = nextLift.reps.value
-        else {
-            return
-        }
+        setLabels()
         
-        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex + 1), reps: \(reps), weight: \(weight)"
-
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,8 +62,7 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    @IBAction func nextLiftButton(_ sender: Any) {
-        
+    private func setLabels(){
         guard let runner = runner,
             let nextLift = runner.nextLiftSet(),
             let weight = nextLift.weight.value,
@@ -55,20 +70,14 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         else {
             return
         }
-        timer?.stop()
-        timer = RestTimer(delegate:self, rest: runner.restTimeForCurrentWorkout() )
-        timer.fireRestTimer()
         
-        focusCurrentWorkoutInTable()
-        
-        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex + 1), reps: \(reps), weight: \(weight)"
-
+        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
     }
-   
+    
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
-        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex ) {
+        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex && runner.workoutIndex > 0 ) {
             let indexPath = IndexPath(row: runner.workoutIndex - 1 , section: 0)
             scrollTableToIndex(indexPath)
         }
@@ -76,27 +85,6 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     
     private func scrollTableToIndex(_ IndexPath:IndexPath){
         workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let routine = routineInProgress?.routine else { return }
-        runner = RoutineRunner(routine: routine)
-        
-        workoutListTableView.delegate = self
-        workoutListTableView.dataSource = self
-        
-        guard let runner = runner,
-            let workout = runner.currentWorkout,
-            let nextLift = workout.lifts.first,
-            let weight = nextLift.weight.value,
-            let reps = nextLift.reps.value
-            else {
-                return
-        }
-        
-        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex + 1), reps: \(reps), weight: \(weight)"
-        
     }
     
 }
