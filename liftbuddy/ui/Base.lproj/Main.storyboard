@@ -117,7 +117,6 @@
                                 <state key="normal" title="next lift"/>
                                 <connections>
                                     <action selector="nextLiftButton:" destination="cX2-Jy-1Tc" eventType="touchUpInside" id="yVg-OI-ASQ"/>
-                                    <segue destination="Nkl-dh-Qr7" kind="presentation" identifier="showRestModelSegue" id="LCC-Ye-Rgs"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-KE-mWv">
@@ -204,7 +203,7 @@
         <!--Rest View Controller-->
         <scene sceneID="GzM-mA-W9O">
             <objects>
-                <viewController id="Nkl-dh-Qr7" customClass="RestViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nkl-dh-Qr7" customClass="RestViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z5C-JJ-WrL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,18 +223,23 @@
                                     <action selector="dismissButtonPressed:" destination="Nkl-dh-Qr7" eventType="touchUpInside" id="f3R-I0-w2T"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Om-oE0">
+                                <rect key="frame" x="0.0" y="455.5" width="375" height="2.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="3im-sl-EAy"/>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="gT9-Q9-vTS" id="7cG-Ya-EqO"/>
+                        <outlet property="progressView" destination="WpX-Om-oE0" id="FvG-MS-dts"/>
                         <outlet property="restLabel" destination="aOk-Pn-AJn" id="NdB-M3-eQ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBX-W6-LcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4053.5999999999999" y="-528.48575712143929"/>
+            <point key="canvasLocation" x="3999" y="-519"/>
         </scene>
         <!--Home-->
         <scene sceneID="bFb-gw-Gzt">

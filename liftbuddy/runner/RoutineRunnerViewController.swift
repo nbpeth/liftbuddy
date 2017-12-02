@@ -13,16 +13,29 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     var restTime = 0
     
     @IBAction func nextLiftButton(_ sender: Any) {
-        runner?.nextLiftSet()
+        guard let runner = runner,
+            let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
+        else { return }
+        
+        //confusing mechanics
+        restViewController.restTime = runner.restTimeForCurrentWorkout()
+        restViewController.modalPresentationStyle = .overCurrentContext
+        
+        runner.nextLiftSet()
+        
+        restViewController.nextLift = runner.currentLift
+        
+        if !runner.isOnLastLiftOfLastWorkout() {
+            present(restViewController, animated: true, completion: nil)
+
+        }
+        else {
+            workoutNameLabel.text = "ALL DONE"
+            nextLiftButton.isEnabled = false
+        }
+        
         focusCurrentWorkoutInTable()
         setLabels()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "showRestModelSegue"){
-            guard let destination = segue.destination as? RestViewController, let runner = runner else { return }
-            destination.restTime = runner.restTimeForCurrentWorkout()
-        }
     }
 
     override func viewDidLoad() {
@@ -71,9 +84,6 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
             let weight = currentLift.weight.value,
             let reps = currentLift.reps.value
         else {
-            workoutNameLabel.text = "ALL DONE"
-
-            nextLiftButton.isEnabled = false
             return
         }
         

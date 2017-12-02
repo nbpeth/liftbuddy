@@ -6,6 +6,7 @@ class RoutineRunner {
     var routine:Routine?
     var currentWorkout:Workout?
     var currentLift:Lift?
+    var previousLift:Lift?
     var timer: Timer?
     var position = Position()
     
@@ -16,16 +17,19 @@ class RoutineRunner {
     }
     
     func nextLiftSet() {
-        if workoutHasAnotherLift(workout: currentWorkout!, index: position.liftIndex) {
+        guard let currentWorkout = currentWorkout else { return  }
+        
+        if workoutHasAnotherLift(workout: currentWorkout, index: position.liftIndex) {
             position.advanceLift()
         }
         
         else {
             position.resetLifts()
-            currentWorkout = nextWorkout()
+            self.currentWorkout = nextWorkout()
         }
         
-        currentLift = currentWorkout?.lifts[position.liftIndex]
+        previousLift = currentLift
+        currentLift = self.currentWorkout?.lifts[position.liftIndex]
         
     }
     
@@ -55,11 +59,19 @@ class RoutineRunner {
         guard let routine = routine, let workout = routine.workout[index] as? Workout else { return }
         self.currentWorkout = workout
         self.currentLift = currentWorkout?.lifts.first
+        
         position.hop(to: index)
     }
     
     func isOnFirstWorkout() -> Bool {
         return position.workoutIndex <= 0
+    }
+    
+    func isOnLastLiftOfLastWorkout() -> Bool {
+        guard let routine = routine else { return true }
+        let lastWorkout = routine.workout[routine.workout.count - 1]
+    
+        return (position.workoutIndex >= routine.workout.count) && (position.liftIndex + 1 >= lastWorkout.lifts.count)
     }
     
     private func routineHasAnotherWorkout(routine:Routine, index:Int) -> Bool {
