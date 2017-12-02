@@ -13,6 +13,7 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     var restTime = 0
     
     @IBAction func nextLiftButton(_ sender: Any) {
+        runner?.nextLiftSet()
         focusCurrentWorkoutInTable()
         setLabels()
     }
@@ -65,7 +66,8 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
 
     
     private func setLabels(){
-        guard let currentLift = runner?.nextLiftSet(),
+        
+        guard let currentLift = runner?.currentLift,
             let weight = currentLift.weight.value,
             let reps = currentLift.reps.value
         else {

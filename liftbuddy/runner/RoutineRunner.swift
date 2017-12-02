@@ -15,27 +15,18 @@ class RoutineRunner {
         self.currentLift = currentWorkout?.lifts.first
     }
     
-    func nextLiftSet() -> Lift? {
-        guard var currentWorkout = currentWorkout else { return nil }
-
-        if workoutHasAnotherLift(workout: currentWorkout, index: position.liftIndex) {
-            let next = currentWorkout.lifts[position.liftIndex]
+    func nextLiftSet() {
+        if workoutHasAnotherLift(workout: currentWorkout!, index: position.liftIndex) {
             position.advanceLift()
-            return next
-        }
-
-        position.resetLifts()
-        
-        if let nextWorkout = nextWorkout() {
-            currentWorkout = nextWorkout
-            self.currentWorkout = currentWorkout
-            let nextLift = nextWorkout.lifts[position.liftIndex]
-            position.advanceLift()
-            return nextLift
-
         }
         
-        return nil
+        else {
+            position.resetLifts()
+            currentWorkout = nextWorkout()
+        }
+        
+        currentLift = currentWorkout?.lifts[position.liftIndex]
+        
     }
     
     func nextWorkout() -> Workout? {
@@ -45,10 +36,9 @@ class RoutineRunner {
             let next = routine.workout[position.workoutIndex]
             position.advanceWorkout()
             currentWorkout = next
+        
             return next
         }
-        
-        position.resetWorkout()
         
         return nil
     }
@@ -64,7 +54,7 @@ class RoutineRunner {
     func changeWorkoutPosition(to index:Int){
         guard let routine = routine, let workout = routine.workout[index] as? Workout else { return }
         self.currentWorkout = workout
-        
+        self.currentLift = currentWorkout?.lifts.first
         position.hop(to: index)
     }
     
@@ -77,12 +67,12 @@ class RoutineRunner {
     }
     
     private func workoutHasAnotherLift(workout:Workout, index:Int) -> Bool {
-        return workout.lifts.endIndex > index
+        return workout.lifts.endIndex > index + 1
     }
 }
 
 class Position {
-    var liftIndex = 0
+    var liftIndex = 1
     var workoutIndex = 1
     
     func hop(to index:Int){
