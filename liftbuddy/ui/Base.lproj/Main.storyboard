@@ -117,6 +117,7 @@
                                 <state key="normal" title="next lift"/>
                                 <connections>
                                     <action selector="nextLiftButton:" destination="cX2-Jy-1Tc" eventType="touchUpInside" id="yVg-OI-ASQ"/>
+                                    <segue destination="Nkl-dh-Qr7" kind="presentation" identifier="showRestModelSegue" id="LCC-Ye-Rgs"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-KE-mWv">
@@ -195,6 +196,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZS-JY-cEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3069.5999999999999" y="-526.6866566716642"/>
+        </scene>
+        <!--Rest View Controller-->
+        <scene sceneID="GzM-mA-W9O">
+            <objects>
+                <viewController id="Nkl-dh-Qr7" customClass="RestViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z5C-JJ-WrL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="180" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-Pn-AJn">
+                                <rect key="frame" x="64" y="160" width="246" height="346"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="90"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT9-Q9-vTS">
+                                <rect key="frame" x="168" y="592" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="Nkl-dh-Qr7" eventType="touchUpInside" id="f3R-I0-w2T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="3im-sl-EAy"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="gT9-Q9-vTS" id="7cG-Ya-EqO"/>
+                        <outlet property="restLabel" destination="aOk-Pn-AJn" id="NdB-M3-eQ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBX-W6-LcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4053.5999999999999" y="-528.48575712143929"/>
         </scene>
         <!--Home-->
         <scene sceneID="bFb-gw-Gzt">

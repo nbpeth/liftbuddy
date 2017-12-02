@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
 		05BE8E241FD217630060D80A /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE8E231FD217630060D80A /* RestTimer.swift */; };
 		05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */; };
 		2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
 		05BE8E231FD217630060D80A /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestTimer.swift; path = "liftbuddy/runner/table cells/RestTimer.swift"; sourceTree = SOURCE_ROOT; };
 		05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInRunnerTableViewCell.swift; sourceTree = "<group>"; };
 		2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListTableViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				2CB382621FCA2580006E62A8 /* RoutineRunner.swift */,
 				2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */,
 				2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */,
+				0556418F1FD3049B00BA47A8 /* RestViewController.swift */,
 			);
 			path = runner;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
 				05BE8E241FD217630060D80A /* RestTimer.swift in Sources */,
+				055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */,
 				2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */,
 				2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */,
 				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,

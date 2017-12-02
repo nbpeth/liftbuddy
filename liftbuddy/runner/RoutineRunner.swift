@@ -11,7 +11,6 @@ class RoutineRunner {
     init(routine:Routine){
         self.routine = routine
         self.currentWorkout = routine.workout.first
-        
     }
     
     func nextLiftSet() -> Lift? {

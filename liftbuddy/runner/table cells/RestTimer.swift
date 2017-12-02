@@ -11,23 +11,25 @@ class RestTimer {
     }
     
     @objc private func updateRestTimer() {
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
+        guard let delegate = delegate as? RestViewController else { return }
         
-        delegate.nameLabel.text = String(describing: restTime )
+        delegate.restLabel.text = String(describing: restTime )
         
         if restTime > 0 {
             restTime -= 1
         }
         else{
             timer.invalidate()
-            delegate.nameLabel.text = String(describing: restTime )
+            delegate.restLabel.text = String(describing: restTime )
+            delegate.dismiss(animated: true, completion: nil)
         }
     }
     
     func fireRestTimer(){
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
+        guard let delegate = delegate as? RestViewController else { return }
         
-        restTime = delegate.runner?.restTimeForCurrentWorkout() ?? 0
+        restTime = 0
+        restTime = delegate.restTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
         timer?.fire()
     }

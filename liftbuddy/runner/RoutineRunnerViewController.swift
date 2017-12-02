@@ -8,20 +8,19 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
 
     var routineInProgress:RoutineInProgress?
     var runner: RoutineRunner?
-    var timer:RestTimer!
     var restTime = 0
     
     @IBAction func nextLiftButton(_ sender: Any) {
-        
-        guard let runner = runner else { return }
-        timer?.stop()
-        timer = RestTimer(delegate:self, rest: runner.restTimeForCurrentWorkout() )
-        timer.fireRestTimer()
-        
         focusCurrentWorkoutInTable()
-        
         setLabels()
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showRestModelSegue"){
+            guard let destination = segue.destination as? RestViewController, let runner = runner else { return }
+            destination.restTime = runner.restTimeForCurrentWorkout()
+            
+        }
     }
 
     override func viewDidLoad() {
@@ -39,7 +38,6 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         scrollTableToIndex(indexPath)
         
-        timer?.stop()
         nameLabel.text = ""
         
         runner?.changeWorkoutPosition(to: indexPath.row)
