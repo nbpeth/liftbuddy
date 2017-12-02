@@ -71,14 +71,14 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
             return
         }
         
-        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.liftIndex), reps: \(reps), weight: \(weight)"
+        liftDataLabel.text = ":: \(nextLift.name), set: \(runner.position.liftIndex), reps: \(reps), weight: \(weight)"
     }
     
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
-        if(runner.numberOfWorkoutsInRoutine() >= runner.workoutIndex && runner.workoutIndex > 0 ) {
-            let indexPath = IndexPath(row: runner.workoutIndex - 1 , section: 0)
+        if(!runner.isOnFirstWorkout() ) {
+            let indexPath = IndexPath(row: runner.position.workoutIndex - 1 , section: 0)
             scrollTableToIndex(indexPath)
         }
     }
@@ -87,41 +87,4 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
     }
     
-}
-
-class RestTimer {
-    var timer:Timer!
-    var restTime = 0
-    var delegate:UIViewController!
-    
-    init(delegate:UIViewController, rest:Int){
-        self.delegate = delegate
-        self.restTime = rest
-    }
-    
-    @objc private func updateRestTimer() {
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
-        
-        delegate.nameLabel.text = String(describing: restTime )
-        
-        if restTime > 0 {
-            restTime -= 1
-        }
-        else{
-            timer.invalidate()
-            delegate.nameLabel.text = String(describing: restTime )
-        }
-    }
-    
-    func fireRestTimer(){
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
-
-        restTime = delegate.runner?.restTimeForCurrentWorkout() ?? 0
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
-        timer?.fire()
-    }
-    
-    func stop(){
-        timer?.invalidate()
-    }
 }

@@ -21,10 +21,12 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete){
             guard let workoutToDeleteFrom = workout else { return }
+            
             if workoutToDeleteFrom.lifts.count >= indexPath.row {
                 workoutToDeleteFrom.lifts.remove(at: indexPath.row)
                 self.liftsInWorkoutTableView.deleteRows(at: [indexPath], with: .automatic)
             }
+            
             self.liftsInWorkoutTableView.reloadData()
         }
     }
@@ -35,7 +37,6 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftCell", for: indexPath) as? LiftCell,
-            let workoutToEdit = workout,
             let liftToEdit = workout?.lifts[indexPath.row]
         else {
             return UITableViewCell()

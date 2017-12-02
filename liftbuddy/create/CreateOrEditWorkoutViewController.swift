@@ -23,6 +23,7 @@ class CreateOrEditWorkoutViewController: UIViewController {
         
         workout.name = name
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let setsCount = workout?.lifts.count else { return }
