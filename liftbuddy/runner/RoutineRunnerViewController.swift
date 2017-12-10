@@ -9,6 +9,7 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var nextLiftButton: UIButton!
     
     var routineInProgress:RoutineInProgress?
+    var routine:Routine?
     var runner: RoutineRunner?
     var restTime = 0
     
@@ -17,17 +18,14 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
             let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
         else { return }
         
-        //confusing mechanics
-        restViewController.restTime = runner.restTimeForCurrentWorkout()
-        restViewController.modalPresentationStyle = .overCurrentContext
-        
-        runner.nextLiftSet()
-        
-        restViewController.nextLift = runner.currentLift
-        
         if !runner.isOnLastLiftOfLastWorkout() {
+            runner.nextLiftSet()
+            
+            restViewController.restTime = runner.restTimeForCurrentWorkout()
+            restViewController.modalPresentationStyle = .overCurrentContext
+            restViewController.nextLift = runner.currentLift
+            
             present(restViewController, animated: true, completion: nil)
-
         }
         else {
             workoutNameLabel.text = "ALL DONE"
@@ -40,14 +38,13 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let routine = routineInProgress?.routine else { return }
+        guard let routine = routine else { return }
         
         runner = RoutineRunner(routine: routine)
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
         
         setLabels()
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -67,7 +64,7 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "workoutInRunnerTableViewCell", for: indexPath) as? WorkoutInRunnerTableViewCell,
-            let routine = routineInProgress?.routine
+            let routine = routine
         else { return WorkoutInRunnerTableViewCell() }
         
         cell.workoutNameLabel.text = routine.workout[indexPath.row].name
@@ -75,21 +72,10 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    //            let focusedCell = self.workoutListTableView.cellForRow(at: IndexPath(row: runner.position.workoutIndex, section: 0)) as? WorkoutInRunnerTableViewCell
-
-    
     private func setLabels(){
-        
-        guard let currentLift = runner?.currentLift,
-            let weight = currentLift.weight.value,
-            let reps = currentLift.reps.value
-        else {
-            return
-        }
-        
-        workoutNameLabel.text = currentLift.name
-        weightLabel.text = "Weight: \(String(describing:weight)) lbs"
-        repsLabel.text = "Reps: \(String(describing:reps))"
+        workoutNameLabel.text = runner?.currentLift?.name ?? ""
+        weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
+        repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
         
     }
     
