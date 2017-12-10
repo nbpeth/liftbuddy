@@ -14,6 +14,10 @@ class RoutineManager {
     static func create(routine:Routine) {
         RealmManager.shared.realm.add(routine)
     }
+    
+    static func getRoutineInProgressBy(id:Int) -> RoutineInProgress? {
+        return RealmManager.shared.realm.objects(RoutineInProgress.self).filter("id == \(String(describing: id))").first
+    }
 }
 
 class Routine: Object {

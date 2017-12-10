@@ -3,20 +3,21 @@ import RealmSwift
 
 class RoutineRunner {
     
-    var routine:Routine?
-    var currentWorkout:Workout?
-    var currentLift:Lift?
-    var previousLift:Lift?
+//    var routine:Routine?
+    var routine:RoutineInProgress?
+    var currentWorkout:WorkoutInProgress?
+    var currentLift:LiftInProgress?
+    var previousLift:LiftInProgress?
     var timer: Timer?
     var position = Position()
     
-    init(routine:Routine){
+    init(routine:RoutineInProgress){
         self.routine = routine
         self.currentWorkout = routine.workout.first
         self.currentLift = getFirstLiftOfWorkout()
     }
     
-    func getFirstLiftOfWorkout() -> Lift? {
+    func getFirstLiftOfWorkout() -> LiftInProgress? {
         return currentWorkout?.lifts.first
     }
     
@@ -34,7 +35,7 @@ class RoutineRunner {
         self.currentLift = self.currentWorkout?.lifts[position.liftIndex]
     }
     
-    private func nextWorkout() -> Workout? {
+    private func nextWorkout() -> WorkoutInProgress? {
         guard let routine = routine else { return nil }
         
         position.advanceWorkout()
@@ -57,7 +58,7 @@ class RoutineRunner {
     }
     
     func changeWorkoutPosition(to index:Int){
-        guard let routine = routine, let workout = routine.workout[index] as? Workout else { return }
+        guard let routine = routine, let workout = routine.workout[index] as? WorkoutInProgress else { return }
         self.currentWorkout = workout
         self.currentLift = currentWorkout?.lifts.first
         
@@ -75,11 +76,11 @@ class RoutineRunner {
         return (position.workoutIndex >= routine.workout.count - 1) && (position.liftIndex >= lastWorkout.lifts.count - 1)
     }
     
-    private func routineHasAnotherWorkout(routine:Routine, index:Int) -> Bool {
+    private func routineHasAnotherWorkout(routine:RoutineInProgress, index:Int) -> Bool {
         return routine.workout.count > index
     }
     
-    private func workoutHasAnotherLift(workout:Workout, index:Int) -> Bool {
+    private func workoutHasAnotherLift(workout:WorkoutInProgress, index:Int) -> Bool {
         return workout.lifts.count > index
     }
 }

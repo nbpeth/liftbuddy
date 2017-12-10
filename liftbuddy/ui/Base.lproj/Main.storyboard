@@ -112,13 +112,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-gc-B7G">
-                                <rect key="frame" x="74" y="600" width="226" height="30"/>
-                                <state key="normal" title="next lift"/>
-                                <connections>
-                                    <action selector="nextLiftButton:" destination="cX2-Jy-1Tc" eventType="touchUpInside" id="yVg-OI-ASQ"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-KE-mWv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,12 +169,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fm-cQ-Vff">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="End"/>
+                                <connections>
+                                    <segue destination="pzc-FP-WQo" kind="show" identifier="endRoutineSegue" id="qKA-fU-zeX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-gc-B7G">
+                                <rect key="frame" x="74" y="364" width="226" height="30"/>
+                                <state key="normal" title="next lift"/>
+                                <connections>
+                                    <action selector="nextLiftButton:" destination="cX2-Jy-1Tc" eventType="touchUpInside" id="yVg-OI-ASQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jze-2C-cqc" secondAttribute="leading" id="1h3-Q6-KJc"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="top" secondItem="maD-em-nfT" secondAttribute="top" id="2h4-s8-FUv"/>
-                            <constraint firstItem="jze-2C-cqc" firstAttribute="bottom" secondItem="VCK-gc-B7G" secondAttribute="bottom" constant="37" id="EcJ-1x-pOR"/>
+                            <constraint firstItem="jze-2C-cqc" firstAttribute="bottom" secondItem="VCK-gc-B7G" secondAttribute="bottom" constant="273" id="EcJ-1x-pOR"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jze-2C-cqc" secondAttribute="trailing" id="ZfA-s5-At4"/>
                             <constraint firstItem="VCK-gc-B7G" firstAttribute="leading" secondItem="jze-2C-cqc" secondAttribute="leading" constant="74" id="fAs-Kv-5so"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="centerX" secondItem="VCK-gc-B7G" secondAttribute="centerX" id="iDb-pf-no9"/>
@@ -199,6 +207,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZS-JY-cEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3069.5999999999999" y="-526.6866566716642"/>
+        </scene>
+        <!--Completed Routine View Controller-->
+        <scene sceneID="x9J-Gr-TnW">
+            <objects>
+                <viewController id="pzc-FP-WQo" customClass="CompletedRoutineViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="244-QA-gju">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-Bm-esi">
+                                <rect key="frame" x="55" y="397" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonWasPressed:" destination="pzc-FP-WQo" eventType="touchUpInside" id="Rje-4Z-86Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND6-gb-WuS">
+                                <rect key="frame" x="264" y="397" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Discard"/>
+                                <connections>
+                                    <action selector="discardButtonWasPressed:" destination="pzc-FP-WQo" eventType="touchUpInside" id="Cpf-0M-jg5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="xyK-gI-Ql7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LdO-Fe-zCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3070" y="-1252"/>
         </scene>
         <!--Rest View Controller-->
         <scene sceneID="GzM-mA-W9O">

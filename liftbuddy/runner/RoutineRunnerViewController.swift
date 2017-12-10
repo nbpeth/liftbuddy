@@ -8,8 +8,7 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIButton!
     
-    var routineInProgress:RoutineInProgress?
-    var routine:Routine?
+    var routine:RoutineInProgress?
     var runner: RoutineRunner?
     var restTime = 0
     
@@ -45,6 +44,14 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         workoutListTableView.dataSource = self
         
         setLabels()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "endRoutineSegue" {
+            if let destination = segue.destination as? CompletedRoutineViewController {
+                destination.routineInProgress = routine
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

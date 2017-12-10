@@ -7,7 +7,7 @@ class RestViewController: UIViewController {
     
     var timer:RestTimer!
     var restTime = 0
-    var nextLift:Lift?
+    var nextLift:LiftInProgress?
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

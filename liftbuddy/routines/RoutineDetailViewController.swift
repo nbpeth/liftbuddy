@@ -30,7 +30,8 @@ class RoutineDetailViewController: UIViewController {
             if let destination = segue.destination as? RoutineRunnerViewController,
                 let routineId = routineId,
                 let routine = RoutineManager.getRoutineBy(id: routineId) {
-                destination.routine = routine
+                destination.routine = RoutineInProgress(routine:routine)
+                                
             }
         }
     }

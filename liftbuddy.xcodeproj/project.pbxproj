@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
+		0581853A1FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */; };
 		05B998621FDDA68000450705 /* liftbuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998611FDDA68000450705 /* liftbuddyTests.swift */; };
 		05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */; };
 		05BE8E241FD217630060D80A /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE8E231FD217630060D80A /* RestTimer.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
+		058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRoutineViewController.swift; sourceTree = "<group>"; };
 		05B9985F1FDDA67F00450705 /* liftbuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = liftbuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B998611FDDA68000450705 /* liftbuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liftbuddyTests.swift; sourceTree = "<group>"; };
 		05B998631FDDA68000450705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */,
 				2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */,
 				0556418F1FD3049B00BA47A8 /* RestViewController.swift */,
+				058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */,
 			);
 			path = runner;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				2CB382651FCA2665006E62A8 /* RoutineInProgress.swift in Sources */,
 				2CB382671FCA2A73006E62A8 /* RoutineRunnerViewController.swift in Sources */,
 				2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */,
+				0581853A1FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift in Sources */,
 				2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */,
 				2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
