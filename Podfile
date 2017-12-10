@@ -10,4 +10,7 @@ target 'liftbuddy' do
   # Pods for budget-master-9000-ios
   # Pods for liftbuddy
 
+  target 'liftbuddyTests' do
+      pod 'RealmSwift'
+  end
 end

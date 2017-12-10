@@ -96,8 +96,8 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
-        if(!runner.isOnFirstWorkout() ) {
-            let indexPath = IndexPath(row: runner.position.workoutIndex - 1 , section: 0)
+        if(!runner.isOnLastLiftOfLastWorkout() ) {
+            let indexPath = IndexPath(row: runner.position.workoutIndex, section: 0)
             scrollTableToIndex(indexPath)
         }
     }

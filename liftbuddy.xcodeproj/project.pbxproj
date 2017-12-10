@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
+		05B998621FDDA68000450705 /* liftbuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998611FDDA68000450705 /* liftbuddyTests.swift */; };
+		05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */; };
 		05BE8E241FD217630060D80A /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE8E231FD217630060D80A /* RestTimer.swift */; };
 		05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */; };
 		2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */; };
@@ -28,11 +30,29 @@
 		2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */; };
 		2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */; };
 		2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB420B1FB89F2A0060E515 /* LiftCell.swift */; };
+		6510D42B2C4E04BFCFB406EB /* Pods_liftbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B9986E1FDDA8BA00450705 /* Pods_liftbuddy.framework */; };
 		D65F19493055860ED8ECCD75 /* Pods_liftbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68F26B8D9134C932A392D4A /* Pods_liftbuddy.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		05B998641FDDA68000450705 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C3BA09E1F78531B00C90187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C3BA0A51F78531B00C90187;
+			remoteInfo = liftbuddy;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
+		05B9985F1FDDA67F00450705 /* liftbuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = liftbuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B998611FDDA68000450705 /* liftbuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liftbuddyTests.swift; sourceTree = "<group>"; };
+		05B998631FDDA68000450705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRunnerTests.swift; sourceTree = "<group>"; };
+		05B9986C1FDDA89500450705 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B9986E1FDDA8BA00450705 /* Pods_liftbuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_liftbuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B998701FDDA8BE00450705 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BE8E231FD217630060D80A /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestTimer.swift; path = "liftbuddy/runner/table cells/RestTimer.swift"; sourceTree = SOURCE_ROOT; };
 		05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInRunnerTableViewCell.swift; sourceTree = "<group>"; };
 		2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListTableViewController.swift; sourceTree = "<group>"; };
@@ -56,22 +76,43 @@
 		2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
 		2CEB420B1FB89F2A0060E515 /* LiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		324163A5BA1D12CF607F2C12 /* Pods-liftbuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liftbuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liftbuddy/Pods-liftbuddy.debug.xcconfig"; sourceTree = "<group>"; };
+		69E50A2F4816C66BCE056123 /* Pods_liftbuddy_liftbuddyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liftbuddy_liftbuddyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D118E1FB12D908D8FAE4AA1 /* Pods-liftbuddy-liftbuddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liftbuddy-liftbuddyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liftbuddy-liftbuddyTests/Pods-liftbuddy-liftbuddyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83AD0A6AD1A09EA11367E6C7 /* Pods-liftbuddy-liftbuddyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liftbuddy-liftbuddyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-liftbuddy-liftbuddyTests/Pods-liftbuddy-liftbuddyTests.release.xcconfig"; sourceTree = "<group>"; };
 		CE56FB08B74A6BD30B709309 /* Pods-liftbuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liftbuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-liftbuddy/Pods-liftbuddy.release.xcconfig"; sourceTree = "<group>"; };
 		E68F26B8D9134C932A392D4A /* Pods_liftbuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liftbuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05B9985C1FDDA67F00450705 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C3BA0A31F78531B00C90187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D65F19493055860ED8ECCD75 /* Pods_liftbuddy.framework in Frameworks */,
+				6510D42B2C4E04BFCFB406EB /* Pods_liftbuddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05B998601FDDA68000450705 /* liftbuddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				05B998611FDDA68000450705 /* liftbuddyTests.swift */,
+				05B998631FDDA68000450705 /* Info.plist */,
+				05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */,
+			);
+			path = liftbuddyTests;
+			sourceTree = "<group>";
+		};
 		05DC4EDA1FD0887100504A10 /* table cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3BA0A81F78531B00C90187 /* liftbuddy */,
+				05B998601FDDA68000450705 /* liftbuddyTests */,
 				2C3BA0A71F78531B00C90187 /* Products */,
 				773BC2E80B40FACEF5B56C75 /* Pods */,
 				41AE13E2ED7823C403321DE1 /* Frameworks */,
@@ -113,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3BA0A61F78531B00C90187 /* liftbuddy.app */,
+				05B9985F1FDDA67F00450705 /* liftbuddyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +237,11 @@
 		41AE13E2ED7823C403321DE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05B998701FDDA8BE00450705 /* Realm.framework */,
+				05B9986E1FDDA8BA00450705 /* Pods_liftbuddy.framework */,
+				05B9986C1FDDA89500450705 /* RealmSwift.framework */,
 				E68F26B8D9134C932A392D4A /* Pods_liftbuddy.framework */,
+				69E50A2F4816C66BCE056123 /* Pods_liftbuddy_liftbuddyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +251,8 @@
 			children = (
 				324163A5BA1D12CF607F2C12 /* Pods-liftbuddy.debug.xcconfig */,
 				CE56FB08B74A6BD30B709309 /* Pods-liftbuddy.release.xcconfig */,
+				7D118E1FB12D908D8FAE4AA1 /* Pods-liftbuddy-liftbuddyTests.debug.xcconfig */,
+				83AD0A6AD1A09EA11367E6C7 /* Pods-liftbuddy-liftbuddyTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -211,6 +260,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05B9985E1FDDA67F00450705 /* liftbuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B998661FDDA68000450705 /* Build configuration list for PBXNativeTarget "liftbuddyTests" */;
+			buildPhases = (
+				A86D634C1CBC904770401F07 /* [CP] Check Pods Manifest.lock */,
+				05B9985B1FDDA67F00450705 /* Sources */,
+				05B9985C1FDDA67F00450705 /* Frameworks */,
+				05B9985D1FDDA67F00450705 /* Resources */,
+				4685418103A92CC3EEF5AD94 /* [CP] Embed Pods Frameworks */,
+				EC01E8FD701E369A920D9079 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B998651FDDA68000450705 /* PBXTargetDependency */,
+			);
+			name = liftbuddyTests;
+			productName = liftbuddyTests;
+			productReference = 05B9985F1FDDA67F00450705 /* liftbuddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2C3BA0A51F78531B00C90187 /* liftbuddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C3BA0B81F78531B00C90187 /* Build configuration list for PBXNativeTarget "liftbuddy" */;
@@ -237,10 +307,15 @@
 		2C3BA09E1F78531B00C90187 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bud Manstrong";
 				TargetAttributes = {
+					05B9985E1FDDA67F00450705 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2C3BA0A51F78531B00C90187;
+					};
 					2C3BA0A51F78531B00C90187 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -261,11 +336,19 @@
 			projectRoot = "";
 			targets = (
 				2C3BA0A51F78531B00C90187 /* liftbuddy */,
+				05B9985E1FDDA67F00450705 /* liftbuddyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		05B9985D1FDDA67F00450705 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C3BA0A41F78531B00C90187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +362,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4685418103A92CC3EEF5AD94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-liftbuddy-liftbuddyTests/Pods-liftbuddy-liftbuddyTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-liftbuddy-liftbuddyTests/Pods-liftbuddy-liftbuddyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		914482B86DE8644BBCB5909D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +406,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-liftbuddy/Pods-liftbuddy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A86D634C1CBC904770401F07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-liftbuddy-liftbuddyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ADBA22046ED871EEBC93E8D6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +440,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-liftbuddy/Pods-liftbuddy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC01E8FD701E369A920D9079 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-liftbuddy-liftbuddyTests/Pods-liftbuddy-liftbuddyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE46131A78298F76DFC3ACFB /* [CP] Check Pods Manifest.lock */ = {
@@ -340,6 +478,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05B9985B1FDDA67F00450705 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */,
+				05B998621FDDA68000450705 /* liftbuddyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C3BA0A21F78531B00C90187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +514,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		05B998651FDDA68000450705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C3BA0A51F78531B00C90187 /* liftbuddy */;
+			targetProxy = 05B998641FDDA68000450705 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		2C3BA0AD1F78531B00C90187 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -387,6 +542,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		05B998671FDDA68000450705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D118E1FB12D908D8FAE4AA1 /* Pods-liftbuddy-liftbuddyTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = liftbuddyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testing.liftbuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/liftbuddy.app/liftbuddy";
+			};
+			name = Debug;
+		};
+		05B998681FDDA68000450705 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83AD0A6AD1A09EA11367E6C7 /* Pods-liftbuddy-liftbuddyTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = liftbuddyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testing.liftbuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/liftbuddy.app/liftbuddy";
+			};
+			name = Release;
+		};
 		2C3BA0B61F78531B00C90187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -531,6 +720,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05B998661FDDA68000450705 /* Build configuration list for PBXNativeTarget "liftbuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B998671FDDA68000450705 /* Debug */,
+				05B998681FDDA68000450705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2C3BA0A11F78531B00C90187 /* Build configuration list for PBXProject "liftbuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

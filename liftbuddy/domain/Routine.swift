@@ -104,4 +104,11 @@ class Lift: Object {
         self.init()
         self.name = name
     }
+    
+    convenience init(reps:RealmOptional<Int>, weight:RealmOptional<Double>, name:String){
+        self.init()
+        self.reps = reps
+        self.weight = weight
+        self.name = name
+    }
 }
