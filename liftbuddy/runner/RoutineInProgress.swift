@@ -2,15 +2,17 @@ import Foundation
 import RealmSwift
 
 class RoutineInProgress: Object {
-    @objc dynamic var date: Date?
+    @objc dynamic var startDate: Date?
+    @objc dynamic var endDate: Date?
+
     @objc dynamic var name = ""
     @objc dynamic var id = 0
     var workout = List<WorkoutInProgress>()
     
     convenience init(routine:Routine){
         self.init()
-        self.date = Date()
-        
+        self.startDate = Date()
+        self.endDate = Date()
         self.name = routine.name
         
         for workoutToCopy in routine.workout {

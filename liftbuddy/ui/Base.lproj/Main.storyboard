@@ -222,6 +222,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonWasPressed:" destination="pzc-FP-WQo" eventType="touchUpInside" id="Rje-4Z-86Y"/>
+                                    <segue destination="zoZ-Px-kDP" kind="show" id="sfP-P7-1h8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND6-gb-WuS">
@@ -230,6 +231,7 @@
                                 <state key="normal" title="Discard"/>
                                 <connections>
                                     <action selector="discardButtonWasPressed:" destination="pzc-FP-WQo" eventType="touchUpInside" id="Cpf-0M-jg5"/>
+                                    <segue destination="zoZ-Px-kDP" kind="show" id="QxQ-QE-AH7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -240,6 +242,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdO-Fe-zCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3070" y="-1252"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="zWE-Zn-Dhy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luo-PI-cY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="YuO-Ed-IVL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="Y0d-O2-PAm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cWF-ld-xjv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zoZ-Px-kDP" kind="relationship" relationship="rootViewController" id="gbF-c4-4jy"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="569" y="-1185"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="EOM-Mk-Rq5">
+            <objects>
+                <tableViewController id="zoZ-Px-kDP" customClass="HistoryTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O3o-hX-wgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="100" id="7zs-mg-gCk" customClass="HistoryTableViewCell" customModule="liftbuddy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7zs-mg-gCk" id="UX6-sX-s9A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Routine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rc-r8-Izr">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAi-I3-Ozb">
+                                            <rect key="frame" x="190" y="0.0" width="151" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateCompletedLabel" destination="sAi-I3-Ozb" id="DKl-Yy-IHt"/>
+                                    <outlet property="routineNameLabel" destination="3rc-r8-Izr" id="b0d-Hj-lBP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zoZ-Px-kDP" id="NC3-eV-GTw"/>
+                            <outlet property="delegate" destination="zoZ-Px-kDP" id="AhP-ys-R0s"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iwd-fL-7Hg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUo-PH-pg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356" y="-1185.1574212893554"/>
         </scene>
         <!--Rest View Controller-->
         <scene sceneID="GzM-mA-W9O">
@@ -636,6 +704,7 @@
                     <connections>
                         <segue destination="VOU-uo-c0v" kind="relationship" relationship="viewControllers" id="sdh-bk-ZTL"/>
                         <segue destination="N9i-uk-xVG" kind="relationship" relationship="viewControllers" id="Ol1-29-Fjs"/>
+                        <segue destination="YuO-Ed-IVL" kind="relationship" relationship="viewControllers" id="bLq-c9-C9x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2p-Th-61O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -645,5 +714,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G49-4X-Nj8"/>
+        <segue reference="gbF-c4-4jy"/>
     </inferredMetricsTieBreakers>
 </document>
