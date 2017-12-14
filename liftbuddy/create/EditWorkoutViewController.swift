@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var workout:Workout?
     @IBOutlet weak var liftsInWorkoutTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
@@ -44,6 +44,7 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.lift = liftToEdit        
         cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: true)
+        cell.backgroundColor = Theme.cellBackgroundColor
         
         if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
             cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: true)
@@ -59,6 +60,8 @@ class EditWorkoutViewController: UIViewController, UITableViewDelegate, UITableV
         liftsInWorkoutTableView.dataSource = self
         
         workoutNameLabel.text = workout?.name ?? ""
+        
+        self.liftsInWorkoutTableView.backgroundColor = Theme.backgroundColor
         
     }
     

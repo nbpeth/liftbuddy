@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
+		056F63B01FE1FA11002B3939 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056F63AF1FE1FA11002B3939 /* Theme.swift */; };
+		056F63B21FE1FB3B002B3939 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056F63B11FE1FB3B002B3939 /* BaseViewController.swift */; };
 		0581853A1FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */; };
 		05B998621FDDA68000450705 /* liftbuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998611FDDA68000450705 /* liftbuddyTests.swift */; };
 		05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
+		056F63AF1FE1FA11002B3939 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		056F63B11FE1FB3B002B3939 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRoutineViewController.swift; sourceTree = "<group>"; };
 		05B9985F1FDDA67F00450705 /* liftbuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = liftbuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B998611FDDA68000450705 /* liftbuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liftbuddyTests.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			children = (
 				2C3BA0B21F78531B00C90187 /* LaunchScreen.storyboard */,
 				2C3BA0AD1F78531B00C90187 /* Main.storyboard */,
+				056F63AF1FE1FA11002B3939 /* Theme.swift */,
+				056F63B11FE1FB3B002B3939 /* BaseViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */,
 				2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */,
 				2CB382651FCA2665006E62A8 /* RoutineInProgress.swift in Sources */,
+				056F63B21FE1FB3B002B3939 /* BaseViewController.swift in Sources */,
 				2CB382671FCA2A73006E62A8 /* RoutineRunnerViewController.swift in Sources */,
 				05F184E31FDE090E00B03CDF /* HistoryTableViewController.swift in Sources */,
 				2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */,
@@ -515,6 +522,7 @@
 				05BE8E241FD217630060D80A /* RestTimer.swift in Sources */,
 				055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */,
 				2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */,
+				056F63B01FE1FA11002B3939 /* Theme.swift in Sources */,
 				2CB382601FCA00F1006E62A8 /* CreateOrEditWorkoutViewController.swift in Sources */,
 				2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */,
 				05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */,

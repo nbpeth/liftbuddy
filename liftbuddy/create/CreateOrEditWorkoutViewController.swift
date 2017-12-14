@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class CreateOrEditWorkoutViewController: UIViewController {
+class CreateOrEditWorkoutViewController: BaseViewController {
     var workout:Workout?
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var setsLabel: UILabel!

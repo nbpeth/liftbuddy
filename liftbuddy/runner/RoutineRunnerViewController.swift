@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
@@ -84,6 +84,10 @@ class RoutineRunnerViewController:UIViewController, UITableViewDelegate, UITable
         weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
         repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
         
+        workoutNameLabel.textColor = Theme.headerTextColor
+        weightLabel.textColor = Theme.textColor
+        repsLabel.textColor = Theme.textColor
+    
     }
     
     private func focusCurrentWorkoutInTable(){

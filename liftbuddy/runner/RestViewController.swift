@@ -1,6 +1,6 @@
 import UIKit
 
-class RestViewController: UIViewController {
+class RestViewController: BaseViewController {
     @IBOutlet weak var restLabel: UILabel!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!

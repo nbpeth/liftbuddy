@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class CompletedRoutineViewController: UIViewController {
+class CompletedRoutineViewController: BaseViewController {
     var routineInProgress:RoutineInProgress?
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {

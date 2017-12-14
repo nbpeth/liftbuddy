@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class HistoryTableViewController: UITableViewController {
+class HistoryTableViewController: BaseTableViewController {
     var completedRoutines = [RoutineInProgress]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -19,6 +19,9 @@ class HistoryTableViewController: UITableViewController {
         
         cell.routineNameLabel.text = completedRoutines[indexPath.row].name
         cell.dateCompletedLabel.text = String(describing:completedRoutines[indexPath.row].endDate!)
+        cell.routineNameLabel.textColor = Theme.textColor
+        cell.dateCompletedLabel.textColor = Theme.textColor
+        cell.backgroundColor = Theme.cellBackgroundColor
         
         return cell
     }

@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-class RoutineListTableViewController: UITableViewController {
+class RoutineListTableViewController: BaseTableViewController {
     var routines = [Routine]()
     let realm = try! Realm()
     
@@ -29,6 +29,8 @@ class RoutineListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineCell", for: indexPath) as? RoutineTableViewCell else { return UITableViewCell() }
 
         cell.routineNameLabel.text = routines[indexPath.row].name
+        cell.routineNameLabel.textColor = Theme.textColor
+        cell.backgroundColor = Theme.cellBackgroundColor
 
         return cell
     }

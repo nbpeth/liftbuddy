@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class NameYourRoutineViewController: UIViewController {
+class NameYourRoutineViewController: BaseViewController {
     var routine: Routine?
     @IBOutlet weak var routineNameTextField: UITextField!
     

@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class EditRoutineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var routine: Routine?
     var routineId: Int?
     let realm = try! Realm()
@@ -82,6 +82,9 @@ class EditRoutineViewController: UIViewController, UITableViewDelegate, UITableV
         cell.workout = workout
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
         cell.workoutNameLabel.text = workout.name
+        cell.backgroundColor = Theme.backgroundColor
+        cell.numberOfSetsLabel.textColor = Theme.textColor
+        cell.workoutNameLabel.textColor = Theme.headerTextColor
         
         guard let rest = workout.rest.value else { return cell }
         

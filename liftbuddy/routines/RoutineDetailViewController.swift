@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class RoutineDetailViewController: UIViewController {
+class RoutineDetailViewController: BaseViewController {
     @IBOutlet weak var routineNameLabel: UILabel!
     var routineId: Int?
     
@@ -16,6 +16,7 @@ class RoutineDetailViewController: UIViewController {
         else { return }
         
         routineNameLabel.text = routine.name
+        routineNameLabel.textColor = Theme.headerTextColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
