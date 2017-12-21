@@ -8,6 +8,7 @@ class HistoryTableViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         completedRoutines = RoutineManager.getAllRoutinesInProgress()
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -19,9 +20,9 @@ class HistoryTableViewController: BaseTableViewController {
         
         cell.routineNameLabel.text = completedRoutines[indexPath.row].name
         cell.dateCompletedLabel.text = String(describing:completedRoutines[indexPath.row].endDate!)
-        cell.routineNameLabel.textColor = Theme.textColor
-        cell.dateCompletedLabel.textColor = Theme.textColor
-        cell.backgroundColor = Theme.cellBackgroundColor
+//        cell.routineNameLabel.textColor = Theme.textColor
+//        cell.dateCompletedLabel.textColor = Theme.textColor
+//        cell.backgroundColor = Theme.cellBackgroundColor
         
         return cell
     }

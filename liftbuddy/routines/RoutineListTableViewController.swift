@@ -29,8 +29,8 @@ class RoutineListTableViewController: BaseTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineCell", for: indexPath) as? RoutineTableViewCell else { return UITableViewCell() }
 
         cell.routineNameLabel.text = routines[indexPath.row].name
-        cell.routineNameLabel.textColor = Theme.textColor
-        cell.backgroundColor = Theme.cellBackgroundColor
+//        cell.routineNameLabel.textColor = Theme.textColor
+//        cell.backgroundColor = Theme.cellBackgroundColor
 
         return cell
     }

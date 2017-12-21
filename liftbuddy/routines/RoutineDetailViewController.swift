@@ -16,7 +16,7 @@ class RoutineDetailViewController: BaseViewController {
         else { return }
         
         routineNameLabel.text = routine.name
-        routineNameLabel.textColor = Theme.headerTextColor
+//        routineNameLabel.textColor = Theme.headerTextColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

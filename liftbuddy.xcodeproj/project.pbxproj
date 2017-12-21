@@ -15,6 +15,7 @@
 		05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */; };
 		05BE8E241FD217630060D80A /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE8E231FD217630060D80A /* RestTimer.swift */; };
 		05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */; };
+		05E38C411FE34047007E064D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E38C401FE34047007E064D /* HomeViewController.swift */; };
 		05F184E31FDE090E00B03CDF /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F184E21FDE090E00B03CDF /* HistoryTableViewController.swift */; };
 		05F184E51FDE095D00B03CDF /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F184E41FDE095D00B03CDF /* HistoryTableViewCell.swift */; };
 		2C110C9F1FC0DE79001E502B /* RoutineListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */; };
@@ -63,6 +64,7 @@
 		05B998701FDDA8BE00450705 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BE8E231FD217630060D80A /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestTimer.swift; path = "liftbuddy/runner/table cells/RestTimer.swift"; sourceTree = SOURCE_ROOT; };
 		05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInRunnerTableViewCell.swift; sourceTree = "<group>"; };
+		05E38C401FE34047007E064D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05F184E21FDE090E00B03CDF /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		05F184E41FDE095D00B03CDF /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		2C110C9E1FC0DE79001E502B /* RoutineListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListTableViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				2C3BA0B01F78531B00C90187 /* Assets.xcassets */,
 				2C3BA0B51F78531B00C90187 /* Info.plist */,
 				2CD168761FC205E6002A55E3 /* RealmManager.swift */,
+				05E38C401FE34047007E064D /* HomeViewController.swift */,
 			);
 			path = liftbuddy;
 			sourceTree = "<group>";
@@ -334,6 +337,11 @@
 					2C3BA0A51F78531B00C90187 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -517,6 +525,7 @@
 				2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */,
 				2C3BA0AA1F78531B00C90187 /* AppDelegate.swift in Sources */,
 				05F184E51FDE095D00B03CDF /* HistoryTableViewCell.swift in Sources */,
+				05E38C411FE34047007E064D /* HomeViewController.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
 				05BE8E241FD217630060D80A /* RestTimer.swift in Sources */,

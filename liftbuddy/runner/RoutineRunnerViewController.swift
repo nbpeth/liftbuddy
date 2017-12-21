@@ -7,6 +7,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIButton!
+    @IBOutlet weak var repsAndWeightLabel: UILabel!
     
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
@@ -26,6 +27,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             
             present(restViewController, animated: true, completion: nil)
         }
+        
         else {
             workoutNameLabel.text = "ALL DONE"
             nextLiftButton.isEnabled = false
@@ -75,6 +77,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         else { return WorkoutInRunnerTableViewCell() }
         
         cell.workoutNameLabel.text = routine.workout[indexPath.row].name
+        cell.workoutNameLabel.textColor = UIColor.white
+        cell.backgroundColor = UIColor(red: 1, green: 126/255, blue: 121/255, alpha: 1)
         
         return cell
     }
@@ -83,10 +87,10 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutNameLabel.text = runner?.currentLift?.name ?? ""
         weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
         repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
-        
-        workoutNameLabel.textColor = Theme.headerTextColor
-        weightLabel.textColor = Theme.textColor
-        repsLabel.textColor = Theme.textColor
+        repsAndWeightLabel.text = " \(String(describing:runner?.currentLift?.reps.value ?? 0 )) X \(String(describing:Int(runner?.currentLift?.weight.value ?? 0 )))"
+//        workoutNameLabel.textColor = Theme.headerTextColor
+//        weightLabel.textColor = Theme.textColor
+//        repsLabel.textColor = Theme.textColor
     
     }
     

@@ -82,13 +82,13 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         cell.workout = workout
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
         cell.workoutNameLabel.text = workout.name
-        cell.backgroundColor = Theme.backgroundColor
-        cell.numberOfSetsLabel.textColor = Theme.textColor
-        cell.workoutNameLabel.textColor = Theme.headerTextColor
+//        cell.backgroundColor = Theme.backgroundColor
+//        cell.numberOfSetsLabel.textColor = Theme.textColor
+//        cell.workoutNameLabel.textColor = Theme.headerTextColor
         
         guard let rest = workout.rest.value else { return cell }
         
-        cell.restPicker.selectRow(rest / 5 , inComponent: 0, animated: true)
+        cell.restPicker.selectRow(rest / 5 , inComponent: 0, animated: false)
         
         return cell
     }
