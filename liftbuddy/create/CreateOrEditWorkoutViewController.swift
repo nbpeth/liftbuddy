@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class CreateOrEditWorkoutViewController: BaseViewController {
+class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate {
     var workout:Workout?
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var setsLabel: UILabel!
@@ -10,6 +10,12 @@ class CreateOrEditWorkoutViewController: BaseViewController {
         guard let workout = workout, let name = workoutNameTextField.text else { return }
         
         workout.name = name
+        workoutNameTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        workoutNameTextField.resignFirstResponder()
+        return true
     }
     
     @IBAction func workoutNameEditingChanged(_ sender: Any) {

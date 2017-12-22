@@ -448,7 +448,7 @@
                                 <rect key="frame" x="34" y="362" width="307" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fds-WR-iRk">
                                 <rect key="frame" x="111" y="333" width="153" height="21"/>
@@ -495,8 +495,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cs6-zA-PWh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="GtM-MK-HCE">
+                                        <color key="tintColor" red="1" green="0.21482703959999999" blue="0.24094367820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="cancelButtonWasPressed:" destination="Sgg-rO-hwk" id="qpO-L9-mzi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d3f-kI-deb"/>
+                                    <barButtonItem title="Save" id="B7j-Uc-jqk">
+                                        <color key="tintColor" red="0.0" green="0.75705295139999995" blue="0.32378472219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="saveButtonWasPressed:" destination="Sgg-rO-hwk" id="PYt-o8-dlR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-7h-KjD">
-                                <rect key="frame" x="0.0" y="180" width="375" height="438"/>
+                                <rect key="frame" x="0.0" y="203" width="375" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workoutCell" rowHeight="100" id="r9w-Et-YnL" customClass="WorkoutCell" customModule="liftbuddy" customModuleProvider="target">
@@ -548,27 +566,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cs6-zA-PWh">
-                                <rect key="frame" x="0.0" y="581" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Cancel" id="GtM-MK-HCE">
-                                        <color key="tintColor" red="1" green="0.21482703959999999" blue="0.24094367820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="cancelButtonWasPressed:" destination="Sgg-rO-hwk" id="qpO-L9-mzi"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d3f-kI-deb"/>
-                                    <barButtonItem title="Save" id="B7j-Uc-jqk">
-                                        <color key="tintColor" red="0.0" green="0.75705295139999995" blue="0.32378472219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="saveButtonWasPressed:" destination="Sgg-rO-hwk" id="PYt-o8-dlR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-t1-Nlw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="87"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-o9-QKy">
                                         <rect key="frame" x="160" y="53" width="54" height="30"/>
@@ -591,14 +590,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hnb-t1-Nlw" firstAttribute="leading" secondItem="sRE-tG-rQb" secondAttribute="leading" id="60h-KS-E6m"/>
-                            <constraint firstItem="sRE-tG-rQb" firstAttribute="trailing" secondItem="hnb-t1-Nlw" secondAttribute="trailing" id="9GT-Kp-veY"/>
-                            <constraint firstItem="sRE-tG-rQb" firstAttribute="bottom" secondItem="mQ5-7h-KjD" secondAttribute="bottom" id="Ak3-uA-mIY"/>
-                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="leading" secondItem="sRE-tG-rQb" secondAttribute="leading" id="GAD-Lx-GRa"/>
-                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="top" secondItem="sRE-tG-rQb" secondAttribute="top" constant="116" id="UC3-M8-5LD"/>
-                            <constraint firstItem="hnb-t1-Nlw" firstAttribute="top" secondItem="sRE-tG-rQb" secondAttribute="top" id="myw-4f-tlc"/>
-                            <constraint firstItem="sRE-tG-rQb" firstAttribute="trailing" secondItem="mQ5-7h-KjD" secondAttribute="trailing" id="oKb-vl-hz2"/>
-                            <constraint firstItem="sRE-tG-rQb" firstAttribute="bottom" secondItem="hnb-t1-Nlw" secondAttribute="bottom" constant="467" id="sBK-xN-Frc"/>
+                            <constraint firstItem="hnb-t1-Nlw" firstAttribute="trailing" secondItem="sRE-tG-rQb" secondAttribute="trailing" id="BJd-84-6El"/>
+                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="top" secondItem="sRE-tG-rQb" secondAttribute="top" constant="139" id="E8U-Ti-aMk"/>
+                            <constraint firstItem="Cs6-zA-PWh" firstAttribute="trailing" secondItem="sRE-tG-rQb" secondAttribute="trailing" id="N9s-SL-Oua"/>
+                            <constraint firstItem="sRE-tG-rQb" firstAttribute="trailing" secondItem="Cs6-zA-PWh" secondAttribute="trailing" id="Ngb-lc-DAg"/>
+                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="top" secondItem="hnb-t1-Nlw" secondAttribute="bottom" id="TXC-db-IWu"/>
+                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="trailing" secondItem="sRE-tG-rQb" secondAttribute="trailing" id="XR9-9P-ALp"/>
+                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="bottom" secondItem="sRE-tG-rQb" secondAttribute="bottom" id="ZHJ-Go-WMq"/>
+                            <constraint firstItem="Cs6-zA-PWh" firstAttribute="leading" secondItem="sRE-tG-rQb" secondAttribute="leading" id="Zt6-om-bpT"/>
+                            <constraint firstItem="hnb-t1-Nlw" firstAttribute="top" secondItem="Cs6-zA-PWh" secondAttribute="bottom" id="d52-KY-8Sw"/>
+                            <constraint firstItem="hnb-t1-Nlw" firstAttribute="leading" secondItem="sRE-tG-rQb" secondAttribute="leading" id="dMu-6b-GDG"/>
+                            <constraint firstItem="sRE-tG-rQb" firstAttribute="bottom" secondItem="mQ5-7h-KjD" secondAttribute="bottom" id="jvQ-Ru-jBM"/>
+                            <constraint firstItem="Cs6-zA-PWh" firstAttribute="top" secondItem="sRE-tG-rQb" secondAttribute="top" id="niF-ce-wG6"/>
+                            <constraint firstItem="sRE-tG-rQb" firstAttribute="bottom" secondItem="mQ5-7h-KjD" secondAttribute="bottom" id="peN-1m-Ns9"/>
+                            <constraint firstItem="sRE-tG-rQb" firstAttribute="trailing" secondItem="mQ5-7h-KjD" secondAttribute="trailing" id="qW6-ku-9Uv"/>
+                            <constraint firstItem="mQ5-7h-KjD" firstAttribute="leading" secondItem="sRE-tG-rQb" secondAttribute="leading" id="t7V-g8-iue"/>
+                            <constraint firstItem="Cs6-zA-PWh" firstAttribute="top" secondItem="sRE-tG-rQb" secondAttribute="top" id="uPE-Sl-EHb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sRE-tG-rQb"/>
                     </view>

@@ -1,9 +1,14 @@
 import Foundation
 import UIKit
 
-class NameYourRoutineViewController: BaseViewController {
+class NameYourRoutineViewController: BaseViewController, UITextFieldDelegate {
     var routine: Routine?
     @IBOutlet weak var routineNameTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        routineNameTextField.delegate = self
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? EditRoutineViewController {
@@ -13,6 +18,11 @@ class NameYourRoutineViewController: BaseViewController {
             
             destinationViewController.routine = routine
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        routineNameTextField.resignFirstResponder()
+        return true
     }
 
 }
