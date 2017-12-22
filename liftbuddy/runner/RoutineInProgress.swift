@@ -64,6 +64,32 @@ class RoutineInProgress: Object {
         let incompleteWorkouts = workout.filter { workout in return !workout.isComplete() }
         return incompleteWorkouts.count <= 0
     }
+    
+    func activityTimeComponents() -> DateComponents? {
+        guard let startDate = startDate, let endDate = endDate else { return nil }
+        
+        return Calendar.current.dateComponents([.hour, .minute, .second], from: startDate, to: endDate)
+    }
+    
+    func activityTimeFormatted() -> String {
+        guard let components = activityTimeComponents() else { return "0" }
+        return  "\(String(describing: components.hour ?? 0)) : \(components.minute ?? 0) : \(components.second ?? 0)"
+    }
+    
+    func totalWeightLifted() -> String {
+        var total = 0.0
+        
+        for workout in self.workout {
+            for lift in workout.lifts {
+                let weight = lift.weight.value ?? 0.0
+                let reps = Double(lift.reps.value ?? 0)
+                
+                total += (reps * weight)
+            }
+        }
+        
+        return String(describing: total)
+    }
 }
 
 class WorkoutInProgress: Object {

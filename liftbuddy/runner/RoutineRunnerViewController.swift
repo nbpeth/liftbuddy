@@ -13,6 +13,10 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     var runner: RoutineRunner?
     var restTime = 0
     
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
     @IBAction func nextLiftButton(_ sender: Any) {
         guard let runner = runner,
             let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
