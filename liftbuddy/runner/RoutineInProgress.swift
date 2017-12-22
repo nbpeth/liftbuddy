@@ -68,12 +68,12 @@ class RoutineInProgress: Object {
     func activityTimeComponents() -> DateComponents? {
         guard let startDate = startDate, let endDate = endDate else { return nil }
         
-        return Calendar.current.dateComponents([.hour, .minute, .second], from: startDate, to: endDate)
+        return DateUtils.differenceBetween(startDate, endDate)
     }
     
     func activityTimeFormatted() -> String {
         guard let components = activityTimeComponents() else { return "0" }
-        return  "\(String(describing: components.hour ?? 0)) : \(components.minute ?? 0) : \(components.second ?? 0)"
+        return  "\(String(describing: components.hour ?? 0)):\(components.minute ?? 0):\(components.second ?? 0)"
     }
     
     func totalWeightLifted() -> String {
