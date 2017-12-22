@@ -8,13 +8,8 @@ class CompletedRoutineViewController: BaseViewController {
         guard let routineToSave = routineInProgress else { return }
         RealmManager.shared.beginWrite()
         
-        if(RoutineManager.getRoutineInProgressBy(id: routineToSave.id) == nil){
-            RealmManager.shared.realm.add(routineToSave)
-            RealmManager.shared.saveChanges()
-        }
-        else{
-            RealmManager.shared.discardChanges()
-        }
+        RealmManager.shared.realm.add(routineToSave)
+        RealmManager.shared.saveChanges()
         
         completeRoutineSegue()
     }
@@ -30,6 +25,5 @@ class CompletedRoutineViewController: BaseViewController {
     
     private func completeRoutineSegue(){
         self.navigationController?.popToRootViewController(animated: true)
-        
     }
 }

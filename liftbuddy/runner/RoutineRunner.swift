@@ -2,8 +2,6 @@ import Foundation
 import RealmSwift
 
 class RoutineRunner {
-    
-//    var routine:Routine?
     var routine:RoutineInProgress?
     var currentWorkout:WorkoutInProgress?
     var currentLift:LiftInProgress?
@@ -29,10 +27,12 @@ class RoutineRunner {
         if(currentWorkout.lifts.count <= position.liftIndex){
             position.resetLifts()
             self.currentWorkout = nextWorkout()
-        
         }
         
-        self.currentLift = self.currentWorkout?.lifts[position.liftIndex]
+        guard let currentWorkoutLifts = self.currentWorkout?.lifts else { return }
+        if currentWorkoutLifts.count > 0 {
+            self.currentLift = currentWorkoutLifts[position.liftIndex]
+        }
     }
     
     private func nextWorkout() -> WorkoutInProgress? {
@@ -74,6 +74,14 @@ class RoutineRunner {
         let lastWorkout = routine.workout[routine.workout.count - 1]
     
         return (position.workoutIndex >= routine.workout.count - 1) && (position.liftIndex >= lastWorkout.lifts.count - 1)
+    }
+    
+    func skipRest() -> Bool {
+        guard let currentWorkout = currentWorkout,
+            let rest = currentWorkout.rest.value
+            else { return true }
+        
+        return rest <= 0
     }
     
     private func routineHasAnotherWorkout(routine:RoutineInProgress, index:Int) -> Bool {

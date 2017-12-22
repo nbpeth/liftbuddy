@@ -10,10 +10,9 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         guard let workout = workout, let name = workoutNameTextField.text else { return }
         
         workout.name = name
-        workoutNameTextField.delegate = self
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         workoutNameTextField.resignFirstResponder()
         return true
     }
@@ -28,6 +27,12 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         guard let workout = workout, let name = workoutNameTextField.text else { return }
         
         workout.name = name
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        workoutNameTextField.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

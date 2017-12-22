@@ -18,7 +18,17 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
         else { return }
         
-        if !runner.isOnLastLiftOfLastWorkout() {
+        
+        if runner.isOnLastLiftOfLastWorkout() {
+            workoutNameLabel.text = "ALL DONE"
+            nextLiftButton.isEnabled = false
+        }
+            
+        else if runner.skipRest() {
+            runner.nextLiftSet()
+        }
+        
+        else {
             runner.nextLiftSet()
             
             restViewController.restTime = runner.restTimeForCurrentWorkout()
@@ -26,11 +36,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             restViewController.nextLift = runner.currentLift
             
             present(restViewController, animated: true, completion: nil)
-        }
-        
-        else {
-            workoutNameLabel.text = "ALL DONE"
-            nextLiftButton.isEnabled = false
+            
         }
         
         focusCurrentWorkoutInTable()

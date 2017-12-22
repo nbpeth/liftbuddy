@@ -64,10 +64,6 @@ class RoutineInProgress: Object {
         let incompleteWorkouts = workout.filter { workout in return !workout.isComplete() }
         return incompleteWorkouts.count <= 0
     }
-    
-    override class func primaryKey() -> String? {
-        return "id"
-    }
 }
 
 class WorkoutInProgress: Object {
