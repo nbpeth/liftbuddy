@@ -4,8 +4,6 @@ import Foundation
 class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
-    @IBOutlet weak var weightLabel: UILabel!
-    @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIButton!
     @IBOutlet weak var repsAndWeightLabel: UILabel!
     
@@ -95,8 +93,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     private func setLabels(){
         workoutNameLabel.text = runner?.currentLift?.name ?? ""
-        weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
-        repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
+//        weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
+//        repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
         repsAndWeightLabel.text = " \(String(describing:runner?.currentLift?.reps.value ?? 0 )) X \(String(describing:Int(runner?.currentLift?.weight.value ?? 0 )))"
 //        workoutNameLabel.textColor = Theme.headerTextColor
 //        weightLabel.textColor = Theme.textColor
