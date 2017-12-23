@@ -225,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3BA0B21F78531B00C90187 /* LaunchScreen.storyboard */,
+				2C3BA0A91F78531B00C90187 /* AppDelegate.swift */,
 				2C3BA0AD1F78531B00C90187 /* Main.storyboard */,
 				056F63AF1FE1FA11002B3939 /* Theme.swift */,
 				056F63B11FE1FB3B002B3939 /* BaseViewController.swift */,
@@ -235,7 +236,6 @@
 		2C3BA0BC1F78546800C90187 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				2C3BA0A91F78531B00C90187 /* AppDelegate.swift */,
 			);
 			path = config;
 			sourceTree = "<group>";

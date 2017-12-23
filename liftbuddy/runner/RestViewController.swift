@@ -12,6 +12,7 @@ class RestViewController: BaseViewController {
     var restTime = 0
     var nextLift:LiftInProgress?
     
+    @IBOutlet weak var liftSetPositionLabel: UILabel!
     @IBAction func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

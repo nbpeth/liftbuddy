@@ -171,20 +171,20 @@ class RoutineRunnerTests: XCTestCase {
         assert(runner.isOnLastLiftOfLastWorkout())
     }
     
-    private func testRoutine() -> Routine {
-        let routine = Routine()
-        routine.workout = List<Workout>()
+    private func testRoutine() -> RoutineInProgress {
+        let routine = RoutineInProgress()
+        routine.workout = List<WorkoutInProgress>()
         return routine
     }
     
-    private func buildWorkout(name:String, numberOfLifts:Int) -> Workout {
-        let workout = Workout()
+    private func buildWorkout(name:String, numberOfLifts:Int) -> WorkoutInProgress {
+        let workout = WorkoutInProgress()
         workout.name = name
 
-        let lifts = List<Lift>()
+        let lifts = List<LiftInProgress>()
         
         for i in 1 ... numberOfLifts {
-            lifts.append(Lift(name: String(describing:"\(name)_\(i)")))
+            lifts.append(LiftInProgress(name: String(describing:"\(name)_\(i)")))
         }
         
         workout.lifts = lifts
