@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Your Routines-->
         <scene sceneID="0bc-db-WaE">
@@ -177,8 +182,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set: 4/5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciS-ET-iQM">
+                                <rect key="frame" x="135" y="320" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-gc-B7G">
-                                <rect key="frame" x="158" y="349" width="58" height="30"/>
+                                <rect key="frame" x="158" y="399" width="58" height="30"/>
                                 <state key="normal" title="Next Lift"/>
                                 <connections>
                                     <action selector="nextLiftButton:" destination="cX2-Jy-1Tc" eventType="touchUpInside" id="yVg-OI-ASQ"/>
@@ -190,10 +201,13 @@
                             <constraint firstItem="hio-Yp-dCC" firstAttribute="top" secondItem="JJX-KE-mWv" secondAttribute="bottom" constant="15" id="0SR-ea-WVl"/>
                             <constraint firstItem="VCK-gc-B7G" firstAttribute="centerX" secondItem="jze-2C-cqc" secondAttribute="centerX" id="1bw-sw-q2K"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="centerX" secondItem="rNz-vw-sVR" secondAttribute="centerX" id="2wh-w4-sJO"/>
+                            <constraint firstItem="ciS-ET-iQM" firstAttribute="top" secondItem="rNz-vw-sVR" secondAttribute="bottom" constant="11" id="50e-EN-sOQ"/>
                             <constraint firstItem="rNz-vw-sVR" firstAttribute="top" secondItem="hio-Yp-dCC" secondAttribute="bottom" constant="25" id="6IR-1q-GhW"/>
+                            <constraint firstItem="ciS-ET-iQM" firstAttribute="leading" secondItem="jze-2C-cqc" secondAttribute="leading" constant="135" id="6U2-cY-AVC"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="top" secondItem="maD-em-nfT" secondAttribute="top" id="6Wy-3u-Foc"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="centerX" secondItem="VCK-gc-B7G" secondAttribute="centerX" id="AM9-Fd-kZA"/>
-                            <constraint firstItem="VCK-gc-B7G" firstAttribute="top" secondItem="rNz-vw-sVR" secondAttribute="bottom" constant="40" id="Cff-DQ-oec"/>
+                            <constraint firstItem="ciS-ET-iQM" firstAttribute="centerX" secondItem="hio-Yp-dCC" secondAttribute="centerX" id="Acn-b6-EGK"/>
+                            <constraint firstItem="VCK-gc-B7G" firstAttribute="top" secondItem="rNz-vw-sVR" secondAttribute="bottom" constant="90" id="Cff-DQ-oec"/>
                             <constraint firstItem="hio-Yp-dCC" firstAttribute="centerX" secondItem="jze-2C-cqc" secondAttribute="centerX" id="GBC-b7-q79"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="centerX" secondItem="hio-Yp-dCC" secondAttribute="centerX" id="IQq-eo-d7m"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="centerX" secondItem="4Fm-cQ-Vff" secondAttribute="centerX" id="KDt-jp-Wvt"/>
@@ -207,6 +221,7 @@
                     <connections>
                         <outlet property="nextLiftButton" destination="VCK-gc-B7G" id="kNH-2R-Fcy"/>
                         <outlet property="repsAndWeightLabel" destination="rNz-vw-sVR" id="z0E-zH-qif"/>
+                        <outlet property="setPositionLabel" destination="ciS-ET-iQM" id="IMa-Pe-WQE"/>
                         <outlet property="workoutListTableView" destination="JJX-KE-mWv" id="j5I-Xm-ZYT"/>
                         <outlet property="workoutNameLabel" destination="hio-Yp-dCC" id="xG9-s8-4zG"/>
                     </connections>
@@ -295,10 +310,10 @@
             </objects>
             <point key="canvasLocation" x="3069.5999999999999" y="-1252.6236881559221"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Routine History-->
         <scene sceneID="zWE-Zn-Dhy">
             <objects>
-                <navigationController id="YuO-Ed-IVL" sceneMemberID="viewController">
+                <navigationController title="Routine History" id="YuO-Ed-IVL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="Y0d-O2-PAm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cWF-ld-xjv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -312,10 +327,10 @@
             </objects>
             <point key="canvasLocation" x="569" y="-1185"/>
         </scene>
-        <!--History Table View Controller-->
+        <!--Routine History-->
         <scene sceneID="EOM-Mk-Rq5">
             <objects>
-                <tableViewController id="zoZ-Px-kDP" customClass="HistoryTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Routine History" id="zoZ-Px-kDP" customClass="HistoryTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O3o-hX-wgv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-1185.1574212893554"/>
         </scene>
-        <!--History Summary View Controller-->
+        <!--Details-->
         <scene sceneID="AgD-3R-L25">
             <objects>
-                <viewController storyboardIdentifier="HistorySummaryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0cn-5e-gDs" customClass="HistorySummaryViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistorySummaryViewController" title="Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0cn-5e-gDs" customClass="HistorySummaryViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ooz-Cc-JdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -478,7 +493,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-Pn-AJn">
                                 <rect key="frame" x="104" y="30" width="168" height="108"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="90"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT9-Q9-vTS">
@@ -490,7 +505,7 @@
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Om-oE0">
                                 <rect key="frame" x="0.0" y="145" width="375" height="2"/>
-                                <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up Next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQF-2p-cd4">
                                 <rect key="frame" x="133" y="197" width="109" height="37"/>
@@ -601,18 +616,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Buddy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad6-Hw-MPY">
-                                <rect key="frame" x="88" y="269.5" width="200" height="55"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Buddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fov-43-A1R">
+                                <rect key="frame" x="75" y="50" width="225" height="65"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ad6-Hw-MPY" firstAttribute="centerX" secondItem="VVf-Dp-DNw" secondAttribute="centerX" id="4Kf-m0-uiU"/>
-                            <constraint firstItem="ad6-Hw-MPY" firstAttribute="centerY" secondItem="VVf-Dp-DNw" secondAttribute="centerY" constant="-22" id="QOD-J8-yTi"/>
+                            <constraint firstItem="fov-43-A1R" firstAttribute="top" secondItem="VVf-Dp-DNw" secondAttribute="top" constant="30" id="God-SQ-1mB"/>
+                            <constraint firstItem="fov-43-A1R" firstAttribute="centerX" secondItem="VVf-Dp-DNw" secondAttribute="centerX" id="gJO-JO-kWy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VVf-Dp-DNw"/>
                     </view>
@@ -794,8 +809,11 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-o9-QKy">
-                                        <rect key="frame" x="160" y="53" width="54" height="30"/>
-                                        <state key="normal" title="Add Lift"/>
+                                        <rect key="frame" x="157" y="53" width="60" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Add Lift">
+                                            <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="addWorkoutButtonWasPressed:" destination="Sgg-rO-hwk" eventType="touchUpInside" id="MYF-YN-t53"/>
                                         </connections>
@@ -807,7 +825,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WPu-BO-JnJ" secondAttribute="trailing" constant="18" id="BSR-LL-t7o"/>
                                     <constraint firstItem="rQj-o9-QKy" firstAttribute="top" secondItem="WPu-BO-JnJ" secondAttribute="bottom" constant="24" id="EZZ-d8-2EU"/>
@@ -867,6 +885,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-d4-s2P">
                                 <rect key="frame" x="157" y="156" width="61" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <state key="normal" title="Edit Sets"/>
                                 <connections>
                                     <segue destination="Fv0-sa-s2u" kind="show" identifier="addSetsToWorkoutSegue" id="zim-Nz-HH9"/>
@@ -892,6 +913,7 @@
                         <viewLayoutGuide key="safeArea" id="zwC-Kz-NuC"/>
                     </view>
                     <connections>
+                        <outlet property="editSetsButton" destination="CWO-d4-s2P" id="Y5r-w4-SHC"/>
                         <outlet property="setsLabel" destination="y3h-Ep-CuG" id="FV6-ef-QM9"/>
                         <outlet property="workoutNameTextField" destination="15h-rO-WYY" id="Q2z-ty-d5z"/>
                     </connections>
@@ -979,14 +1001,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-IW-7H9">
-                                        <rect key="frame" x="160" y="37" width="55" height="30"/>
-                                        <state key="normal" title="Add Set"/>
+                                        <rect key="frame" x="158.5" y="37" width="58" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Add Set">
+                                            <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="addLiftButtonWasPressed:" destination="Fv0-sa-s2u" eventType="touchUpInside" id="rGS-C7-HOh"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="XCl-yg-Qlp" firstAttribute="top" secondItem="tUd-3F-BHK" secondAttribute="top" constant="5" id="K3f-yG-dS2"/>
                                     <constraint firstItem="Q3C-IW-7H9" firstAttribute="centerX" secondItem="tUd-3F-BHK" secondAttribute="centerX" id="TEq-fW-ifP"/>

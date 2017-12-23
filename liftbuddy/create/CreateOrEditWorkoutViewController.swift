@@ -5,10 +5,11 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     var workout:Workout?
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var setsLabel: UILabel!
+    @IBOutlet weak var editSetsButton: UIButton!
     
     @IBAction func workoutNameChanged(_ sender: Any) {
         guard let workout = workout, let name = workoutNameTextField.text else { return }
-        
+        setButtonEnabledStatus()
         workout.name = name
     }
     
@@ -19,6 +20,13 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     
     @IBAction func workoutNameEditingChanged(_ sender: Any) {
         guard let workout = workout, let name = workoutNameTextField.text else { return }
+        
+        if name.count > 0 {
+            editSetsButton.isEnabled = true
+        }
+        else {
+            editSetsButton.isEnabled = false
+        }
         
         workout.name = name
     }
@@ -31,6 +39,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonEnabledStatus()
         workoutNameTextField.delegate = self
 
     }
@@ -48,6 +57,16 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
             
             destination.workout = workout
             
+        }
+    }
+    
+    private func setButtonEnabledStatus(){
+        guard let name = workoutNameTextField.text else { return }
+        if name.count > 0 {
+            editSetsButton.isEnabled = true
+        }
+        else {
+            editSetsButton.isEnabled = false
         }
     }
 }

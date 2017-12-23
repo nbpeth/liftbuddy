@@ -24,9 +24,11 @@ class HistoryTableViewController: BaseTableViewController {
         cell.routineNameLabel.text = completedRoutines[indexPath.row].name
         cell.dateCompletedLabel.text = DateUtils.formatMMDDYYYY(date: endDate)
         cell.elapsedTimeLabel.text = completedRoutines[indexPath.row].activityTimeFormatted()
-//        cell.routineNameLabel.textColor = Theme.textColor
-//        cell.dateCompletedLabel.textColor = Theme.textColor
-//        cell.backgroundColor = Theme.cellBackgroundColor
+
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = Theme.cellAlternateBackgroundColor.withAlphaComponent(0.3)
+            
+        }
         
         return cell
     }

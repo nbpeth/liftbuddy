@@ -6,33 +6,29 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIButton!
     @IBOutlet weak var repsAndWeightLabel: UILabel!
-    
+    @IBOutlet weak var setPositionLabel: UILabel!
+
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
     var restTime = 0
-    
-    override open var shouldAutorotate: Bool {
-        return false
-    }
     
     @IBAction func nextLiftButton(_ sender: Any) {
         guard let runner = runner,
             let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
         else { return }
         
-        
+        runner.nextLiftSet()
+
         if runner.isOnLastLiftOfLastWorkout() {
-            workoutNameLabel.text = "ALL DONE"
             nextLiftButton.isEnabled = false
+            nextLiftButton.isHidden = true
         }
             
         else if runner.skipRest() {
-            runner.nextLiftSet()
+            // uhhhhh
         }
         
         else {
-            runner.nextLiftSet()
-            
             restViewController.restTime = runner.restTimeForCurrentWorkout()
             restViewController.modalPresentationStyle = .overCurrentContext
             restViewController.nextLift = runner.currentLift
@@ -43,6 +39,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         
         focusCurrentWorkoutInTable()
         setLabels()
+        self.workoutListTableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -66,11 +63,12 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         scrollTableToIndex(indexPath)
-        
-        nextLiftButton.isEnabled = true
         runner?.changeWorkoutPosition(to: indexPath.row)
-        
+        nextLiftButton.isEnabled = true
+        nextLiftButton.isHidden = false
         setLabels()
+
+        self.workoutListTableView.reloadData()
         
     }
     
@@ -86,19 +84,22 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         
         cell.workoutNameLabel.text = routine.workout[indexPath.row].name
         cell.workoutNameLabel.textColor = UIColor.white
-        cell.backgroundColor = UIColor(red: 1, green: 126/255, blue: 121/255, alpha: 1)
+        
+        if runner?.position.workoutIndex == indexPath.row {
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor
+
+        }
+        else{
+            cell.backgroundColor = Theme.cellAlternateBackgroundColor
+        }
         
         return cell
     }
     
     private func setLabels(){
         workoutNameLabel.text = runner?.currentLift?.name ?? ""
-//        weightLabel.text = "Weight: \(String(describing:runner?.currentLift?.weight.value ?? 0 )) lbs"
-//        repsLabel.text = "Reps: \(String(describing:runner?.currentLift?.reps.value ?? 0 ))"
+        setPositionLabel.text = "Set: \((runner?.position.liftIndex ?? 0) + 1 )/\(String(describing: runner?.currentWorkout?.lifts.count ?? 0 ))"
         repsAndWeightLabel.text = " \(String(describing:runner?.currentLift?.reps.value ?? 0 )) X \(String(describing:Int(runner?.currentLift?.weight.value ?? 0 )))"
-//        workoutNameLabel.textColor = Theme.headerTextColor
-//        weightLabel.textColor = Theme.textColor
-//        repsLabel.textColor = Theme.textColor
     
     }
     
