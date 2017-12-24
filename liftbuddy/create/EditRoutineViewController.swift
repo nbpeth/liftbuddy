@@ -57,6 +57,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if(editingStyle == .delete){
             guard let routineToDeleteFrom = routine else { return }
             

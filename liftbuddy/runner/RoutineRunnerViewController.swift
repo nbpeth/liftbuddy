@@ -51,6 +51,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.dataSource = self
         
         setLabels()
+        configueViews()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,6 +102,16 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         setPositionLabel.text = "Set: \((runner?.position.liftIndex ?? 0) + 1 )/\(String(describing: runner?.currentWorkout?.lifts.count ?? 0 ))"
         repsAndWeightLabel.text = " \(String(describing:runner?.currentLift?.reps.value ?? 0 )) X \(String(describing:Int(runner?.currentLift?.weight.value ?? 0 )))"
     
+    }
+    
+    private func configueViews(){
+        self.workoutListTableView.layer.shadowColor = UIColor.black.cgColor
+        self.workoutListTableView.layer.shadowOpacity = 1
+        self.workoutListTableView.layer.shadowRadius = 10
+        self.workoutListTableView.layer.shadowOffset = CGSize.zero
+        self.workoutListTableView.layer.shadowPath = UIBezierPath(rect: self.workoutListTableView.bounds).cgPath
+
+
     }
     
     private func focusCurrentWorkoutInTable(){
