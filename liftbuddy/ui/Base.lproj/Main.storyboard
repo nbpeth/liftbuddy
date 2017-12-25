@@ -291,14 +291,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5Z-ex-RMp">
+                                <rect key="frame" x="0.0" y="278" width="375" height="345"/>
+                                <connections>
+                                    <segue destination="d2K-7l-YB3" kind="embed" identifier="configureVictorySummaryTableSegue" id="727-9u-rv0"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IKy-Pa-Krb" firstAttribute="top" secondItem="xyK-gI-Ql7" secondAttribute="top" id="0ir-nt-35x"/>
+                            <constraint firstItem="q5Z-ex-RMp" firstAttribute="top" secondItem="ax1-X1-tGK" secondAttribute="bottom" constant="37" id="1eP-wq-Wxi"/>
                             <constraint firstItem="Wts-kR-f0J" firstAttribute="top" secondItem="IKy-Pa-Krb" secondAttribute="bottom" constant="10" id="1qg-pr-WCV"/>
                             <constraint firstItem="IKy-Pa-Krb" firstAttribute="trailing" secondItem="xyK-gI-Ql7" secondAttribute="trailing" id="5VN-1G-Gwv"/>
                             <constraint firstItem="6Zm-72-Z32" firstAttribute="top" secondItem="Wts-kR-f0J" secondAttribute="bottom" constant="25" id="A1f-K2-FMs"/>
                             <constraint firstItem="IKy-Pa-Krb" firstAttribute="leading" secondItem="xyK-gI-Ql7" secondAttribute="leading" id="FoN-yZ-wuz"/>
+                            <constraint firstItem="q5Z-ex-RMp" firstAttribute="leading" secondItem="xyK-gI-Ql7" secondAttribute="leading" id="LFK-3z-aia"/>
+                            <constraint firstItem="q5Z-ex-RMp" firstAttribute="bottom" secondItem="xyK-gI-Ql7" secondAttribute="bottom" id="Oh4-NE-KKr"/>
                             <constraint firstItem="Jsl-xl-pZ7" firstAttribute="leading" secondItem="xyK-gI-Ql7" secondAttribute="leading" constant="16" id="X7Q-mH-4lr"/>
                             <constraint firstItem="xyK-gI-Ql7" firstAttribute="trailing" secondItem="ax1-X1-tGK" secondAttribute="trailing" constant="16" id="bdN-um-SF1"/>
                             <constraint firstItem="Jsl-xl-pZ7" firstAttribute="top" secondItem="6Zm-72-Z32" secondAttribute="bottom" constant="35" id="cYg-1w-6qJ"/>
@@ -306,6 +315,7 @@
                             <constraint firstItem="Wts-kR-f0J" firstAttribute="centerX" secondItem="xyK-gI-Ql7" secondAttribute="centerX" id="eYs-wi-YXM"/>
                             <constraint firstItem="xyK-gI-Ql7" firstAttribute="trailing" secondItem="Jsl-xl-pZ7" secondAttribute="trailing" constant="16" id="fW5-Ud-DfQ"/>
                             <constraint firstItem="6Zm-72-Z32" firstAttribute="centerX" secondItem="xyK-gI-Ql7" secondAttribute="centerX" id="vz9-bL-zCN"/>
+                            <constraint firstItem="q5Z-ex-RMp" firstAttribute="trailing" secondItem="xyK-gI-Ql7" secondAttribute="trailing" id="wdj-bc-ivg"/>
                             <constraint firstItem="ax1-X1-tGK" firstAttribute="top" secondItem="Jsl-xl-pZ7" secondAttribute="bottom" constant="20" id="zKw-7i-FfG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xyK-gI-Ql7"/>
@@ -313,6 +323,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="embededRoutineSummaryTableViewController" destination="q5Z-ex-RMp" id="q7d-FZ-aqi"/>
                         <outlet property="timeLabel" destination="Jsl-xl-pZ7" id="ifz-RD-JmF"/>
                         <outlet property="totalWeightLabel" destination="ax1-X1-tGK" id="hmN-cp-wk7"/>
                     </connections>
@@ -512,7 +523,7 @@
             <objects>
                 <tableViewController id="d2K-7l-YB3" customClass="RoutineSummaryTableViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0hm-02-Scw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1198,5 +1209,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OMB-SX-ftH"/>
+        <segue reference="727-9u-rv0"/>
     </inferredMetricsTieBreakers>
 </document>

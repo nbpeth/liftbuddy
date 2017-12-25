@@ -4,6 +4,7 @@ import UIKit
 class CompletedRoutineViewController: BaseViewController {
     var routineInProgress:RoutineInProgress?
 
+    @IBOutlet weak var embededRoutineSummaryTableViewController: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     
@@ -26,6 +27,20 @@ class CompletedRoutineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabels()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "configureVictorySummaryTableSegue" {
+            guard let routine = routineInProgress,
+                let embededTable = segue.destination as? RoutineSummaryTableViewController
+                else {
+                    embededRoutineSummaryTableViewController.isHidden = true
+                    return
+            }
+            
+            embededTable.completedRoutine = routine
+            embededTable.tableView.reloadData()
+        }
     }
     
     private func setLabels(){

@@ -19,7 +19,7 @@ class RoutineSummaryTableViewController: UITableViewController {
         cell.setNumberLabel.text = "\(String(describing:liftRelativeToWorkout + 1)). "
         
         if indexPath.section % 2 == 0 {
-            cell.backgroundColor = Theme.cellAlternateBackgroundColor
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.3)
         }
         
         return cell
