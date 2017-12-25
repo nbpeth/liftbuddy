@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
 		0558FC971FF1711700797D6D /* RoutineSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558FC961FF1711700797D6D /* RoutineSummaryTableViewController.swift */; };
+		0558FC991FF189D900797D6D /* RoutineSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558FC981FF189D900797D6D /* RoutineSummaryTableViewCell.swift */; };
 		0560B3631FEECA2E00717B07 /* ExerciseDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0560B3621FEECA2E00717B07 /* ExerciseDefinition.swift */; };
 		0560B3671FEF1FBA00717B07 /* liftGroupLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0560B3661FEF1FBA00717B07 /* liftGroupLabelCell.swift */; };
 		056F63B01FE1FA11002B3939 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056F63AF1FE1FA11002B3939 /* Theme.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
 		0558FC961FF1711700797D6D /* RoutineSummaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSummaryTableViewController.swift; sourceTree = "<group>"; };
+		0558FC981FF189D900797D6D /* RoutineSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0560B3621FEECA2E00717B07 /* ExerciseDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDefinition.swift; sourceTree = "<group>"; };
 		0560B3661FEF1FBA00717B07 /* liftGroupLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liftGroupLabelCell.swift; sourceTree = "<group>"; };
 		056F63AF1FE1FA11002B3939 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				05F184E41FDE095D00B03CDF /* HistoryTableViewCell.swift */,
+				0558FC981FF189D900797D6D /* RoutineSummaryTableViewCell.swift */,
 			);
 			path = "table cells";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				2CB382671FCA2A73006E62A8 /* RoutineRunnerViewController.swift in Sources */,
 				0560B3631FEECA2E00717B07 /* ExerciseDefinition.swift in Sources */,
 				05F184E31FDE090E00B03CDF /* HistoryTableViewController.swift in Sources */,
+				0558FC991FF189D900797D6D /* RoutineSummaryTableViewCell.swift in Sources */,
 				2CD168771FC205E6002A55E3 /* RealmManager.swift in Sources */,
 				0581853A1FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift in Sources */,
 				2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */,
