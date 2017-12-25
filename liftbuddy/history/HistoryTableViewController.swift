@@ -27,8 +27,8 @@ class HistoryTableViewController: BaseTableViewController {
 
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = Theme.cellAlternateBackgroundColor.withAlphaComponent(0.3)
-            
         }
+        
         
         return cell
     }

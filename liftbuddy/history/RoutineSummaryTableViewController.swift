@@ -19,10 +19,19 @@ class RoutineSummaryTableViewController: UITableViewController {
         cell.setNumberLabel.text = "\(String(describing:liftRelativeToWorkout + 1)). "
         
         if indexPath.section % 2 == 0 {
-            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.3)
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.1)
+        }
+        else{
+            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let completedRoutine = completedRoutine else { return "" }
+
+        return completedRoutine.workout[section].name
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

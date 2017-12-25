@@ -11,6 +11,8 @@ class Theme {
     static let cellAlternateBackgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
     
     static let cellSelectedBackgroundColor = UIColor(red: 0/255, green: 250/255, blue: 147/255, alpha: 1)
+    static let alternateCellSelectedBackgroundColor = UIColor(red: 0/255, green: 147/255, blue: 255/255, alpha: 1)
+
 
 
     
