@@ -14,6 +14,7 @@ class RoutineInProgress: Object {
         self.startDate = Date()
         self.endDate = Date()
         self.name = routine.name
+        self.id = routine.id
         
         for workoutToCopy in routine.workout {
             let copiedWorkout = WorkoutInProgress()
@@ -33,23 +34,23 @@ class RoutineInProgress: Object {
         }
     }
     
-    convenience init(name:String, workout:List<WorkoutInProgress>, id:Int){
-        self.init()
-        self.id = id
-        self.name = name
-        self.workout = workout
-    }
-    
-    convenience init(name:String){
-        self.init()
-        self.id = getNextId()
-        self.name = name
-    }
-    
-    func addWorkout(id:Int){
-        let routine = RoutineManager.getRoutineInProgressBy(id: id)
-        routine?.workout.append(WorkoutInProgress())
-    }
+//    convenience init(name:String, workout:List<WorkoutInProgress>, id:Int){
+//        self.init()
+//        self.id = id
+//        self.name = name
+//        self.workout = workout
+//    }
+//    
+//    convenience init(name:String){
+//        self.init()
+//        self.id = getNextId()
+//        self.name = name
+//    }
+//    
+//    func addWorkout(id:Int){
+//        let routine = RoutineManager.getRoutineInProgressBy(id: id)
+//        routine?.workout.append(WorkoutInProgress())
+//    }
     
     func removeWorkout(at index:Int){
         RealmManager.shared.realm.delete(workout[index])

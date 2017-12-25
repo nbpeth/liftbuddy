@@ -15,12 +15,20 @@ class RoutineManager {
         RealmManager.shared.realm.add(routine)
     }
     
-    static func getRoutineInProgressBy(id:Int) -> RoutineInProgress? {
-        return RealmManager.shared.realm.objects(RoutineInProgress.self).filter("id == \(String(describing: id))").first
-    }
+//    static func getRoutineInProgressBy(id:Int) -> RoutineInProgress? {
+//        return RealmManager.shared.realm.objects(RoutineInProgress.self).filter("id == \(String(describing: id))").first
+//    }
     
     static func getAllRoutinesInProgress() -> [RoutineInProgress] {
         return RealmManager.shared.realm.objects(RoutineInProgress.self).map { routine in return routine }
+    }
+    
+    static func getPreviousRoutineInProgressBy(id:Int) -> RoutineInProgress? {
+        let routinesById = RealmManager.shared.realm.objects(RoutineInProgress.self)
+            .filter("id == \(String(describing: id))")
+            .sorted(byKeyPath: "endDate")
+
+        return routinesById.count > 1 ? routinesById[1] : nil
     }
 }
 
