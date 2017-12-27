@@ -13,17 +13,17 @@ class RoutineSummaryTableViewController: UITableViewController {
             else { return RoutineSummaryTableViewCell() }
         let liftRelativeToWorkout = Int(ceil(Double(indexPath.row) / (Double(indexPath.section + 1))))
     
-        cell.workoutNameLabel.text = completedRoutine?.workout[indexPath.section].name
+//        cell.workoutNameLabel.text = completedRoutine?.workout[indexPath.section].name
         cell.weightLabel.text = "Weight: \(String(describing:completedRoutine?.workout[indexPath.section].lifts[liftRelativeToWorkout].weight.value ?? 0))"
         cell.repsLabel.text = "Reps: \(String(describing:completedRoutine?.workout[indexPath.section].lifts[liftRelativeToWorkout].reps.value ?? 0))"
         cell.setNumberLabel.text = "\(String(describing:liftRelativeToWorkout + 1)). "
         
-        if indexPath.section % 2 == 0 {
+//        if indexPath.section % 2 == 0 {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.1)
-        }
-        else{
-            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
-        }
+//        }
+//        else{
+//            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
+//        }
         
         return cell
     }

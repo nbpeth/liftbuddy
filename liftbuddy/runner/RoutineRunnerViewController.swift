@@ -5,9 +5,10 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIButton!
-    @IBOutlet weak var repsAndWeightLabel: UILabel!
     @IBOutlet weak var setPositionLabel: UILabel!
-
+    @IBOutlet weak var repsTextField: UITextField!
+    @IBOutlet weak var weightTextField: UITextField!
+    
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
     var restTime = 0
@@ -41,7 +42,21 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         setLabels()
         self.workoutListTableView.reloadData()
     }
-
+    
+    @IBAction func repsValueChanged(_ sender: Any) {
+        guard let newRepsText = repsTextField.text,
+            let newRepsValue = Int(newRepsText) else { return }
+        
+        runner?.currentLift?.reps.value = newRepsValue
+    }
+    
+    @IBAction func weightValueChanged(_ sender: Any) {
+        guard let newWeightText = weightTextField.text,
+            let newWeightValue = Double(newWeightText) else { return }
+        
+        runner?.currentLift?.weight.value = newWeightValue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let routine = routine else { return }
@@ -100,7 +115,10 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     private func setLabels(){
         workoutNameLabel.text = runner?.currentLift?.name ?? ""
         setPositionLabel.text = "Set: \((runner?.position.liftIndex ?? 0) + 1 )/\(String(describing: runner?.currentWorkout?.lifts.count ?? 0 ))"
-        repsAndWeightLabel.text = " \(String(describing:runner?.currentLift?.reps.value ?? 0 )) X \(String(describing:Int(runner?.currentLift?.weight.value ?? 0 )))"
+        
+        repsTextField.text = String(describing:runner?.currentLift?.reps.value ?? 0 )
+        weightTextField.text = String(describing:runner?.currentLift?.weight.value ?? 0 )
+        
     
     }
     
