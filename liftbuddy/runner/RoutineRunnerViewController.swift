@@ -102,6 +102,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         runner = RoutineRunner(routine: routine)
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
+        configureRestTimerLabelGestureRecognizer()
         
     }
     
@@ -125,5 +126,15 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     private func scrollTableToIndex(_ IndexPath:IndexPath){
         workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
+    }
+    
+    private func configureRestTimerLabelGestureRecognizer(){
+        let tap = UITapGestureRecognizer(target:self, action: #selector(RoutineRunnerViewController.tapRestTimer))
+        restTimerLabel.isUserInteractionEnabled = true
+        restTimerLabel.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapRestTimer(){
+        resetTimer()
     }
 }
