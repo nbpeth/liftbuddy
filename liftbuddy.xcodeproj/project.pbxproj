@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556418F1FD3049B00BA47A8 /* RestViewController.swift */; };
 		0558FC971FF1711700797D6D /* RoutineSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558FC961FF1711700797D6D /* RoutineSummaryTableViewController.swift */; };
 		0558FC991FF189D900797D6D /* RoutineSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558FC981FF189D900797D6D /* RoutineSummaryTableViewCell.swift */; };
 		0560B3631FEECA2E00717B07 /* ExerciseDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0560B3621FEECA2E00717B07 /* ExerciseDefinition.swift */; };
@@ -18,6 +17,7 @@
 		05B998621FDDA68000450705 /* liftbuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998611FDDA68000450705 /* liftbuddyTests.swift */; };
 		05B9986A1FDDA6A200450705 /* RoutineRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B998691FDDA6A200450705 /* RoutineRunnerTests.swift */; };
 		05BE8E241FD217630060D80A /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE8E231FD217630060D80A /* RestTimer.swift */; };
+		05C595EA1FF566AF00897961 /* HistoryContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C595E91FF566AF00897961 /* HistoryContainerViewController.swift */; };
 		05DC4EDC1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */; };
 		05E38C411FE34047007E064D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E38C401FE34047007E064D /* HomeViewController.swift */; };
 		05EFFFCA1FED7FE500572193 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EFFFC91FED7FE500572193 /* DateUtils.swift */; };
@@ -57,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0556418F1FD3049B00BA47A8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
 		0558FC961FF1711700797D6D /* RoutineSummaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSummaryTableViewController.swift; sourceTree = "<group>"; };
 		0558FC981FF189D900797D6D /* RoutineSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0560B3621FEECA2E00717B07 /* ExerciseDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDefinition.swift; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		05B9986E1FDDA8BA00450705 /* Pods_liftbuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_liftbuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B998701FDDA8BE00450705 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BE8E231FD217630060D80A /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestTimer.swift; path = "liftbuddy/runner/table cells/RestTimer.swift"; sourceTree = SOURCE_ROOT; };
+		05C595E91FF566AF00897961 /* HistoryContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContainerViewController.swift; sourceTree = "<group>"; };
 		05DC4EDB1FD0888C00504A10 /* WorkoutInRunnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInRunnerTableViewCell.swift; sourceTree = "<group>"; };
 		05E38C401FE34047007E064D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05EFFFC91FED7FE500572193 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = liftbuddy/DateUtils.swift; sourceTree = SOURCE_ROOT; };
@@ -184,6 +184,7 @@
 				05F184E21FDE090E00B03CDF /* HistoryTableViewController.swift */,
 				05EFFFCE1FED86E000572193 /* HistorySummaryViewController.swift */,
 				0558FC961FF1711700797D6D /* RoutineSummaryTableViewController.swift */,
+				05C595E91FF566AF00897961 /* HistoryContainerViewController.swift */,
 			);
 			path = history;
 			sourceTree = "<group>";
@@ -295,7 +296,6 @@
 				2CB382621FCA2580006E62A8 /* RoutineRunner.swift */,
 				2CB382641FCA2665006E62A8 /* RoutineInProgress.swift */,
 				2CB382661FCA2A73006E62A8 /* RoutineRunnerViewController.swift */,
-				0556418F1FD3049B00BA47A8 /* RestViewController.swift */,
 				058185391FDDCEAB00ECFEFF /* CompletedRoutineViewController.swift */,
 			);
 			path = runner;
@@ -587,11 +587,11 @@
 				05F184E51FDE095D00B03CDF /* HistoryTableViewCell.swift in Sources */,
 				05E38C411FE34047007E064D /* HomeViewController.swift in Sources */,
 				05EFFFCA1FED7FE500572193 /* DateUtils.swift in Sources */,
+				05C595EA1FF566AF00897961 /* HistoryContainerViewController.swift in Sources */,
 				2C3BA0BF1F78549500C90187 /* Routine.swift in Sources */,
 				05EFFFCF1FED86E000572193 /* HistorySummaryViewController.swift in Sources */,
 				2C53D8461FB7DA8100292961 /* WorkoutCell.swift in Sources */,
 				05BE8E241FD217630060D80A /* RestTimer.swift in Sources */,
-				055641901FD3049B00BA47A8 /* RestViewController.swift in Sources */,
 				0560B3671FEF1FBA00717B07 /* liftGroupLabelCell.swift in Sources */,
 				0558FC971FF1711700797D6D /* RoutineSummaryTableViewController.swift in Sources */,
 				2CB382631FCA2580006E62A8 /* RoutineRunner.swift in Sources */,

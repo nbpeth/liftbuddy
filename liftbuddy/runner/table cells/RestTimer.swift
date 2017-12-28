@@ -19,7 +19,6 @@ class RestTimer {
         
         if restTime > 0 {
             restTime -= 1
-            updateProgressView()
         }
         else{
             timer.invalidate()
@@ -28,12 +27,6 @@ class RestTimer {
         }
     }
     
-    func updateProgressView(){
-        guard let delegate = delegate as? RestViewController else { return }
-        
-        
-        delegate.progressView.setProgress(Float(restTime) / Float(initialRest), animated: true)
-    }
     
     func fireRestTimer(){
         guard let delegate = delegate as? RoutineRunnerViewController else { return }

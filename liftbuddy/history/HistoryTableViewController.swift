@@ -7,11 +7,11 @@ class HistoryTableViewController: BaseTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        completedRoutines = RoutineManager.getAllHistoryRoutines()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.tableView.reloadData()
+        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
