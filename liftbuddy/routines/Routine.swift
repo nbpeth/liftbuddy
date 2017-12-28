@@ -3,6 +3,15 @@ import Foundation
 
 class RoutineManager {
     
+    static func updateLastCompletedOnDateForRoutineWith(id: Int){
+        guard let routineToUpdate = RealmManager.shared.realm.objects(Routine.self)
+            .filter("id == \(String(describing: id))")
+            .first
+            else { return }
+        
+        routineToUpdate.lastCompletedDate = Date()
+    }
+    
     static func getAllRoutines() -> [Routine] {
         return RealmManager.shared.realm.objects(Routine.self).map { routine in return routine }
     }
@@ -56,6 +65,8 @@ class Routine: Object {
     @objc dynamic var name = ""
     @objc dynamic var id = 0
     var workout = List<Workout>()
+    
+    @objc dynamic var lastCompletedDate:Date?
     
     convenience init(name:String, workout:List<Workout>, id:Int){
         self.init()

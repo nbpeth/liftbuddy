@@ -29,7 +29,15 @@ class RoutineListTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineCell", for: indexPath) as? RoutineTableViewCell else { return UITableViewCell() }
 
-        cell.routineNameLabel.text = routines[indexPath.row].name
+        let routine = routines[indexPath.row]
+        if let lastCompletedDate = routine.lastCompletedDate {
+            cell.lastCompletedLabel.text = DateUtils.formatMMDDYYYY(date: lastCompletedDate )
+        }
+        else{
+            cell.lastCompletedLabel.text = ""
+        }
+        
+        cell.routineNameLabel.text = routine.name
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)

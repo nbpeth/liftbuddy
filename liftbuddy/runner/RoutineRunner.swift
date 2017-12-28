@@ -71,9 +71,12 @@ class RoutineRunner {
     
     func isOnLastLiftOfLastWorkout() -> Bool {
         guard let routine = routine else { return true }
-        let lastWorkout = routine.workout[routine.workout.count - 1]
+        
+        let lastWorkoutPosition = routine.workout.count > 0 ? routine.workout.count - 1 : 0
+        let lastWorkout = routine.workout[lastWorkoutPosition]
+        let lastLiftPosition = lastWorkout.lifts.count > 0 ? lastWorkout.lifts.count - 1 : 0
     
-        return (position.workoutIndex >= routine.workout.count - 1) && (position.liftIndex >= lastWorkout.lifts.count - 1)
+        return (position.workoutIndex >= routine.workout.count - 1) && (position.liftIndex >= lastLiftPosition)
     }
     
     func skipRest() -> Bool {
@@ -96,11 +99,6 @@ class RoutineRunner {
 class Position {
     var liftIndex = 0
     var workoutIndex = 0
-    
-//    func hop(to index:Int){
-//        workoutIndex = index
-//        liftIndex = 0
-//    }
     
     func hop(to workoutIndex:Int, liftIndex:Int){
         self.workoutIndex = workoutIndex

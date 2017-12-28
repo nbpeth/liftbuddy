@@ -15,6 +15,7 @@ class CompletedRoutineViewController: BaseViewController {
         RealmManager.shared.beginWrite()
         
         RealmManager.shared.realm.add(routineToSave)
+        RoutineManager.updateLastCompletedOnDateForRoutineWith(id: routineToSave.id)
         RealmManager.shared.saveChanges()
         
         completeRoutineSegue()
