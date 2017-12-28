@@ -14,6 +14,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         guard let runner = runner
             else { return }
         
+        resetTimer()
+        
         if runner.isOnLastLiftOfLastWorkout() {
             nextLiftButton.isEnabled = false
         }
@@ -101,8 +103,6 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
         
-        setLabels()
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,16 +113,12 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    private func setLabels(){
-        
-    }
-    
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
         if(!runner.isOnLastLiftOfLastWorkout() ) {
             nextLiftButton.isEnabled = true
-            resetTimer()
+//            resetTimer()
             let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
             scrollTableToIndex(indexPath)
         }
