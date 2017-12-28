@@ -26,7 +26,6 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setButtonEnabledStatus()
         setDelegates()
         
     }
@@ -38,6 +37,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         workoutNameTextField.text = workout?.name ?? ""
         setsLabel.text = String(describing:setsCount)
         
+        setButtonEnabledStatus()
         getGroups()
     }
 

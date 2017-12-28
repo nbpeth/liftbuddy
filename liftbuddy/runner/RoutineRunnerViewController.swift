@@ -118,7 +118,6 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         
         if(!runner.isOnLastLiftOfLastWorkout() ) {
             nextLiftButton.isEnabled = true
-//            resetTimer()
             let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
             scrollTableToIndex(indexPath)
         }
@@ -128,11 +127,3 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
     }
 }
-
-//    private func configueViews(){
-//        self.workoutListTableView.layer.shadowColor = UIColor.black.cgColor
-//        self.workoutListTableView.layer.shadowOpacity = 1
-//        self.workoutListTableView.layer.shadowRadius = 10
-//        self.workoutListTableView.layer.shadowOffset = CGSize.zero
-//        self.workoutListTableView.layer.shadowPath = UIBezierPath(rect: self.workoutListTableView.bounds).cgPath
-//    }
