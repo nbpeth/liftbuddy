@@ -21,17 +21,20 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             
         else {
             runner.nextLiftSet()
-            fireRestTimer()
             focusCurrentWorkoutInTable()
+            fireRestTimer()
         }
         
         self.workoutListTableView.reloadData()
     }
     
-    private func fireRestTimer(){
+    private func resetTimer(){
         timer?.stop()
+        restTimerLabel.text = "∞"
+    }
+    
+    private func fireRestTimer(){
         guard let runner = runner, let workout = runner.currentWorkout, let rest = workout.rest.value else {
-            restTimerLabel.text = "∞"
             return
         }
         
@@ -117,7 +120,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         
         if(!runner.isOnLastLiftOfLastWorkout() ) {
             nextLiftButton.isEnabled = true
-
+            resetTimer()
             let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
             scrollTableToIndex(indexPath)
         }
