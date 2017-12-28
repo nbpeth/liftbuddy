@@ -15,11 +15,23 @@ class RoutineManager {
         RealmManager.shared.realm.add(routine)
     }
     
-//    static func getRoutineInProgressBy(id:Int) -> RoutineInProgress? {
-//        return RealmManager.shared.realm.objects(RoutineInProgress.self).filter("id == \(String(describing: id))").first
-//    }
+    static func deleteHistoryRoutine(_ routineToDelete:RoutineInProgress) {
+        RealmManager.shared.beginWrite()
+        
+        RealmManager.shared.realm.delete(routineToDelete)
+        
+        RealmManager.shared.saveChanges()
+    }
     
-    static func getAllRoutinesInProgress() -> [RoutineInProgress] {
+    static func deleteHistoryRoutines(_ historyRoutines:[RoutineInProgress]) {
+        RealmManager.shared.beginWrite()
+        
+        RealmManager.shared.realm.delete(historyRoutines)
+        
+        RealmManager.shared.saveChanges()
+    }
+    
+    static func getAllHistoryRoutines() -> [RoutineInProgress] {
         return RealmManager.shared.realm.objects(RoutineInProgress.self).map { routine in return routine }
     }
     

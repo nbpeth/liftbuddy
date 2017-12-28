@@ -7,8 +7,26 @@ class HistoryTableViewController: BaseTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        completedRoutines = RoutineManager.getAllRoutinesInProgress()
+        completedRoutines = RoutineManager.getAllHistoryRoutines()
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            let routinesToDelete = [indexPath].map { completedRoutines[$0.row]}
+            [indexPath].forEach { completedRoutines.remove(at: $0.row) }
+            
+            RoutineManager.deleteHistoryRoutines(routinesToDelete)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

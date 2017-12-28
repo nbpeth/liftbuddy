@@ -862,17 +862,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sets:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-Ep-CuG">
-                                <rect key="frame" x="160" y="213" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a lift name above or select from below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-Ep-CuG">
+                                <rect key="frame" x="37" y="123" width="300" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="kyn-bU-7MN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="qeR-eL-AKu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="15h-rO-WYY">
-                                <rect key="frame" x="37" y="101" width="300" height="30"/>
+                                <rect key="frame" x="37" y="30" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ONh-mT-eb4"/>
                                 </constraints>
@@ -883,18 +883,8 @@
                                     <action selector="workoutNameEditingChanged:" destination="N9n-2n-xXQ" eventType="editingChanged" id="gn6-w6-p6Y"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-d4-s2P">
-                                <rect key="frame" x="157" y="156" width="61" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <state key="normal" title="Edit Sets"/>
-                                <connections>
-                                    <segue destination="Fv0-sa-s2u" kind="show" identifier="addSetsToWorkoutSegue" id="zim-Nz-HH9"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34U-9r-0bm">
-                                <rect key="frame" x="0.0" y="269" width="125" height="398"/>
+                                <rect key="frame" x="0.0" y="166" width="125" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="FYb-u3-Pe9"/>
@@ -923,7 +913,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-yX-4EA">
-                                <rect key="frame" x="123" y="269" width="252" height="398"/>
+                                <rect key="frame" x="123" y="166" width="252" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="muscleGroupCell" id="D4j-CT-Luw" customClass="MuslcleGroupTableCell" customModule="liftbuddy" customModuleProvider="target">
@@ -948,20 +938,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-d4-s2P">
+                                <rect key="frame" x="157" y="78" width="61" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal" title="Edit Sets"/>
+                                <connections>
+                                    <segue destination="Fv0-sa-s2u" kind="show" identifier="addSetsToWorkoutSegue" id="zim-Nz-HH9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="35" id="1VU-Xe-jcP"/>
+                            <constraint firstItem="fNz-yX-4EA" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="28.5" id="1VU-Xe-jcP"/>
                             <constraint firstItem="y3h-Ep-CuG" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="CLC-hf-tBz"/>
                             <constraint firstItem="CWO-d4-s2P" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="F36-uP-QUR"/>
-                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="CWO-d4-s2P" secondAttribute="bottom" constant="27" id="Fsi-EW-EnE"/>
-                            <constraint firstItem="CWO-d4-s2P" firstAttribute="top" secondItem="15h-rO-WYY" secondAttribute="bottom" constant="25" id="N9l-8c-Hwe"/>
+                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="CWO-d4-s2P" secondAttribute="bottom" constant="15" id="Fsi-EW-EnE"/>
+                            <constraint firstItem="CWO-d4-s2P" firstAttribute="top" secondItem="15h-rO-WYY" secondAttribute="bottom" constant="18" id="N9l-8c-Hwe"/>
                             <constraint firstItem="34U-9r-0bm" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="Qzo-BG-yWc"/>
-                            <constraint firstItem="15h-rO-WYY" firstAttribute="top" secondItem="zwC-Kz-NuC" secondAttribute="top" constant="81" id="Y0b-4Q-8Od"/>
+                            <constraint firstItem="15h-rO-WYY" firstAttribute="top" secondItem="zwC-Kz-NuC" secondAttribute="top" constant="10" id="Y0b-4Q-8Od"/>
                             <constraint firstItem="34U-9r-0bm" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" id="ebQ-M7-x2M"/>
                             <constraint firstItem="fNz-yX-4EA" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="ei7-Wj-Yhm"/>
                             <constraint firstItem="fNz-yX-4EA" firstAttribute="leading" secondItem="34U-9r-0bm" secondAttribute="trailing" constant="-2" id="hWx-Fz-N9p"/>
-                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="35" id="t0J-Q2-kiw"/>
+                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="28.5" id="t0J-Q2-kiw"/>
                             <constraint firstItem="15h-rO-WYY" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="vWw-Nn-2LG"/>
                             <constraint firstItem="fNz-yX-4EA" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="yNw-GT-6rt"/>
                         </constraints>
@@ -971,7 +971,6 @@
                         <outlet property="editSetsButton" destination="CWO-d4-s2P" id="Y5r-w4-SHC"/>
                         <outlet property="exerciseNameTableView" destination="fNz-yX-4EA" id="Yhd-jc-YVP"/>
                         <outlet property="muscleGroupTableView" destination="34U-9r-0bm" id="RvT-o0-Bi6"/>
-                        <outlet property="setsLabel" destination="y3h-Ep-CuG" id="FV6-ef-QM9"/>
                         <outlet property="workoutNameTextField" destination="15h-rO-WYY" id="Q2z-ty-d5z"/>
                     </connections>
                 </viewController>

@@ -5,7 +5,7 @@ import RealmSwift
 class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var workoutNameTextField: UITextField!
-    @IBOutlet weak var setsLabel: UILabel!
+//    @IBOutlet weak var setsLabel: UILabel!
     @IBOutlet weak var editSetsButton: UIButton!
     @IBOutlet weak var exerciseNameTableView: UITableView!
     @IBOutlet weak var muscleGroupTableView: UITableView!
@@ -35,7 +35,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         guard let setsCount = workout?.lifts.count else { return }
         
         workoutNameTextField.text = workout?.name ?? ""
-        setsLabel.text = String(describing:setsCount)
+//        setsLabel.text = String(describing:setsCount)
         
         setButtonEnabledStatus()
         getGroups()

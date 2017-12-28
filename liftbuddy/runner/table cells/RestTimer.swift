@@ -40,6 +40,7 @@ class RestTimer {
         
         restTime = 0
         restTime = delegate.restTime
+
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
         timer?.fire()
     }
