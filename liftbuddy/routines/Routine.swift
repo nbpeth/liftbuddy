@@ -23,6 +23,11 @@ class RoutineManager {
         RealmManager.shared.saveChanges()
     }
     
+    static func searchHistoryFor(_ searchText: String) -> [RoutineInProgress] {
+        return RealmManager.shared.realm.objects(RoutineInProgress.self)
+            .filter { $0.name.lowercased().contains(searchText.lowercased()) }
+    }
+    
     static func getAllHistoryRoutines() -> [RoutineInProgress] {
         return RealmManager.shared.realm.objects(RoutineInProgress.self)
             .sorted(byKeyPath: "endDate")

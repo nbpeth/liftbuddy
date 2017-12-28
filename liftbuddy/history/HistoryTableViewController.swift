@@ -2,21 +2,19 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class HistoryTableViewController: BaseTableViewController {
+class HistoryTableViewController: BaseTableViewController, UISearchBarDelegate {
+    @IBOutlet weak var searchBar: UISearchBar!
     var completedRoutines = [RoutineInProgress]()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         self.tableView.reloadData()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = Theme.inactiveCellColor
+        setTheme()
+        searchBar.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -55,7 +53,6 @@ class HistoryTableViewController: BaseTableViewController {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
         }
         
-        
         return cell
     }
     
@@ -64,6 +61,21 @@ class HistoryTableViewController: BaseTableViewController {
             else { return }
         destination.routine = completedRoutines[indexPath.row]
         self.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            completedRoutines = RoutineManager.getAllHistoryRoutines()
+        }
+        else {
+            completedRoutines = RoutineManager.searchHistoryFor(searchText)
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    private func setTheme(){
+        self.tableView.backgroundColor = Theme.inactiveCellColor
     }
     
 }
