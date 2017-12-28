@@ -3,7 +3,6 @@ import Foundation
 
 class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var workoutListTableView: UITableView!
-    @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var nextLiftButton: UIBarButtonItem!
     @IBOutlet weak var restTimerLabel: UILabel!
     var timer:RestTimer!
@@ -77,7 +76,10 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             let routine = routine
         else { return WorkoutInRunnerTableViewCell() }
         
-        cell.workoutNameLabel.text = routine.workout[indexPath.section].name
+        cell.repsTextField.text = String(describing: routine.workout[indexPath.section].lifts[indexPath.row].reps.value ?? 0)
+        cell.weightTextField.text = String(describing: routine.workout[indexPath.section].lifts[indexPath.row].weight.value ?? 0.0)
+        cell.lift = runner?.currentLift
+
         
         if runner?.position.workoutIndex == indexPath.section && runner?.position.liftIndex == indexPath.row {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor
