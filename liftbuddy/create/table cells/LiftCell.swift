@@ -51,6 +51,23 @@ extension LiftCell: UIPickerViewDataSource, UIPickerViewDelegate {
             thisLift.weight.value = weightArray[row]
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var title = ""
+        if pickerView.tag == 0 {
+            title = String(describing:repsArray[row])
+        }
+        else {
+            title =  String(describing:weightArray[row])
+        }
+        
+        let pickerLabel = UILabel()
+        let titleData = title
+        let font = UIFont.boldSystemFont(ofSize: 20.0)
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:Theme.yellow])
+        pickerLabel.attributedText = myTitle
+        return pickerLabel
+    }
 }
 
 class LiftCell: UITableViewCell {

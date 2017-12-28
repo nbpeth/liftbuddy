@@ -29,6 +29,17 @@ extension WorkoutCell: UIPickerViewDataSource, UIPickerViewDelegate {
         workoutToEdit.rest.value = restArray[row]
         
     }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var title = String(describing:restArray[row])
+        
+        let pickerLabel = UILabel()
+        let titleData = title
+        let font = UIFont.boldSystemFont(ofSize: 20.0)
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:Theme.yellow])
+        pickerLabel.attributedText = myTitle
+        return pickerLabel
+    }
 }
 
 class WorkoutCell: UITableViewCell {

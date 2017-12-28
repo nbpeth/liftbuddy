@@ -14,6 +14,11 @@ class HistoryTableViewController: BaseTableViewController {
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.backgroundColor = Theme.inactiveCellColor
+    }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -44,7 +49,10 @@ class HistoryTableViewController: BaseTableViewController {
         cell.elapsedTimeLabel.text = completedRoutines[indexPath.row].activityTimeFormatted()
 
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = Theme.cellAlternateBackgroundColor.withAlphaComponent(0.3)
+            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor
+        }
+        else {
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
         }
         
         

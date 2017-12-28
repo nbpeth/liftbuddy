@@ -4,6 +4,7 @@ import UIKit
 class CompletedRoutineViewController: BaseViewController {
     var routineInProgress:RoutineInProgress?
 
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var embededRoutineSummaryTableViewController: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
@@ -27,6 +28,8 @@ class CompletedRoutineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabels()
+        
+        toolbar.barTintColor = Theme.tabBarColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,8 +47,8 @@ class CompletedRoutineViewController: BaseViewController {
     }
     
     private func setLabels(){
-        timeLabel.text = "Time: \(calculateTime())"
-        totalWeightLabel.text = "Total Weight: \(calculateWeight()) lbs."
+        timeLabel.text = "\(calculateTime())"
+        totalWeightLabel.text = "\(calculateWeight()) lbs."
     }
     
     private func calculateWeight() -> String {

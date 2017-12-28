@@ -4,11 +4,14 @@ import RealmSwift
 
 class RoutineDetailViewController: BaseViewController {
     @IBOutlet weak var routineNameLabel: UILabel!
+    @IBOutlet weak var toolbar: UIToolbar!
+
     var routineId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.toolbar.barTintColor = Theme.tabBarColor
+        //move this out to realmmanager
         let realm = try! Realm()
         
         guard let id = routineId,
@@ -16,7 +19,6 @@ class RoutineDetailViewController: BaseViewController {
         else { return }
         
         routineNameLabel.text = routine.name
-//        routineNameLabel.textColor = Theme.headerTextColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

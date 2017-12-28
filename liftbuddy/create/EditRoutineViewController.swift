@@ -10,6 +10,8 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var routineTableView: UITableView!
     @IBOutlet weak var routineNameLabel: UILabel!
     @IBOutlet weak var workoutNameLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {
         RealmManager.shared.saveChanges()
@@ -34,6 +36,9 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         routineTableView.delegate = self
         routineTableView.dataSource = self
         
+        self.routineTableView.backgroundColor = Theme.inactiveCellColor
+        self.headerView.backgroundColor = Theme.backgroundColor
+        self.toolbar.barTintColor = Theme.tabBarColor
         RealmManager.shared.beginWrite()
         
         setRoutine()
@@ -83,9 +88,14 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         cell.workout = workout
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
         cell.workoutNameLabel.text = workout.name
-//        cell.backgroundColor = Theme.backgroundColor
-//        cell.numberOfSetsLabel.textColor = Theme.textColor
-//        cell.workoutNameLabel.textColor = Theme.headerTextColor
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        }
+        else {
+            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.8)
+            
+        }
         
         guard let rest = workout.rest.value else { return cell }
         

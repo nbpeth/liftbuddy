@@ -5,6 +5,9 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var nextLiftButton: UIBarButtonItem!
     @IBOutlet weak var restTimerLabel: UILabel!
+    @IBOutlet weak var hudView: UIView!
+    @IBOutlet weak var toolbar: UIToolbar!
+
     var timer:RestTimer!
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
@@ -86,11 +89,11 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.lift = liftForRow
 
         if runner.position.workoutIndex == indexPath.section && runner.position.liftIndex == indexPath.row {
-            cell.backgroundColor = Theme.cellSelectedBackgroundColor
+            cell.backgroundColor = Theme.activeCellColor
             
         }
         else{
-            cell.backgroundColor = Theme.cellAlternateBackgroundColor
+            cell.backgroundColor = Theme.inactiveCellColor
         }
         
         return cell
@@ -105,7 +108,14 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
         configureRestTimerLabelGestureRecognizer()
-        
+        setupTheme()
+    }
+    
+    private func setupTheme(){
+        hudView.backgroundColor = Theme.foregroundColor
+        workoutListTableView.backgroundColor = Theme.backgroundColor
+        restTimerLabel.textColor = Theme.brightTextColor
+        toolbar.barTintColor = Theme.tabBarColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

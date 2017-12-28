@@ -5,6 +5,7 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     var workout:Workout?
     @IBOutlet weak var liftsInWorkoutTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
     
     @IBAction func addLiftButtonWasPressed(_ sender: Any) {
         guard let workoutToEdit = workout else { return }
@@ -44,7 +45,14 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         
         cell.lift = liftToEdit        
         cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: false)
-//        cell.backgroundColor = Theme.cellBackgroundColor
+
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        }
+        else {
+            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.8)
+            
+        }
         
         if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
             cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: true)
@@ -61,8 +69,9 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         
         workoutNameLabel.text = workout?.name ?? ""
         
-//        self.liftsInWorkoutTableView.backgroundColor = Theme.backgroundColor
-        
+        self.liftsInWorkoutTableView.backgroundColor = Theme.backgroundColor
+        self.headerView.backgroundColor = Theme.foregroundColor
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

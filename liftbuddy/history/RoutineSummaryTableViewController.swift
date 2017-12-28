@@ -9,21 +9,18 @@ class RoutineSummaryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineSummaryTableViewCell") as? RoutineSummaryTableViewCell
-            else { return RoutineSummaryTableViewCell() }
-        let liftRelativeToWorkout = Int(ceil(Double(indexPath.row) / (Double(indexPath.section + 1))))
-    
-//        cell.workoutNameLabel.text = completedRoutine?.workout[indexPath.section].name
-        cell.weightLabel.text = "Weight: \(String(describing:completedRoutine?.workout[indexPath.section].lifts[liftRelativeToWorkout].weight.value ?? 0))"
-        cell.repsLabel.text = "Reps: \(String(describing:completedRoutine?.workout[indexPath.section].lifts[liftRelativeToWorkout].reps.value ?? 0))"
-        cell.setNumberLabel.text = "\(String(describing:liftRelativeToWorkout + 1)). "
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineSummaryTableViewCell") as? RoutineSummaryTableViewCell,
+            let completedRoutine = completedRoutine
+        else { return RoutineSummaryTableViewCell() }
         
-//        if indexPath.section % 2 == 0 {
-            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.1)
-//        }
-//        else{
-//            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
-//        }
+        let liftForRow = completedRoutine.workout[indexPath.section].lifts[indexPath.row]
+
+        cell.repsLabel.text = "\(String(describing: liftForRow.reps.value ?? 0)) reps. "
+        cell.weightLabel.text = "\(String(describing: liftForRow.weight.value ?? 0.0)) lbs "
+        
+        cell.setNumberLabel.text = ""
+
+        cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
         
         return cell
     }

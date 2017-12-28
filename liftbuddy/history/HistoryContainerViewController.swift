@@ -1,6 +1,6 @@
 import UIKit
 
-class HistoryContainerViewController: UIViewController {
+class HistoryContainerViewController: BaseViewController {
     @IBOutlet weak var historyTableView: UIView!
     @IBOutlet weak var noHistoryLabel: UILabel!
     var completedRoutines = [RoutineInProgress]()

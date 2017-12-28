@@ -34,24 +34,6 @@ class RoutineInProgress: Object {
         }
     }
     
-//    convenience init(name:String, workout:List<WorkoutInProgress>, id:Int){
-//        self.init()
-//        self.id = id
-//        self.name = name
-//        self.workout = workout
-//    }
-//    
-//    convenience init(name:String){
-//        self.init()
-//        self.id = getNextId()
-//        self.name = name
-//    }
-//    
-//    func addWorkout(id:Int){
-//        let routine = RoutineManager.getRoutineInProgressBy(id: id)
-//        routine?.workout.append(WorkoutInProgress())
-//    }
-    
     func removeWorkout(at index:Int){
         RealmManager.shared.realm.delete(workout[index])
     }

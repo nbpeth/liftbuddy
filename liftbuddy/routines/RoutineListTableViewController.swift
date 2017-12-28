@@ -7,6 +7,7 @@ class RoutineListTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = Theme.backgroundColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +32,11 @@ class RoutineListTableViewController: BaseTableViewController {
         cell.routineNameLabel.text = routines[indexPath.row].name
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = Theme.cellAlternateBackgroundColor.withAlphaComponent(0.3)
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        }
+        else {
+            cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.8)
+
         }
 
         return cell
