@@ -75,15 +75,17 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "workoutInRunnerTableViewCell", for: indexPath) as? WorkoutInRunnerTableViewCell,
-            let routine = routine
+            let runner = runner,
+            let routine = runner.routine
         else { return WorkoutInRunnerTableViewCell() }
         
-        cell.repsTextField.text = String(describing: routine.workout[indexPath.section].lifts[indexPath.row].reps.value ?? 0)
-        cell.weightTextField.text = String(describing: routine.workout[indexPath.section].lifts[indexPath.row].weight.value ?? 0.0)
-        cell.lift = runner?.currentLift
-
+        let liftForRow = routine.workout[indexPath.section].lifts[indexPath.row]
         
-        if runner?.position.workoutIndex == indexPath.section && runner?.position.liftIndex == indexPath.row {
+        cell.repsTextField.text = String(describing: liftForRow.reps.value ?? 0)
+        cell.weightTextField.text = String(describing: liftForRow.weight.value ?? 0.0)
+        cell.lift = liftForRow
+
+        if runner.position.workoutIndex == indexPath.section && runner.position.liftIndex == indexPath.row {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor
             
         }
