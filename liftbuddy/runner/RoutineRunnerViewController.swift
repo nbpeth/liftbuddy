@@ -4,58 +4,89 @@ import Foundation
 class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
-    @IBOutlet weak var nextLiftButton: UIButton!
-    @IBOutlet weak var setPositionLabel: UILabel!
-    @IBOutlet weak var repsTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
-    
+    @IBOutlet weak var nextLiftButton: UIBarButtonItem!
+    @IBOutlet weak var restTimerLabel: UILabel!
+    var timer:RestTimer!
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
     var restTime = 0
     
-    @IBAction func nextLiftButton(_ sender: Any) {
-        guard let runner = runner,
-            let restViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestViewController") as? RestViewController
-        else { return }
+    @IBAction func nextLiftButtonWasPressed(_ sender: Any) {
+        guard let runner = runner
+            else { return }
         
-        runner.nextLiftSet()
-
         if runner.isOnLastLiftOfLastWorkout() {
             nextLiftButton.isEnabled = false
-            nextLiftButton.isHidden = true
         }
             
-        else if runner.skipRest() {
-            // uhhhhh
-        }
-        
         else {
-            restViewController.restTime = runner.restTimeForCurrentWorkout()
-            restViewController.modalPresentationStyle = .overCurrentContext
-            restViewController.nextLift = runner.currentLift
-            
-            present(restViewController, animated: true, completion: nil)
-            
+            runner.nextLiftSet()
+            fireRestTimer()
+            focusCurrentWorkoutInTable()
         }
         
-        focusCurrentWorkoutInTable()
-        setLabels()
         self.workoutListTableView.reloadData()
     }
     
-    @IBAction func repsValueChanged(_ sender: Any) {
-        guard let newRepsText = repsTextField.text,
-            let newRepsValue = Int(newRepsText) else { return }
+    private func fireRestTimer(){
+        timer?.stop()
+        guard let runner = runner, let workout = runner.currentWorkout, let rest = workout.rest.value else {
+            restTimerLabel.text = "∞"
+            return
+        }
         
-        runner?.currentLift?.reps.value = newRepsValue
+        restTime = rest
+        restTimerLabel.text = String(describing: restTime)
+        timer = RestTimer(delegate:self, rest: restTime )
+        
+        timer.fireRestTimer()
     }
     
-    @IBAction func weightValueChanged(_ sender: Any) {
-        guard let newWeightText = weightTextField.text,
-            let newWeightValue = Double(newWeightText) else { return }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let runner = self.runner else { return }
         
-        runner?.currentLift?.weight.value = newWeightValue
+        runner.changeWorkoutPosition(to: indexPath.section, liftIndex: indexPath.row)
+        
+        focusCurrentWorkoutInTable()
+        self.workoutListTableView.reloadData()
     }
+   
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let routine = self.routine else { return 0 }
+        
+        return routine.workout[section].lifts.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let routine = self.routine else { return "" }
+        return routine.workout[section].name
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let routine = self.routine else { return 0 }
+        return routine.workout.count
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "workoutInRunnerTableViewCell", for: indexPath) as? WorkoutInRunnerTableViewCell,
+            let routine = routine
+        else { return WorkoutInRunnerTableViewCell() }
+        
+        cell.workoutNameLabel.text = routine.workout[indexPath.section].name
+        
+        if runner?.position.workoutIndex == indexPath.section && runner?.position.liftIndex == indexPath.row {
+            cell.backgroundColor = Theme.cellSelectedBackgroundColor
+            
+        }
+        else{
+            cell.backgroundColor = Theme.cellAlternateBackgroundColor
+        }
+        
+        return cell
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +97,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.dataSource = self
         
         setLabels()
-        configueViews()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,66 +108,17 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        scrollTableToIndex(indexPath)
-        runner?.changeWorkoutPosition(to: indexPath.row)
-        nextLiftButton.isEnabled = true
-        nextLiftButton.isHidden = false
-        setLabels()
-
-        self.workoutListTableView.reloadData()
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let runner = runner else { return 0 }
-        return runner.numberOfWorkoutsInRoutine()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "workoutInRunnerTableViewCell", for: indexPath) as? WorkoutInRunnerTableViewCell,
-            let routine = routine
-        else { return WorkoutInRunnerTableViewCell() }
-        
-        cell.workoutNameLabel.text = routine.workout[indexPath.row].name
-        cell.workoutNameLabel.textColor = UIColor.white
-        
-        if runner?.position.workoutIndex == indexPath.row {
-            cell.backgroundColor = Theme.cellSelectedBackgroundColor
-
-        }
-        else{
-            cell.backgroundColor = Theme.cellAlternateBackgroundColor
-        }
-        
-        return cell
-    }
-    
     private func setLabels(){
-        workoutNameLabel.text = runner?.currentLift?.name ?? ""
-        setPositionLabel.text = "Set: \((runner?.position.liftIndex ?? 0) + 1 )/\(String(describing: runner?.currentWorkout?.lifts.count ?? 0 ))"
         
-        repsTextField.text = String(describing:runner?.currentLift?.reps.value ?? 0 )
-        weightTextField.text = String(describing:runner?.currentLift?.weight.value ?? 0 )
-        
-    
-    }
-    
-    private func configueViews(){
-        self.workoutListTableView.layer.shadowColor = UIColor.black.cgColor
-        self.workoutListTableView.layer.shadowOpacity = 1
-        self.workoutListTableView.layer.shadowRadius = 10
-        self.workoutListTableView.layer.shadowOffset = CGSize.zero
-        self.workoutListTableView.layer.shadowPath = UIBezierPath(rect: self.workoutListTableView.bounds).cgPath
-
-
     }
     
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
         
         if(!runner.isOnLastLiftOfLastWorkout() ) {
-            let indexPath = IndexPath(row: runner.position.workoutIndex, section: 0)
+            nextLiftButton.isEnabled = true
+
+            let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
             scrollTableToIndex(indexPath)
         }
     }
@@ -144,5 +126,12 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     private func scrollTableToIndex(_ IndexPath:IndexPath){
         workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
     }
-    
 }
+
+//    private func configueViews(){
+//        self.workoutListTableView.layer.shadowColor = UIColor.black.cgColor
+//        self.workoutListTableView.layer.shadowOpacity = 1
+//        self.workoutListTableView.layer.shadowRadius = 10
+//        self.workoutListTableView.layer.shadowOffset = CGSize.zero
+//        self.workoutListTableView.layer.shadowPath = UIBezierPath(rect: self.workoutListTableView.bounds).cgPath
+//    }

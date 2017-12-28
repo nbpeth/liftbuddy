@@ -13,9 +13,9 @@ class RestTimer {
     }
     
     @objc private func updateRestTimer() {
-        guard let delegate = delegate as? RestViewController else { return }
+        guard let delegate = delegate as? RoutineRunnerViewController else { return }
         
-        delegate.restLabel.text = String(describing: restTime )
+        delegate.restTimerLabel.text = String(describing: restTime )
         
         if restTime > 0 {
             restTime -= 1
@@ -23,7 +23,7 @@ class RestTimer {
         }
         else{
             timer.invalidate()
-            delegate.restLabel.text = String(describing: restTime )
+            delegate.restTimerLabel.text = String(describing: restTime )
             delegate.dismiss(animated: true, completion: nil)
         }
     }
@@ -36,7 +36,7 @@ class RestTimer {
     }
     
     func fireRestTimer(){
-        guard let delegate = delegate as? RestViewController else { return }
+        guard let delegate = delegate as? RoutineRunnerViewController else { return }
         
         restTime = 0
         restTime = delegate.restTime

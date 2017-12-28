@@ -57,12 +57,12 @@ class RoutineRunner {
         return currentWorkout?.rest.value ?? 0
     }
     
-    func changeWorkoutPosition(to index:Int){
-        guard let routine = routine, let workout = routine.workout[index] as? WorkoutInProgress else { return }
-        self.currentWorkout = workout
-        self.currentLift = currentWorkout?.lifts.first
+    func changeWorkoutPosition(to workoutIndex:Int, liftIndex:Int){
+        guard let routine = routine else { return }
+        self.currentWorkout = routine.workout[workoutIndex]
+        self.currentLift = currentWorkout?.lifts[liftIndex]
         
-        position.hop(to: index)
+        position.hop(to: workoutIndex, liftIndex: liftIndex)
     }
     
     func isOnFirstWorkout() -> Bool {
@@ -97,9 +97,14 @@ class Position {
     var liftIndex = 0
     var workoutIndex = 0
     
-    func hop(to index:Int){
-        workoutIndex = index
-        liftIndex = 0
+//    func hop(to index:Int){
+//        workoutIndex = index
+//        liftIndex = 0
+//    }
+    
+    func hop(to workoutIndex:Int, liftIndex:Int){
+        self.workoutIndex = workoutIndex
+        self.liftIndex = liftIndex
     }
     
     func advanceWorkout(){
