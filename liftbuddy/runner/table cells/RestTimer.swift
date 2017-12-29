@@ -2,41 +2,37 @@ import UIKit
 
 class RestTimer {
     var timer:Timer!
-    var restTime = 0
-    var initialRest = 0
+    var timeToStopTimer:Date?
+
     var delegate:UIViewController!
     
     init(delegate:UIViewController, rest:Int){
         self.delegate = delegate
-        self.restTime = rest
-        self.initialRest = rest
+        self.timeToStopTimer = Calendar.current.date(byAdding: .second, value: rest, to: Date())
+
+    }
+    
+    func fireRestTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
+        
+        timer?.fire()
     }
     
     @objc private func updateRestTimer() {
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
+        guard let delegate = delegate as? RoutineRunnerViewController,
+            let timeToStopTimer = timeToStopTimer,
+            let remainingTime = DateUtils.differenceBetween(Date(), timeToStopTimer).second
+        else { return }
         
-        delegate.restTimerLabel.text = String(describing: restTime )
+    
+        delegate.restTimerLabel.text = String(describing: remainingTime )
         
-        if restTime > 0 {
-            restTime -= 1
-        }
-        else{
+        if remainingTime <= 0 {
             timer.invalidate()
-            delegate.restTimerLabel.text = String(describing: restTime )
-            delegate.dismiss(animated: true, completion: nil)
+            delegate.restTimerLabel.text = String(describing: remainingTime )
         }
     }
     
-    
-    func fireRestTimer(){
-        guard let delegate = delegate as? RoutineRunnerViewController else { return }
-        
-        restTime = 0
-        restTime = delegate.restTime
-
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
-        timer?.fire()
-    }
     
     func stop(){
         timer?.invalidate()
