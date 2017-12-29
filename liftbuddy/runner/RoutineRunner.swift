@@ -19,9 +19,13 @@ class RoutineRunner {
         return currentWorkout?.lifts.first
     }
     
+    func completeLift() {
+        currentLift?.completed = true
+    }
+    
     func nextLiftSet() {
         guard let currentWorkout = currentWorkout else { return  }
-        
+        completeLift()
         position.advanceLift()
         
         if(currentWorkout.lifts.count <= position.liftIndex){

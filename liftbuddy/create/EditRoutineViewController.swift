@@ -79,18 +79,8 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         routine.workout[destinationIndexPath.row] = sourceWorkout
         
         self.routineTableView.reloadData()
-
-
     }
-    
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-//        return .none
-//    }
-//
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
-//    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

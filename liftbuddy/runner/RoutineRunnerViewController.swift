@@ -20,6 +20,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         resetTimer()
         
         if runner.isOnLastLiftOfLastWorkout() {
+            runner.completeLift()
             nextLiftButton.isEnabled = false
         }
             
@@ -87,6 +88,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.repsTextField.text = String(describing: liftForRow.reps.value ?? 0)
         cell.weightTextField.text = String(describing: liftForRow.weight.value ?? 0.0)
         cell.lift = liftForRow
+        cell.setDoneIndicatorColor()
 
         if runner.position.workoutIndex == indexPath.section && runner.position.liftIndex == indexPath.row {
             cell.backgroundColor = Theme.activeCellColor

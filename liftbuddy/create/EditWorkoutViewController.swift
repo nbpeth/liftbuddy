@@ -87,7 +87,7 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     private func setNavigationItems(){
-        let doneButton = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
         self.navigationItem.rightBarButtonItem = doneButton
     }
     

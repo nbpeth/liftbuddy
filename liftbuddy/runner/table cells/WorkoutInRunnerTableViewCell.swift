@@ -13,9 +13,23 @@ extension WorkoutInRunnerTableViewCell: UITextFieldDelegate {
 
 class WorkoutInRunnerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var doneIndicator: UIButton!
     @IBOutlet weak var repsTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    
+    @IBAction func doneIndicatorWasPressed(_ sender: Any) {
+        guard let lift = lift else { return }
+        lift.completed = lift.completed ? false : true
+        setDoneIndicatorColor()
+    }
+    
     var lift:LiftInProgress?
+    
+    func setDoneIndicatorColor(){
+        guard let lift = lift else { return }
+        doneIndicator.backgroundColor = lift.completed ? Theme.blue : Theme.tabBarColor
+
+    }
     
     override func awakeFromNib() {
         repsTextField.delegate = self

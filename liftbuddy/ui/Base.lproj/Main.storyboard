@@ -188,17 +188,34 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-Yi-YoE" customClass="UIButton">
+                                                    <rect key="frame" x="340" y="18" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" button="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="S6k-e4-Jsi"/>
+                                                        <constraint firstAttribute="width" constant="20" id="TmR-nu-pva"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="doneIndicatorWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="zZR-Qu-DiL"/>
+                                                    </connections>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GYu-Yi-YoE" secondAttribute="bottom" constant="8" id="ISX-Us-4EV"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Qr1-ZH-zjG" secondAttribute="bottom" constant="3" id="Zgs-wy-EtG"/>
                                                 <constraint firstItem="Qr1-ZH-zjG" firstAttribute="leading" secondItem="9kE-PO-ke6" secondAttribute="leading" constant="50" id="ipi-EG-Eti"/>
+                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="leading" secondItem="Ona-rw-8FU" secondAttribute="trailing" constant="15" id="lIA-rU-3Em"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="centerX" secondItem="9kE-PO-ke6" secondAttribute="centerX" id="ldb-yn-l6I"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ona-rw-8FU" secondAttribute="trailing" constant="50" id="qMj-lo-41p"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ona-rw-8FU" secondAttribute="bottom" constant="3" id="vj9-Tv-UDO"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="centerY" secondItem="9kE-PO-ke6" secondAttribute="centerY" id="vvp-45-xaQ"/>
+                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="trailing" secondItem="9kE-PO-ke6" secondAttribute="trailingMargin" id="ztP-kg-pun"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="doneIndicator" destination="GYu-Yi-YoE" id="kyt-c0-GYV"/>
                                             <outlet property="repsTextField" destination="Qr1-ZH-zjG" id="soD-Cb-Cbd"/>
                                             <outlet property="weightTextField" destination="Ona-rw-8FU" id="kcy-Ho-Fs3"/>
                                         </connections>
