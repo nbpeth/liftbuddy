@@ -45,7 +45,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         
         restTime = rest
         restTimerLabel.text = String(describing: restTime)
-        timer = RestTimer(delegate:self, rest: restTime )
+        timer = RestTimer(labelToUpdate:self.restTimerLabel, rest: restTime )
         
         timer.fireRestTimer()
     }
