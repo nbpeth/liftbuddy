@@ -29,8 +29,7 @@ class CompletedRoutineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabels()
-        
-        toolbar.barTintColor = Theme.tabBarColor
+        setTheme()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +44,11 @@ class CompletedRoutineViewController: BaseViewController {
             embededTable.completedRoutine = routine
             embededTable.tableView.reloadData()
         }
+    }
+    
+    private func setTheme(){
+        toolbar.barTintColor = Theme.tabBarColor
+
     }
     
     private func setLabels(){

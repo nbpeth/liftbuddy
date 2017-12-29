@@ -2,16 +2,44 @@ import Foundation
 import UIKit
 
 class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    var workout:Workout?
     @IBOutlet weak var liftsInWorkoutTableView: UITableView!
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
-    
+    var workout:Workout?
+
     @IBAction func addLiftButtonWasPressed(_ sender: Any) {
         guard let workoutToEdit = workout else { return }
         
         workoutToEdit.addLift()
         
+        self.liftsInWorkoutTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        liftsInWorkoutTableView.delegate = self
+        liftsInWorkoutTableView.dataSource = self
+        
+        workoutNameLabel.text = workout?.name ?? ""
+        
+        setNavigationItems()
+        setTheme()
+    }
+    
+    private func setNavigationItems(){
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
+        self.navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func popNavigationToRoutineViewController(){
+        guard let navigationController = self.navigationController else { return }
+        let viewControllerToPopTo = navigationController.viewControllers[(navigationController.viewControllers.count) - 3]
+        self.navigationController?.popToViewController(viewControllerToPopTo, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.liftsInWorkoutTableView.reloadData()
     }
     
@@ -61,22 +89,9 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         return cell
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        liftsInWorkoutTableView.delegate = self
-        liftsInWorkoutTableView.dataSource = self
-        
-        workoutNameLabel.text = workout?.name ?? ""
-        
+    private func setTheme(){
         self.liftsInWorkoutTableView.backgroundColor = Theme.backgroundColor
         self.headerView.backgroundColor = Theme.foregroundColor
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.liftsInWorkoutTableView.reloadData()
     }
     
 }
