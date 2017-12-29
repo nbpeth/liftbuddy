@@ -6,6 +6,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     var routine: Routine?
     var routineId: Int?
     let realm = try! Realm()
+    var editButton:UIBarButtonItem!
     
     @IBOutlet weak var routineTableView: UITableView!
     @IBOutlet weak var routineNameLabel: UILabel!
@@ -31,16 +32,28 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         self.routineTableView.reloadData()
     }
     
+    private func setEditingButton(){
+        editButton = UIBarButtonItem(title: titleForEditButton(), style: .plain, target: self, action: #selector(toggleTableEditing))
+        self.navigationItem.rightBarButtonItem = editButton
+    }
+    
+    @objc private func toggleTableEditing(){
+        self.routineTableView.isEditing = self.routineTableView.isEditing ? false : true
+        self.editButton.title = titleForEditButton()
+    }
+    
+    private func titleForEditButton() -> String {
+        return self.routineTableView.isEditing ? "Done Editing" : "Edit"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        routineTableView.delegate = self
-        routineTableView.dataSource = self
         
-        self.routineTableView.backgroundColor = Theme.inactiveCellColor
-        self.headerView.backgroundColor = Theme.backgroundColor
-        self.toolbar.barTintColor = Theme.tabBarColor
         RealmManager.shared.beginWrite()
         
+        setEditingButton()
+        setDelegates()
+        setTheme()
         setRoutine()
     }
     
@@ -57,7 +70,32 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         self.routineTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        guard let routine = routine else { return }
+        let sourceWorkout = routine.workout[sourceIndexPath.row]
+        let destinationWorkout = routine.workout[destinationIndexPath.row]
+        
+        routine.workout[sourceIndexPath.row] = destinationWorkout
+        routine.workout[destinationIndexPath.row] = sourceWorkout
+        
+        self.routineTableView.reloadData()
+
+
+    }
+    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        return .none
+//    }
+//
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
+//    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
@@ -138,5 +176,16 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     private func setLabels(){
         guard let routineName = routine?.name else { return }
         routineNameLabel.text = routineName
+    }
+    
+    private func setDelegates(){
+        routineTableView.delegate = self
+        routineTableView.dataSource = self
+    }
+    
+    private func setTheme(){
+        self.routineTableView.backgroundColor = Theme.inactiveCellColor
+        self.headerView.backgroundColor = Theme.backgroundColor
+        self.toolbar.barTintColor = Theme.tabBarColor
     }
 }

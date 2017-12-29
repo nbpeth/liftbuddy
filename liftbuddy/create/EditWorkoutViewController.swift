@@ -18,24 +18,11 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        liftsInWorkoutTableView.delegate = self
-        liftsInWorkoutTableView.dataSource = self
-        
         workoutNameLabel.text = workout?.name ?? ""
         
+        setDelegates()
         setNavigationItems()
         setTheme()
-    }
-    
-    private func setNavigationItems(){
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
-        self.navigationItem.rightBarButtonItem = doneButton
-    }
-    
-    @objc private func popNavigationToRoutineViewController(){
-        guard let navigationController = self.navigationController else { return }
-        let viewControllerToPopTo = navigationController.viewControllers[(navigationController.viewControllers.count) - 3]
-        self.navigationController?.popToViewController(viewControllerToPopTo, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +79,22 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     private func setTheme(){
         self.liftsInWorkoutTableView.backgroundColor = Theme.backgroundColor
         self.headerView.backgroundColor = Theme.foregroundColor
+    }
+    
+    private func setDelegates(){
+        liftsInWorkoutTableView.delegate = self
+        liftsInWorkoutTableView.dataSource = self
+    }
+    
+    private func setNavigationItems(){
+        let doneButton = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
+        self.navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func popNavigationToRoutineViewController(){
+        guard let navigationController = self.navigationController else { return }
+        let viewControllerToPopTo = navigationController.viewControllers[(navigationController.viewControllers.count) - 3]
+        self.navigationController?.popToViewController(viewControllerToPopTo, animated: true)
     }
     
 }
