@@ -148,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-KE-mWv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutInRunnerTableViewCell" rowHeight="57" id="NP6-Ha-rjS" customClass="WorkoutInRunnerTableViewCell" customModule="liftbuddy" customModuleProvider="target">
@@ -159,7 +159,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qr1-ZH-zjG">
-                                                    <rect key="frame" x="50" y="13" width="90" height="30"/>
+                                                    <rect key="frame" x="75" y="13" width="90" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="ufp-Wg-DHY"/>
                                                     </constraints>
@@ -171,7 +171,7 @@
                                                     </connections>
                                                 </textField>
                                                 <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-rw-8FU">
-                                                    <rect key="frame" x="235" y="13" width="90" height="30"/>
+                                                    <rect key="frame" x="210" y="13" width="90" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="4VW-Yb-ZRd"/>
                                                     </constraints>
@@ -189,29 +189,33 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-Yi-YoE" customClass="UIButton">
-                                                    <rect key="frame" x="340" y="18" width="20" height="20"/>
+                                                    <rect key="frame" x="329" y="19" width="20" height="20"/>
                                                     <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" button="YES"/>
                                                     </accessibility>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="8m8-EF-IVd"/>
                                                         <constraint firstAttribute="height" constant="20" id="S6k-e4-Jsi"/>
-                                                        <constraint firstAttribute="width" constant="20" id="TmR-nu-pva"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="doneIndicatorWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="zZR-Qu-DiL"/>
-                                                    </connections>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-Dd-gt0">
+                                                    <rect key="frame" x="308" y="0.0" width="61" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="doneViewWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="nob-MP-h1a"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="GYu-Yi-YoE" secondAttribute="bottom" constant="8" id="ISX-Us-4EV"/>
+                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="trailing" secondItem="9kE-PO-ke6" secondAttribute="trailingMargin" constant="-11" id="LqP-7a-ndM"/>
+                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="leading" secondItem="Ona-rw-8FU" secondAttribute="trailing" constant="29" id="NXT-O5-Ymu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GYu-Yi-YoE" secondAttribute="bottom" constant="7" id="Qet-C1-0zX"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Qr1-ZH-zjG" secondAttribute="bottom" constant="3" id="Zgs-wy-EtG"/>
-                                                <constraint firstItem="Qr1-ZH-zjG" firstAttribute="leading" secondItem="9kE-PO-ke6" secondAttribute="leading" constant="50" id="ipi-EG-Eti"/>
-                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="leading" secondItem="Ona-rw-8FU" secondAttribute="trailing" constant="15" id="lIA-rU-3Em"/>
+                                                <constraint firstItem="Qr1-ZH-zjG" firstAttribute="leading" secondItem="9kE-PO-ke6" secondAttribute="leading" constant="75" id="ipi-EG-Eti"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="centerX" secondItem="9kE-PO-ke6" secondAttribute="centerX" id="ldb-yn-l6I"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ona-rw-8FU" secondAttribute="bottom" constant="3" id="vj9-Tv-UDO"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="centerY" secondItem="9kE-PO-ke6" secondAttribute="centerY" id="vvp-45-xaQ"/>
-                                                <constraint firstItem="GYu-Yi-YoE" firstAttribute="trailing" secondItem="9kE-PO-ke6" secondAttribute="trailingMargin" id="ztP-kg-pun"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,10 +249,10 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l70-fq-rey">
-                                <rect key="frame" x="0.0" y="548" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="503" width="375" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="∞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-37-8MZ">
-                                        <rect key="frame" x="137.5" y="8" width="100" height="59"/>
+                                        <rect key="frame" x="137.5" y="8" width="100" height="104"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="4bl-6V-CRz"/>
                                         </constraints>
@@ -260,7 +264,7 @@
                                 <constraints>
                                     <constraint firstItem="UCZ-37-8MZ" firstAttribute="centerX" secondItem="l70-fq-rey" secondAttribute="centerX" id="R3l-Wl-9bm"/>
                                     <constraint firstItem="UCZ-37-8MZ" firstAttribute="top" secondItem="l70-fq-rey" secondAttribute="top" constant="8" id="Rkg-n7-fY0"/>
-                                    <constraint firstAttribute="height" constant="75" id="b9t-RV-d2G"/>
+                                    <constraint firstAttribute="height" constant="120" id="b9t-RV-d2G"/>
                                     <constraint firstAttribute="bottom" secondItem="UCZ-37-8MZ" secondAttribute="bottom" constant="8" id="bsQ-gZ-N0c"/>
                                 </constraints>
                             </view>

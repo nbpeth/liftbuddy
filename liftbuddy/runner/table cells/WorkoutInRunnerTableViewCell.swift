@@ -17,12 +17,11 @@ class WorkoutInRunnerTableViewCell: UITableViewCell {
     @IBOutlet weak var repsTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     
-    @IBAction func doneIndicatorWasPressed(_ sender: Any) {
+    @IBAction func doneViewWasPressed(_ sender: Any) {
         guard let lift = lift else { return }
         lift.completed = lift.completed ? false : true
         setDoneIndicatorColor()
     }
-    
     var lift:LiftInProgress?
     
     func setDoneIndicatorColor(){
