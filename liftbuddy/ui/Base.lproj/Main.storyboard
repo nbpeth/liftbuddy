@@ -762,7 +762,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VVf-Dp-DNw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="Kvj-z7-2Jk"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="ic_home" selectedImage="ic_home" id="Kvj-z7-2Jk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goh-87-fwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -772,7 +772,7 @@
         <scene sceneID="e7E-U5-427">
             <objects>
                 <navigationController title="Your Routines" id="N9i-uk-xVG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Routines" id="Mzd-N4-kXR"/>
+                    <tabBarItem key="tabBarItem" title="Routines" image="ic_fitness_center" selectedImage="ic_fitness_center" id="Mzd-N4-kXR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yEu-k7-WCp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1276,6 +1276,10 @@
             <point key="canvasLocation" x="-191" y="-519"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_fitness_center" width="24" height="24"/>
+        <image name="ic_home" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OMB-SX-ftH"/>
         <segue reference="tVM-y3-Yuo"/>
