@@ -7,7 +7,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var restTimerLabel: UILabel!
     @IBOutlet weak var hudView: UIView!
     @IBOutlet weak var toolbar: UIToolbar!
-
+    @IBOutlet weak var elapsedTimeLabel: UILabel!
+    
     var timer:RestTimer!
     var routine:RoutineInProgress?
     var runner: RoutineRunner?
@@ -110,7 +111,13 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
         configureRestTimerLabelGestureRecognizer()
+        startElapsedTimer()
         setupTheme()
+    }
+    
+    private func startElapsedTimer(){
+        let elapsedTimer = IncrementingTimer(labelToUpdate: elapsedTimeLabel)
+        elapsedTimer.start()
     }
     
     private func setupTheme(){

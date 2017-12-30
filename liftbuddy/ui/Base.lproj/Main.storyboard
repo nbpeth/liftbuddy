@@ -252,39 +252,53 @@
                                 <rect key="frame" x="0.0" y="503" width="375" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="∞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-37-8MZ">
-                                        <rect key="frame" x="137.5" y="8" width="100" height="104"/>
+                                        <rect key="frame" x="137.5" y="36.5" width="100" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="4bl-6V-CRz"/>
+                                            <constraint firstAttribute="width" constant="100" id="xn4-aN-IwS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="39"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UCZ-37-8MZ" firstAttribute="centerX" secondItem="l70-fq-rey" secondAttribute="centerX" id="R3l-Wl-9bm"/>
-                                    <constraint firstItem="UCZ-37-8MZ" firstAttribute="top" secondItem="l70-fq-rey" secondAttribute="top" constant="8" id="Rkg-n7-fY0"/>
+                                    <constraint firstItem="UCZ-37-8MZ" firstAttribute="centerX" secondItem="l70-fq-rey" secondAttribute="centerX" id="DLB-iG-l4e"/>
                                     <constraint firstAttribute="height" constant="120" id="b9t-RV-d2G"/>
-                                    <constraint firstAttribute="bottom" secondItem="UCZ-37-8MZ" secondAttribute="bottom" constant="8" id="bsQ-gZ-N0c"/>
+                                    <constraint firstItem="UCZ-37-8MZ" firstAttribute="centerY" secondItem="l70-fq-rey" secondAttribute="centerY" id="fU8-YI-jBp"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fby-4S-iok">
+                                <rect key="frame" x="152" y="635" width="71.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="l70-fq-rey" firstAttribute="top" secondItem="JJX-KE-mWv" secondAttribute="bottom" id="9jn-Rl-0Da"/>
                             <constraint firstItem="WQQ-St-5cv" firstAttribute="leading" secondItem="jze-2C-cqc" secondAttribute="leading" id="9yx-5I-pQb"/>
+                            <constraint firstItem="fby-4S-iok" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jze-2C-cqc" secondAttribute="leading" id="Cpe-Ky-Jyf"/>
+                            <constraint firstItem="jze-2C-cqc" firstAttribute="bottom" secondItem="fby-4S-iok" secondAttribute="bottom" constant="11" id="LXs-Mr-uai"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="top" secondItem="maD-em-nfT" secondAttribute="top" id="LyO-a7-yOm"/>
+                            <constraint firstItem="jze-2C-cqc" firstAttribute="bottom" secondItem="fby-4S-iok" secondAttribute="bottom" constant="11" id="O7f-xn-FNf"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="leading" secondItem="jze-2C-cqc" secondAttribute="leading" id="OmC-zT-d71"/>
                             <constraint firstItem="l70-fq-rey" firstAttribute="trailing" secondItem="jze-2C-cqc" secondAttribute="trailing" id="RCa-Kx-ub6"/>
                             <constraint firstItem="WQQ-St-5cv" firstAttribute="bottom" secondItem="jze-2C-cqc" secondAttribute="bottom" id="VfV-zg-6Pj"/>
+                            <constraint firstItem="jze-2C-cqc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fby-4S-iok" secondAttribute="trailing" id="WGN-b0-tMA"/>
+                            <constraint firstItem="fby-4S-iok" firstAttribute="centerX" secondItem="maD-em-nfT" secondAttribute="centerX" id="aTh-o0-Qd8"/>
                             <constraint firstItem="l70-fq-rey" firstAttribute="leading" secondItem="jze-2C-cqc" secondAttribute="leading" id="bFr-al-6ch"/>
                             <constraint firstItem="WQQ-St-5cv" firstAttribute="trailing" secondItem="jze-2C-cqc" secondAttribute="trailing" id="eUg-45-aiI"/>
                             <constraint firstItem="JJX-KE-mWv" firstAttribute="trailing" secondItem="jze-2C-cqc" secondAttribute="trailing" id="o5S-Oo-cfn"/>
+                            <constraint firstItem="fby-4S-iok" firstAttribute="top" secondItem="l70-fq-rey" secondAttribute="bottom" constant="12" id="psr-AW-iLu"/>
+                            <constraint firstItem="fby-4S-iok" firstAttribute="top" secondItem="l70-fq-rey" secondAttribute="bottom" constant="12" id="qmm-9c-SPZ"/>
                             <constraint firstItem="WQQ-St-5cv" firstAttribute="top" secondItem="l70-fq-rey" secondAttribute="bottom" id="zon-gW-Ljt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jze-2C-cqc"/>
                     </view>
                     <connections>
+                        <outlet property="elapsedTimeLabel" destination="fby-4S-iok" id="Ypc-ge-IX2"/>
                         <outlet property="hudView" destination="l70-fq-rey" id="eav-20-8mw"/>
                         <outlet property="nextLiftButton" destination="sh9-uE-gBD" id="zjQ-2d-e1F"/>
                         <outlet property="restTimerLabel" destination="UCZ-37-8MZ" id="sGf-CX-G8B"/>
