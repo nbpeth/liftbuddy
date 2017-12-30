@@ -141,12 +141,21 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         if(!runner.isOnLastLiftOfLastWorkout() ) {
             nextLiftButton.isEnabled = true
             let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
-            scrollTableToIndex(indexPath)
+            
+            if workoutHasLifts(row: indexPath.section) {
+                scrollTableToIndex(indexPath)
+            }
+
         }
     }
     
+    private func workoutHasLifts(row:Int) -> Bool {
+        guard let routine = routine else { return false }
+        return routine.workout[row].lifts.count > 0
+    }
+    
     private func scrollTableToIndex(_ IndexPath:IndexPath){
-        workoutListTableView.scrollToRow(at: IndexPath, at: .top, animated: true)
+        workoutListTableView.scrollToRow(at: IndexPath, at: .bottom, animated: true)
     }
     
     private func configureRestTimerLabelGestureRecognizer(){

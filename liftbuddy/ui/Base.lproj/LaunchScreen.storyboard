@@ -23,15 +23,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Buddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVF-gm-RHw">
-                                <rect key="frame" x="75" y="50" width="225" height="65"/>
+                                <rect key="frame" x="75" y="37" width="225" height="65"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fVF-gm-RHw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="8c7-v6-4Au"/>
+                            <constraint firstItem="fVF-gm-RHw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="8c7-v6-4Au"/>
                             <constraint firstItem="fVF-gm-RHw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WYx-KN-S9k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

@@ -13,6 +13,7 @@ class RoutineRunner {
         self.routine = routine
         self.currentWorkout = routine.workout.first
         self.currentLift = getFirstLiftOfWorkout()
+        
     }
     
     func getFirstLiftOfWorkout() -> LiftInProgress? {
