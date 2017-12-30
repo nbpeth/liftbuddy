@@ -1016,8 +1016,8 @@
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8U-24-hap">
-                                                    <rect key="frame" x="15" y="68" width="56" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest In Seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8U-24-hap">
+                                                    <rect key="frame" x="15" y="68" width="124" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="R1W-Oz-5hA"/>
                                                     </constraints>
@@ -1031,17 +1031,11 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B26-tL-m2m">
-                                                    <rect key="frame" x="201" y="68" width="114" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-uX-Ki0">
-                                                    <rect key="frame" x="127" y="40" width="53" height="76"/>
+                                                    <rect key="frame" x="220" y="40" width="73" height="76"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="76" id="5cU-gR-uJN"/>
-                                                        <constraint firstAttribute="width" constant="53" id="NLB-E7-tVJ"/>
+                                                        <constraint firstAttribute="width" constant="73" id="NLB-E7-tVJ"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -1050,22 +1044,19 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </pickerView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-up" translatesAutoresizingMaskIntoConstraints="NO" id="xJR-wb-dNt">
-                                                    <rect key="frame" x="98" y="52" width="24" height="24"/>
+                                                    <rect key="frame" x="191" y="52" width="24" height="24"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-down" translatesAutoresizingMaskIntoConstraints="NO" id="eDx-cM-Zsa">
-                                                    <rect key="frame" x="98" y="76" width="24" height="24"/>
+                                                    <rect key="frame" x="191" y="76" width="24" height="24"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="B26-tL-m2m" firstAttribute="baseline" secondItem="r8U-24-hap" secondAttribute="baseline" id="1bk-8Y-CZY"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="B26-tL-m2m" secondAttribute="trailing" constant="19" id="2QX-LB-b8f"/>
                                                 <constraint firstItem="r8U-24-hap" firstAttribute="leading" secondItem="bbI-YK-zWm" secondAttribute="leading" constant="15" id="5GR-Lx-M2c"/>
                                                 <constraint firstItem="FJc-Kc-taw" firstAttribute="leading" secondItem="bbI-YK-zWm" secondAttribute="leading" constant="15" id="CCq-Lu-uiM"/>
                                                 <constraint firstItem="eDx-cM-Zsa" firstAttribute="top" secondItem="xJR-wb-dNt" secondAttribute="bottom" id="CQ2-O3-Ip1"/>
                                                 <constraint firstItem="eDx-cM-Zsa" firstAttribute="top" secondItem="xJR-wb-dNt" secondAttribute="bottom" id="Du6-IQ-dnA"/>
                                                 <constraint firstItem="r8U-24-hap" firstAttribute="bottom" secondItem="bbI-YK-zWm" secondAttribute="bottomMargin" id="KZz-XR-hAN"/>
-                                                <constraint firstItem="eDx-cM-Zsa" firstAttribute="leading" secondItem="r8U-24-hap" secondAttribute="trailing" constant="27" id="Nv4-zS-Kj8"/>
-                                                <constraint firstItem="B26-tL-m2m" firstAttribute="leading" secondItem="zXC-uX-Ki0" secondAttribute="trailing" constant="21" id="S6Y-KK-fpr"/>
+                                                <constraint firstItem="eDx-cM-Zsa" firstAttribute="leading" secondItem="r8U-24-hap" secondAttribute="trailing" constant="52" id="Nv4-zS-Kj8"/>
                                                 <constraint firstAttribute="trailing" secondItem="qtx-Cg-MdC" secondAttribute="trailing" constant="8" id="Tz6-m0-CXu"/>
                                                 <constraint firstItem="xJR-wb-dNt" firstAttribute="top" secondItem="qtx-Cg-MdC" secondAttribute="bottom" constant="20" id="XjX-US-0BN"/>
                                                 <constraint firstItem="zXC-uX-Ki0" firstAttribute="leading" secondItem="eDx-cM-Zsa" secondAttribute="trailing" constant="5" id="bF5-bI-dv9"/>
@@ -1078,8 +1069,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="zXC-uX-Ki0" secondAttribute="bottom" constant="-16" id="oRD-AZ-BlV"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FJc-Kc-taw" secondAttribute="trailing" id="sFG-oF-j6j"/>
                                                 <constraint firstItem="eDx-cM-Zsa" firstAttribute="top" secondItem="xJR-wb-dNt" secondAttribute="bottom" id="st4-Mv-LqI"/>
-                                                <constraint firstItem="B26-tL-m2m" firstAttribute="top" secondItem="qtx-Cg-MdC" secondAttribute="bottom" constant="36" id="x5P-dj-dGt"/>
-                                                <constraint firstItem="xJR-wb-dNt" firstAttribute="leading" secondItem="r8U-24-hap" secondAttribute="trailing" constant="27" id="zRV-ZV-2Ao"/>
+                                                <constraint firstItem="xJR-wb-dNt" firstAttribute="leading" secondItem="r8U-24-hap" secondAttribute="trailing" constant="52" id="zRV-ZV-2Ao"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
