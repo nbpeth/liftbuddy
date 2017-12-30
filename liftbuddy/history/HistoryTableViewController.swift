@@ -14,8 +14,10 @@ class HistoryTableViewController: BaseTableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTheme()
+        
         searchBar.delegate = self
     }
+
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -63,6 +65,18 @@ class HistoryTableViewController: BaseTableViewController, UISearchBarDelegate {
         self.navigationController?.pushViewController(destination, animated: true)
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
+    }
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             completedRoutines = RoutineManager.getAllHistoryRoutines()
