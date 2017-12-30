@@ -93,14 +93,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtV-SJ-Adi">
                                 <rect key="frame" x="0.0" y="74" width="375" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0V5-vC-V4a">
                                 <rect key="frame" x="136.5" y="307.5" width="102" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="cX2-Jy-1Tc" kind="show" identifier="startRoutineSegue" id="0z5-kv-CZX"/>
@@ -117,7 +117,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NLr-ZM-zYq" firstAttribute="trailing" secondItem="ZXs-H3-C4c" secondAttribute="trailing" id="0HB-no-lUc"/>
                             <constraint firstItem="ZXs-H3-C4c" firstAttribute="leading" secondItem="NLr-ZM-zYq" secondAttribute="leading" id="6Zh-gE-Qpy"/>
@@ -615,7 +615,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5J-Nj-NOb">
                                 <rect key="frame" x="166" y="95" width="209" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="12:14:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXv-xj-GLL">
@@ -769,7 +769,7 @@
                                                 <constraint firstItem="VIk-Fh-AgX" firstAttribute="centerY" secondItem="yt2-sh-i6x" secondAttribute="centerY" id="QXL-PZ-AZy"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -798,7 +798,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -819,9 +819,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="akT-H6-Zh7">
                                         <rect key="frame" x="0.0" y="244" width="375" height="44"/>
@@ -846,7 +846,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sL4-3R-FBU">
                                         <rect key="frame" x="0.0" y="288" width="375" height="44"/>
@@ -871,7 +871,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -885,12 +885,15 @@
                     <connections>
                         <outlet property="dateLabel" destination="UMP-SS-beF" id="wse-Et-ziJ"/>
                         <outlet property="daysSinceLastWorkoutLabel" destination="33x-iP-IRz" id="4yc-xd-cBf"/>
+                        <outlet property="daysSinceLastWorkoutcell" destination="8ua-fO-A5n" id="tjc-7q-mPP"/>
                         <outlet property="lastDateCompletedLabel" destination="2gc-cF-aSK" id="nYE-a4-aGf"/>
                         <outlet property="lastWorkoutDateCompletedCell" destination="fj0-Oz-geM" id="Muc-bu-Ca2"/>
+                        <outlet property="routineNameCell" destination="dbI-PZ-QFE" id="0Z2-En-6eJ"/>
                         <outlet property="routineNameLabel" destination="kvw-xx-Nfz" id="2aW-kU-aRn"/>
                         <outlet property="timesCompletedCell" destination="sL4-3R-FBU" id="ekY-Fw-KAE"/>
                         <outlet property="timesCompletedLabel" destination="Tfk-Ce-sap" id="FHk-xj-vt3"/>
                         <outlet property="timesCompletedLabelLabel" destination="neC-oa-OAG" id="ZH8-1o-NYQ"/>
+                        <outlet property="titleCell" destination="OQQ-GB-rdn" id="Q3M-6H-yUx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N67-1w-AsN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -978,7 +981,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cs6-zA-PWh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="GtM-MK-HCE">
@@ -997,7 +1000,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-7h-KjD">
-                                <rect key="frame" x="0.0" y="203" width="375" height="415"/>
+                                <rect key="frame" x="0.0" y="159" width="375" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workoutCell" rowHeight="100" id="r9w-Et-YnL" customClass="WorkoutCell" customModule="liftbuddy" customModuleProvider="target">
@@ -1072,7 +1075,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-t1-Nlw">
-                                <rect key="frame" x="0.0" y="108" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-o9-QKy">
                                         <rect key="frame" x="157" y="53" width="60" height="33"/>
@@ -1407,7 +1410,7 @@
         <image name="ic_home" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OMB-SX-ftH"/>
+        <segue reference="aXn-FZ-kX7"/>
         <segue reference="tVM-y3-Yuo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>

@@ -77,6 +77,10 @@ class RoutineRunner {
     func isOnLastLiftOfLastWorkout() -> Bool {
         guard let routine = routine else { return true }
         
+        if routine.workout.count < 1 {
+            return true
+        }
+        
         let lastWorkoutPosition = routine.workout.count > 0 ? routine.workout.count - 1 : 0
         let lastWorkout = routine.workout[lastWorkoutPosition]
         let lastLiftPosition = lastWorkout.lifts.count > 0 ? lastWorkout.lifts.count - 1 : 0

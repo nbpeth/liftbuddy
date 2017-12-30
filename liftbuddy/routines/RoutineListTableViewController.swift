@@ -35,7 +35,6 @@ class RoutineListTableViewController: BaseTableViewController {
         }
         else{
             cell.lastCompletedLabel.text = " - "
-            cell.lastCompletedLabel.textColor = .red
         }
         
         cell.routineNameLabel.text = routine.name

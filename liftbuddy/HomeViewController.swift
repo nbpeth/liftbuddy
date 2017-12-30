@@ -8,12 +8,27 @@ class HomeViewController: BaseTableViewController {
     @IBOutlet weak var routineNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timesCompletedLabelLabel: UILabel!
+    
+    
+    @IBOutlet weak var routineNameCell: UITableViewCell!
+    @IBOutlet weak var titleCell: UITableViewCell!
     @IBOutlet weak var timesCompletedCell: UITableViewCell!
     @IBOutlet weak var lastWorkoutDateCompletedCell: UIView!
+    @IBOutlet weak var daysSinceLastWorkoutcell: UITableViewCell!
+    
+    func setTheme(){
+        titleCell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        routineNameCell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        timesCompletedCell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        lastWorkoutDateCompletedCell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+        daysSinceLastWorkoutcell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setTheme()
         setLabels()
+        
     }
     
     override func viewDidLoad() {
