@@ -151,10 +151,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         else {
             //create new routine
             if let routine = routine {
-                routineId = routine.id
-//                let seedWorkout = Workout()
-//                seedWorkout.name = "New Lift"
-//                routine.addWorkout(id: routine.id)
+                routineId = routine.id                
                 RoutineManager.create(routine: routine)
                 setLabels()
                 return
@@ -164,8 +161,11 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
             }
         }
         //managing existing routine
+        
         self.routine = existingRoutine
+        
         setLabels()
+
     }
     
     private func setLabels(){

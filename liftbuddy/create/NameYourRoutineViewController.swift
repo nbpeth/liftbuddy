@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 class NameYourRoutineViewController: BaseViewController, UITextFieldDelegate {
-    var routine: Routine?
     @IBOutlet weak var routineNameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -29,7 +28,8 @@ class NameYourRoutineViewController: BaseViewController, UITextFieldDelegate {
         if let destinationViewController = segue.destination as? EditRoutineViewController {
             let routineName = routineNameTextField.text ?? "Unnamed Workout"
             
-            routine = Routine(name: routineName)
+            let routine = Routine(name: routineName)
+            routine.addWorkout(id: routine.id)
             
             destinationViewController.routine = routine
         }
