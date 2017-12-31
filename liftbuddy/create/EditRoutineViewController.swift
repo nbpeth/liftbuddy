@@ -192,7 +192,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         let workoutNamesFromStore:[String] = ExerciseDefinitionManager.getAllExercises().map{$0.name ?? ""}
         let workoutNamesFromThisRoutine:[String] = routine.workout.map { $0.name }
         
-        let unmatchedWorkouts = workoutNamesFromThisRoutine.filter { !workoutNamesFromStore.contains($0) }
+        let unmatchedWorkouts = workoutNamesFromThisRoutine.filter { !workoutNamesFromStore.contains($0) && $0 != "New Workout" }
         
         ExerciseDefinitionManager.saveCustomExerciseDefinition(exerciseDefinitions:unmatchedWorkouts)
     

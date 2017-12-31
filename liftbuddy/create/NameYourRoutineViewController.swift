@@ -24,6 +24,10 @@ class NameYourRoutineViewController: BaseViewController, UITextFieldDelegate {
         nextButton.isEnabled = false
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        routineNameTextField.resignFirstResponder()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? EditRoutineViewController {
             let routineName = routineNameTextField.text ?? "Unnamed Workout"
