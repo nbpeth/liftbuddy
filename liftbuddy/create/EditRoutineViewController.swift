@@ -24,7 +24,6 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     
     @IBAction func addWorkoutButtonWasPressed(_ sender: Any) {
         guard let routineId = routineId else { return }
-        
         routine?.addWorkout(id: routineId)
         
         self.routineTableView.reloadData()
