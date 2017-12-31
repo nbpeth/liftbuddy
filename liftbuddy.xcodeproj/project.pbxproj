@@ -43,7 +43,6 @@
 		2CE474301FC0E5DF00231095 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4742F1FC0E5DF00231095 /* RoutineDetailViewController.swift */; };
 		2CEB420A1FB89EE70060E515 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB42091FB89EE70060E515 /* EditWorkoutViewController.swift */; };
 		2CEB420C1FB89F2A0060E515 /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB420B1FB89F2A0060E515 /* LiftCell.swift */; };
-		6510D42B2C4E04BFCFB406EB /* Pods_liftbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B9986E1FDDA8BA00450705 /* Pods_liftbuddy.framework */; };
 		D65F19493055860ED8ECCD75 /* Pods_liftbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68F26B8D9134C932A392D4A /* Pods_liftbuddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65F19493055860ED8ECCD75 /* Pods_liftbuddy.framework in Frameworks */,
-				6510D42B2C4E04BFCFB406EB /* Pods_liftbuddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +385,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Bud Manstrong";
 				TargetAttributes = {
 					05B9985E1FDDA67F00450705 = {

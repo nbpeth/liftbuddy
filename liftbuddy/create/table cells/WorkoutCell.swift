@@ -31,7 +31,7 @@ extension WorkoutCell: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var title = String(describing:restArray[row])
+        let title = String(describing:restArray[row])
         
         let pickerLabel = UILabel()
         let titleData = title
