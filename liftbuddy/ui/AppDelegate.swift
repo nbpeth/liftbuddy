@@ -45,10 +45,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Quadriceps", name:"Barbell Squat"))
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Quadriceps", name:"Front Squat"))
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Quadriceps", name:"Dumbbell Lunges"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Quadriceps", name:"Leg Press"))
+
+            
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Pectorals", name:"Barbell Bench Press"))
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Pectorals", name:"Dumbbell Bench Press"))
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Pectorals", name:"Incline Barbell Bench Press"))
             RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Pectorals", name:"Decline Barbell Bench Press"))
+            
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Calves", name:"Calf Extension"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Calves", name:"Standing Calf Extension"))
+            
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Hamtrings", name:"Leg Curl"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Hamtrings", name:"Lying Leg Curl"))
+            
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Shoulders", name:"Shoulder Press"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Shoulders", name:"Standing Shoulder Press"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Shoulders", name:"Seated Shoulder Press"))
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Shoulders", name:"Front Dumbbell Raise"))
+            
+            RealmManager().realm.add(ExerciseDefinition(muscleGroup:"Abdominals", name:"Incline Crunches"))
+
+
+            
+            
+            
+
+
+
 
             RealmManager().saveChanges()
         }

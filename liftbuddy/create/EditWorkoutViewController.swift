@@ -3,7 +3,6 @@ import UIKit
 
 class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var liftsInWorkoutTableView: UITableView!
-    @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     var workout:Workout?
 
@@ -18,10 +17,8 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        workoutNameLabel.text = workout?.name ?? ""
-        
+        seedNewLift()
         setDelegates()
-        setNavigationItems()
         setTheme()
     }
     
@@ -86,15 +83,16 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         liftsInWorkoutTableView.dataSource = self
     }
     
-    private func setNavigationItems(){
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
-        self.navigationItem.rightBarButtonItem = doneButton
+    
+    
+    private func seedNewLift(){
+        guard let workout = workout else { return }
+
+        if workout.lifts.count <= 0 {
+            workout.addLift()
+        }
     }
     
-    @objc private func popNavigationToRoutineViewController(){
-        guard let navigationController = self.navigationController else { return }
-        let viewControllerToPopTo = navigationController.viewControllers[(navigationController.viewControllers.count) - 3]
-        self.navigationController?.popToViewController(viewControllerToPopTo, animated: true)
-    }
+    
     
 }

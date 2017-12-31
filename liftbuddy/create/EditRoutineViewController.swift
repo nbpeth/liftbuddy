@@ -1,11 +1,9 @@
 import Foundation
 import UIKit
-import RealmSwift
 
 class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var routine: Routine?
     var routineId: Int?
-    let realm = try! Realm()
     var editButton:UIBarButtonItem!
     
     @IBOutlet weak var routineTableView: UITableView!
@@ -96,7 +94,6 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
             
             if routineToDeleteFrom.workout.count >= indexPath.row  {
                 routineToDeleteFrom.workout.remove(at: indexPath.row)
-                self.routineTableView.deleteRows(at: [indexPath], with: .automatic)
             }
             self.routineTableView.reloadData()
         }
@@ -153,12 +150,21 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         guard let id = routineId,
             let existingRoutine = RoutineManager.getRoutineBy(id: id)
         else {
-            routineId = routine?.id
-            RoutineManager.create(routine: routine!) // refactor out force unwrap
-            setLabels()
-            return
+            //create new routine
+            if let routine = routine {
+                routineId = routine.id
+//                let seedWorkout = Workout()
+//                seedWorkout.name = "New Lift"
+//                routine.addWorkout(id: routine.id)
+                RoutineManager.create(routine: routine)
+                setLabels()
+                return
+            }
+            else{
+                return
+            }
         }
-        
+        //managing existing routine
         self.routine = existingRoutine
         setLabels()
     }

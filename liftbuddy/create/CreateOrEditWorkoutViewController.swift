@@ -4,6 +4,7 @@ import RealmSwift
 
 class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var embededLiftTableView: EditWorkoutViewController!
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var editSetsButton: UIButton!
     @IBOutlet weak var exerciseNameTableView: UITableView!
@@ -26,19 +27,15 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        self.exerciseNameTableView.backgroundColor = Theme.backgroundColor
-        self.muscleGroupTableView.backgroundColor = Theme.backgroundColor
-
-        
+        setNavigationItems()
+        setTheme()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.navigationItem.rightBarButtonItem = doneButton(delegate: self)
-        workoutNameTextField.text = workout?.name ?? ""
+        workoutNameTextField?.text = workout?.name ?? ""
         
-        setButtonEnabledStatus()
         getGroups()
     }
 
@@ -61,12 +58,18 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.muscleGroupTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as? LiftGroupLabelCell else { return LiftGroupLabelCell() }
+           
+            cell.liftGroupLabel.textColor = .white
+            
             cell.liftGroupLabel.text = groups[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor
             return cell
         }
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "muscleGroupCell") as? MuslcleGroupTableCell else { return MuslcleGroupTableCell() }
+
+            cell.muscleGroupLabel.textColor = Theme.violet
+            
             cell.muscleGroupLabel.text = exerciseNames[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor
             return cell
@@ -74,7 +77,9 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if tableView == self.muscleGroupTableView {
+            
             let selectedGroup = groups[indexPath.row]
             exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
             
@@ -82,6 +87,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
 
         }
         else if tableView == self.exerciseNameTableView {
+
             let selectedExercise = exerciseNames[indexPath.row]
             self.workoutNameTextField.text = selectedExercise
             
@@ -91,16 +97,15 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         
     }
     
-//    private func doneButton(delegate:UIViewController) -> UIBarButtonItem {
-//        let button = UIBarButtonItem()
-//        button.title = "Done"
-//        button.action = #selector(self.popView)
-////        button.target = target(forAction: .touchUpInside, withSender: self)
-//        return button
-//    }
+    private func setNavigationItems(){
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
+        self.navigationItem.rightBarButtonItem = doneButton
+    }
     
-    @objc private func popView(){
-        self.navigationController?.popViewController(animated: true)
+    @objc private func popNavigationToRoutineViewController(){
+        guard let navigationController = self.navigationController else { return }
+        let viewControllerToPopTo = navigationController.viewControllers[(navigationController.viewControllers.count) - 2]
+        self.navigationController?.popToViewController(viewControllerToPopTo, animated: true)
     }
     
     private func getGroups(){
@@ -117,26 +122,21 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     }
     
     private func setDelegates() {
-        workoutNameTextField.delegate = self
-        exerciseNameTableView.delegate = self
-        exerciseNameTableView.dataSource = self
-        muscleGroupTableView.delegate = self
-        muscleGroupTableView.dataSource = self
+        workoutNameTextField?.delegate = self
+        exerciseNameTableView?.delegate = self
+        exerciseNameTableView?.dataSource = self
+        muscleGroupTableView?.delegate = self
+        muscleGroupTableView?.dataSource = self
     }
     
-    private func setButtonEnabledStatus(){
-        guard let name = workoutNameTextField.text else { return }
-        if name.count > 0 {
-            editSetsButton.isEnabled = true
-        }
-        else {
-            editSetsButton.isEnabled = false
-        }
-    }
     
     private func setWorkoutName(){
         guard let workout = workout, let name = workoutNameTextField.text else { return }
-        setButtonEnabledStatus()
         workout.name = name
+    }
+    
+    private func setTheme(){
+        self.exerciseNameTableView.backgroundColor = Theme.backgroundColor
+        self.muscleGroupTableView.backgroundColor = Theme.backgroundColor
     }
 }

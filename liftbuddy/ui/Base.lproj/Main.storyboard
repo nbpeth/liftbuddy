@@ -1151,7 +1151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a lift name above or select from below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-Ep-CuG">
-                                <rect key="frame" x="37" y="123" width="300" height="15"/>
+                                <rect key="frame" x="37" y="58" width="300" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="qeR-eL-AKu"/>
                                 </constraints>
@@ -1159,23 +1159,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="15h-rO-WYY">
-                                <rect key="frame" x="37" y="30" width="300" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ONh-mT-eb4"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="workoutNameEditingChanged:" destination="N9n-2n-xXQ" eventType="editingChanged" id="gn6-w6-p6Y"/>
-                                </connections>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34U-9r-0bm">
-                                <rect key="frame" x="0.0" y="166" width="125" height="501"/>
+                                <rect key="frame" x="0.0" y="81" width="125" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="FYb-u3-Pe9"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="125" id="cMg-KC-E4g"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="qes-bR-PbP"/>
+                                    <constraint firstAttribute="height" constant="200" id="zGu-rq-qSl"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="TsZ-Oh-74s" customClass="LiftGroupLabelCell" customModule="liftbuddy" customModuleProvider="target">
@@ -1200,9 +1191,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F36-qS-P5q">
+                                <rect key="frame" x="0.0" y="281" width="375" height="386"/>
+                                <connections>
+                                    <segue destination="Fv0-sa-s2u" kind="embed" identifier="addSetsToWorkoutSegue" id="jHQ-q3-lTn"/>
+                                </connections>
+                            </containerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Be-fL-mf9">
+                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-yX-4EA">
-                                <rect key="frame" x="123" y="166" width="252" height="501"/>
+                                <rect key="frame" x="123" y="81" width="252" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="4rN-Ep-Eqb"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="muscleGroupCell" id="D4j-CT-Luw" customClass="MuslcleGroupTableCell" customModule="liftbuddy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="252" height="44"/>
@@ -1226,40 +1232,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-d4-s2P">
-                                <rect key="frame" x="157" y="78" width="61" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <state key="normal" title="Edit Sets"/>
-                                <connections>
-                                    <segue destination="Fv0-sa-s2u" kind="show" identifier="addSetsToWorkoutSegue" id="zim-Nz-HH9"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="28.5" id="1VU-Xe-jcP"/>
-                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="CLC-hf-tBz"/>
-                            <constraint firstItem="CWO-d4-s2P" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="F36-uP-QUR"/>
-                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="CWO-d4-s2P" secondAttribute="bottom" constant="15" id="Fsi-EW-EnE"/>
-                            <constraint firstItem="CWO-d4-s2P" firstAttribute="top" secondItem="15h-rO-WYY" secondAttribute="bottom" constant="18" id="N9l-8c-Hwe"/>
-                            <constraint firstItem="34U-9r-0bm" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="Qzo-BG-yWc"/>
-                            <constraint firstItem="15h-rO-WYY" firstAttribute="top" secondItem="zwC-Kz-NuC" secondAttribute="top" constant="10" id="Y0b-4Q-8Od"/>
-                            <constraint firstItem="34U-9r-0bm" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" id="ebQ-M7-x2M"/>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="ei7-Wj-Yhm"/>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="leading" secondItem="34U-9r-0bm" secondAttribute="trailing" constant="-2" id="hWx-Fz-N9p"/>
-                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="28.5" id="t0J-Q2-kiw"/>
-                            <constraint firstItem="15h-rO-WYY" firstAttribute="centerX" secondItem="zwC-Kz-NuC" secondAttribute="centerX" id="vWw-Nn-2LG"/>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="yNw-GT-6rt"/>
+                            <constraint firstItem="F36-qS-P5q" firstAttribute="top" secondItem="34U-9r-0bm" secondAttribute="bottom" id="1KR-fq-B4b"/>
+                            <constraint firstItem="34U-9r-0bm" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" id="5ii-OD-NJ9"/>
+                            <constraint firstItem="zwC-Kz-NuC" firstAttribute="trailing" secondItem="y3h-Ep-CuG" secondAttribute="trailing" constant="38" id="6O9-P9-KmX"/>
+                            <constraint firstItem="F36-qS-P5q" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" id="79Z-ZB-3T4"/>
+                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="37" id="9N0-h7-TGb"/>
+                            <constraint firstItem="F36-qS-P5q" firstAttribute="top" secondItem="fNz-yX-4EA" secondAttribute="bottom" id="D9L-nq-Tc2"/>
+                            <constraint firstItem="6Be-fL-mf9" firstAttribute="top" secondItem="zwC-Kz-NuC" secondAttribute="top" id="Fbf-0C-pfc"/>
+                            <constraint firstItem="fNz-yX-4EA" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="123" id="G1k-WB-GUq"/>
+                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="8" id="G3A-Vg-Nd6"/>
+                            <constraint firstItem="F36-qS-P5q" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="TnC-7i-GgY"/>
+                            <constraint firstItem="zwC-Kz-NuC" firstAttribute="trailing" secondItem="6Be-fL-mf9" secondAttribute="trailing" constant="16" id="XGH-2c-N1L"/>
+                            <constraint firstItem="6Be-fL-mf9" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="16" id="aOp-VC-s9o"/>
+                            <constraint firstItem="fNz-yX-4EA" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="8" id="cEz-o8-x4b"/>
+                            <constraint firstItem="F36-qS-P5q" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="eBs-zc-he6"/>
+                            <constraint firstItem="fNz-yX-4EA" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="kVd-z4-222"/>
+                            <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="6Be-fL-mf9" secondAttribute="bottom" constant="8" id="ugd-Rz-8c8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zwC-Kz-NuC"/>
                     </view>
                     <connections>
-                        <outlet property="editSetsButton" destination="CWO-d4-s2P" id="Y5r-w4-SHC"/>
+                        <outlet property="embededLiftTableView" destination="F36-qS-P5q" id="aEb-GF-aQ0"/>
                         <outlet property="exerciseNameTableView" destination="fNz-yX-4EA" id="Yhd-jc-YVP"/>
                         <outlet property="muscleGroupTableView" destination="34U-9r-0bm" id="RvT-o0-Bi6"/>
-                        <outlet property="workoutNameTextField" destination="15h-rO-WYY" id="Q2z-ty-d5z"/>
+                        <outlet property="workoutNameTextField" destination="6Be-fL-mf9" id="y1W-Rh-GLi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qc-G0-Vvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1271,11 +1270,11 @@
             <objects>
                 <viewController storyboardIdentifier="EditWorkoutViewController" title="Edit Lifts " useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fv0-sa-s2u" customClass="EditWorkoutViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KSI-bj-5yG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-Ft-jQD">
-                                <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="301"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftCell" id="dLh-5C-EBg" customClass="LiftCell" customModule="liftbuddy" customModuleProvider="target">
@@ -1365,16 +1364,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUd-3F-BHK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCl-yg-Qlp">
-                                        <rect key="frame" x="166.5" y="5" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-IW-7H9">
-                                        <rect key="frame" x="158.5" y="37" width="58" height="32"/>
+                                        <rect key="frame" x="158.5" y="26.5" width="58" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Add Set">
                                             <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1386,11 +1379,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="XCl-yg-Qlp" firstAttribute="top" secondItem="tUd-3F-BHK" secondAttribute="top" constant="5" id="K3f-yG-dS2"/>
                                     <constraint firstItem="Q3C-IW-7H9" firstAttribute="centerX" secondItem="tUd-3F-BHK" secondAttribute="centerX" id="TEq-fW-ifP"/>
-                                    <constraint firstItem="Q3C-IW-7H9" firstAttribute="top" secondItem="XCl-yg-Qlp" secondAttribute="bottom" constant="11" id="Zyq-zV-m9j"/>
                                     <constraint firstAttribute="height" constant="85" id="fje-Wg-zpe"/>
-                                    <constraint firstItem="XCl-yg-Qlp" firstAttribute="centerX" secondItem="tUd-3F-BHK" secondAttribute="centerX" id="zJx-8y-WvH"/>
+                                    <constraint firstItem="Q3C-IW-7H9" firstAttribute="centerY" secondItem="tUd-3F-BHK" secondAttribute="centerY" id="sVV-gk-XwZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1409,7 +1400,6 @@
                     <connections>
                         <outlet property="headerView" destination="tUd-3F-BHK" id="Jak-Pk-l1W"/>
                         <outlet property="liftsInWorkoutTableView" destination="RA0-Ft-jQD" id="psG-YQ-51I"/>
-                        <outlet property="workoutNameLabel" destination="XCl-yg-Qlp" id="7W0-5x-fUM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsU-Yq-PXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
