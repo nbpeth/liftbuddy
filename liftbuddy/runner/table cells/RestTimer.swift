@@ -1,7 +1,24 @@
 import UIKit
 
-class RestTimer {
+class CustomTimer {
     var timer:Timer!
+
+    func ft(_ component:Int) -> String {
+        var timeString = String(describing: component)
+        
+        if component < 10 {
+            timeString = "0\(String(describing: component))"
+        }
+        
+        return timeString
+    }
+    
+    func stop(){
+        timer?.invalidate()
+    }
+}
+
+class RestTimer:CustomTimer {
     var timeToStopTimer:Date?
 
     var labelToUpdate:UILabel?
@@ -21,29 +38,30 @@ class RestTimer {
     @objc private func updateRestTimer() {
         guard
             let labelToUpdate = labelToUpdate,
-            let timeToStopTimer = timeToStopTimer,
-            let remainingTime = DateUtils.differenceBetween(Date(), timeToStopTimer).second
+            let timeToStopTimer = timeToStopTimer
         else { return }
-    
-        DispatchQueue.main.async {
-            labelToUpdate.text = String(describing: remainingTime )
-        }
         
-        if remainingTime <= 0 {
+        let remainingTime = DateUtils.differenceBetween(Date(), timeToStopTimer)
+
+        guard let minute = remainingTime.minute,
+            let second = remainingTime.second
+        else { return }
+   
+        
+        let timeText = "\((minute)):\(ft(second))"
+        
+        labelToUpdate.text = timeText
+        
+        
+        if second <= 0 {
             timer.invalidate()
             labelToUpdate.text = "∞"
         }
         
     }
-    
-    
-    func stop(){
-        timer?.invalidate()
-    }
 }
 
-class IncrementingTimer {
-    var timer:Timer!
+class IncrementingTimer: CustomTimer {
     var timerStartAt:Date?
     
     var labelToUpdate:UILabel?
@@ -74,24 +92,5 @@ class IncrementingTimer {
             labelToUpdate.text = String(describing: timeText )
 
         }
-
-    }
-    
-    func ft(_ component:Int) -> String {
-        var timeString = String(describing: component)
-        
-        if component < 10 {
-//            timeString.insert("0", )
-            timeString = "0\(String(describing: component))"
-        }
-        
-       
-      
-        return timeString
-    }
-    
-    
-    func stop(){
-        timer?.invalidate()
     }
 }
