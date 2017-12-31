@@ -1093,7 +1093,7 @@
                                         <rect key="frame" x="157" y="53" width="60" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Add Lift">
-                                            <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="addWorkoutButtonWasPressed:" destination="Sgg-rO-hwk" eventType="touchUpInside" id="MYF-YN-t53"/>
@@ -1106,7 +1106,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WPu-BO-JnJ" secondAttribute="trailing" constant="18" id="BSR-LL-t7o"/>
                                     <constraint firstItem="rQj-o9-QKy" firstAttribute="top" secondItem="WPu-BO-JnJ" secondAttribute="bottom" constant="24" id="EZZ-d8-2EU"/>
@@ -1379,15 +1379,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-IW-7H9">
                                         <rect key="frame" x="158.5" y="26.5" width="58" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Add Set">
-                                            <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <state key="normal" title="Add Set"/>
                                         <connections>
                                             <action selector="addLiftButtonWasPressed:" destination="Fv0-sa-s2u" eventType="touchUpInside" id="rGS-C7-HOh"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Q3C-IW-7H9" firstAttribute="centerX" secondItem="tUd-3F-BHK" secondAttribute="centerX" id="TEq-fW-ifP"/>
                                     <constraint firstAttribute="height" constant="85" id="fje-Wg-zpe"/>

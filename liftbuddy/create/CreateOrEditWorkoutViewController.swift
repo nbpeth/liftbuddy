@@ -57,6 +57,46 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
         }
     }
     
+    private func setCellSelectionTheme(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+        if tableView == self.muscleGroupTableView {
+            
+            guard let cell = tableView.cellForRow(at: indexPath) as? LiftGroupLabelCell else { return }
+            if cell.isSelected {
+                cell.liftGroupLabel.textColor = .darkGray
+            }
+            else {
+                cell.liftGroupLabel.textColor = .white
+                
+            }
+            
+            let selectedGroup = groups[indexPath.row]
+            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
+            
+            self.exerciseNameTableView.reloadData()
+            
+        }
+        else if tableView == self.exerciseNameTableView {
+            
+            guard let cell = tableView.cellForRow(at: indexPath) as? MuslcleGroupTableCell else { return }
+            if cell.isSelected {
+                cell.muscleGroupLabel.textColor = .darkGray
+            }
+            else {
+                cell.muscleGroupLabel.textColor = .white
+                
+            }
+            let selectedExercise = exerciseNames[indexPath.row]
+            self.workoutNameTextField.text = selectedExercise
+            
+            setWorkoutName()
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        setCellSelectionTheme(tableView,didDeselectRowAt: indexPath)
+    }
+    
     //move table delegates outside of viewcontroller, you know, when you feel like it.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.muscleGroupTableView {
@@ -71,7 +111,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "muscleGroupCell") as? MuslcleGroupTableCell else { return MuslcleGroupTableCell() }
 
-            cell.muscleGroupLabel.textColor = Theme.violet
+            cell.muscleGroupLabel.textColor = .white
             
             cell.muscleGroupLabel.text = exerciseNames[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor
@@ -81,23 +121,41 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView == self.muscleGroupTableView {
-            
-            let selectedGroup = groups[indexPath.row]
-            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
-            
-            self.exerciseNameTableView.reloadData()
+        setCellSelectionTheme(tableView,didDeselectRowAt: indexPath)
 
-        }
-        else if tableView == self.exerciseNameTableView {
-
-            let selectedExercise = exerciseNames[indexPath.row]
-            self.workoutNameTextField.text = selectedExercise
-            
-            setWorkoutName()
-            
-        }
+//        if tableView == self.muscleGroupTableView {
+//
+//            guard let cell = tableView.cellForRow(at: indexPath) as? LiftGroupLabelCell else { return }
+//            if cell.isSelected {
+//                cell.liftGroupLabel.textColor = .darkGray
+//            }
+//            else {
+//                cell.liftGroupLabel.textColor = Theme.inactiveCellColor
+//
+//            }
+//
+//            let selectedGroup = groups[indexPath.row]
+//            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
+//
+//            self.exerciseNameTableView.reloadData()
+//
+//        }
+//        else if tableView == self.exerciseNameTableView {
+//
+//            guard let cell = tableView.cellForRow(at: indexPath) as? MuslcleGroupTableCell else { return }
+//            if cell.isSelected {
+//                cell.muscleGroupLabel.textColor = .darkGray
+//            }
+//            else {
+//                cell.muscleGroupLabel.textColor = .lightGray
+//
+//            }
+//            let selectedExercise = exerciseNames[indexPath.row]
+//            self.workoutNameTextField.text = selectedExercise
+//
+//            setWorkoutName()
+//
+//        }
     }
 
     
