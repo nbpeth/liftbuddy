@@ -13,8 +13,11 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
     var allExercises = [ExerciseDefinition]()
     var groups = [String]()
     var exerciseNames = [String]()
-    
-    
+   
+    @IBAction func workoutNameChanged(_ sender: Any) {
+        setWorkoutName()
+
+    }
     @IBAction func workoutNameEditingChanged(_ sender: Any) {
         setWorkoutName()
     }
@@ -72,6 +75,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
             
             cell.muscleGroupLabel.text = exerciseNames[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor
+            
             return cell
         }
     }
@@ -94,7 +98,6 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
             setWorkoutName()
             
         }
-        
     }
     
     private func setNavigationItems(){
