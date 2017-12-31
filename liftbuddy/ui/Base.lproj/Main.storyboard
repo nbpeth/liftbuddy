@@ -45,8 +45,11 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSf-uM-Mqg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSf-uM-Mqg">
                                             <rect key="frame" x="131" y="34" width="97" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="2jh-jf-zOG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -54,9 +57,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="6u3-uO-UrS" secondAttribute="bottom" constant="5" id="KjE-sq-lb4"/>
-                                        <constraint firstItem="OSf-uM-Mqg" firstAttribute="leading" secondItem="6u3-uO-UrS" secondAttribute="trailing" constant="18" id="PUM-Za-g1i"/>
+                                        <constraint firstItem="OSf-uM-Mqg" firstAttribute="leading" secondItem="6u3-uO-UrS" secondAttribute="trailing" constant="19" id="PUM-Za-g1i"/>
                                         <constraint firstAttribute="bottom" secondItem="OSf-uM-Mqg" secondAttribute="bottom" constant="5" id="RhA-e6-Wfc"/>
                                         <constraint firstItem="6u3-uO-UrS" firstAttribute="leading" secondItem="wvb-1Z-5d0" secondAttribute="leading" constant="16" id="Yar-7f-eKg"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OSf-uM-Mqg" secondAttribute="trailing" constant="20" symbolic="YES" id="rV2-SV-hVu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
