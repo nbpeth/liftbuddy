@@ -1262,9 +1262,6 @@
                             <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="6Be-fL-mf9" secondAttribute="bottom" constant="8" id="ugd-Rz-8c8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zwC-Kz-NuC"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ovR-rU-hv1" appends="YES" id="U1f-kD-foq"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="embededLiftTableView" destination="F36-qS-P5q" id="aEb-GF-aQ0"/>
@@ -1274,11 +1271,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qc-G0-Vvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ovR-rU-hv1">
-                    <connections>
-                        <action selector="viewWasTapped:" destination="N9n-2n-xXQ" id="buR-8S-JCi"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2898.4000000000001" y="268.51574212893553"/>
         </scene>

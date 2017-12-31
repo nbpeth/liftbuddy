@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var embededLiftTableView: EditWorkoutViewController!
     @IBOutlet weak var workoutNameTextField: UITextField!
@@ -100,10 +100,6 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
         }
     }
 
-    @IBAction func viewWasTapped(_ sender: Any) {
-        self.workoutNameTextField.resignFirstResponder()
-
-    }
     
     private func setNavigationItems(){
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
