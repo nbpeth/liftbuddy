@@ -37,7 +37,6 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
             
             if workoutToDeleteFrom.lifts.count >= indexPath.row {
                 workoutToDeleteFrom.lifts.remove(at: indexPath.row)
-                self.liftsInWorkoutTableView.deleteRows(at: [indexPath], with: .automatic)
             }
             
             self.liftsInWorkoutTableView.reloadData()
@@ -67,7 +66,7 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         }
         
         if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
-            cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: true)
+            cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: false)
         }
         
         return cell

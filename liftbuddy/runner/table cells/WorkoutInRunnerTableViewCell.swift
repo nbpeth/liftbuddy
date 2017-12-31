@@ -2,11 +2,11 @@ import UIKit
 import Foundation
 
 extension WorkoutInRunnerTableViewCell: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         repsTextField.resignFirstResponder()
         weightTextField.resignFirstResponder()
-        
+
         return true
     }
 }

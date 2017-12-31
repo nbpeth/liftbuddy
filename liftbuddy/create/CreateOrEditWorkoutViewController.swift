@@ -99,11 +99,17 @@ class CreateOrEditWorkoutViewController: BaseViewController, UITextFieldDelegate
             
         }
     }
+
+    @IBAction func viewWasTapped(_ sender: Any) {
+        self.workoutNameTextField.resignFirstResponder()
+
+    }
     
     private func setNavigationItems(){
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
         self.navigationItem.rightBarButtonItem = doneButton
     }
+    @IBOutlet var viewWasTapped: UITapGestureRecognizer!
     
     @objc private func popNavigationToRoutineViewController(){
         guard let navigationController = self.navigationController else { return }
