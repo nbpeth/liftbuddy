@@ -17,7 +17,6 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        seedNewLift()
         setDelegates()
         setTheme()
     }
@@ -81,17 +80,4 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         liftsInWorkoutTableView.delegate = self
         liftsInWorkoutTableView.dataSource = self
     }
-    
-    
-    
-//    private func seedNewLift(){
-//        guard let workout = workout else { return }
-//
-//        if workout.lifts.count <= 0 {
-//            workout.addLift()
-//        }
-//    }
-    
-    
-    
 }

@@ -13,6 +13,8 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var toolbar: UIToolbar!
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {
+        
+        saveCustomWorkouts()
         RealmManager.shared.saveChanges()
         navigateRoutineList()
     }
@@ -182,5 +184,17 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         self.routineTableView.backgroundColor = Theme.inactiveCellColor
         self.headerView.backgroundColor = Theme.backgroundColor
         self.toolbar.barTintColor = Theme.tabBarColor
+    }
+    
+    //until an exercise manager is implemented later
+    private func saveCustomWorkouts(){
+        guard let routine = routine else { return }
+        let workoutNamesFromStore:[String] = ExerciseDefinitionManager.getAllExercises().map{$0.name ?? ""}
+        let workoutNamesFromThisRoutine:[String] = routine.workout.map { $0.name }
+        
+        let unmatchedWorkouts = workoutNamesFromThisRoutine.filter { !workoutNamesFromStore.contains($0) }
+        
+        ExerciseDefinitionManager.saveCustomExerciseDefinition(exerciseDefinitions:unmatchedWorkouts)
+    
     }
 }

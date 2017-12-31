@@ -1165,7 +1165,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34U-9r-0bm">
-                                <rect key="frame" x="0.0" y="81" width="125" height="200"/>
+                                <rect key="frame" x="0.0" y="111" width="125" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="FYb-u3-Pe9"/>
@@ -1197,7 +1197,7 @@
                                 </prototypes>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F36-qS-P5q">
-                                <rect key="frame" x="0.0" y="281" width="375" height="386"/>
+                                <rect key="frame" x="0.0" y="311" width="375" height="356"/>
                                 <connections>
                                     <segue destination="Fv0-sa-s2u" kind="embed" identifier="addSetsToWorkoutSegue" id="jHQ-q3-lTn"/>
                                 </connections>
@@ -1212,7 +1212,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-yX-4EA">
-                                <rect key="frame" x="123" y="81" width="252" height="200"/>
+                                <rect key="frame" x="123" y="111" width="252" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4rN-Ep-Eqb"/>
@@ -1240,6 +1240,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New lifts will be added to the 'My Lifts' Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0q-eS-Rex">
+                                <rect key="frame" x="30" y="81" width="315" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ygE-nV-SSv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1252,13 +1261,15 @@
                             <constraint firstItem="F36-qS-P5q" firstAttribute="top" secondItem="fNz-yX-4EA" secondAttribute="bottom" id="D9L-nq-Tc2"/>
                             <constraint firstItem="6Be-fL-mf9" firstAttribute="top" secondItem="zwC-Kz-NuC" secondAttribute="top" id="Fbf-0C-pfc"/>
                             <constraint firstItem="fNz-yX-4EA" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="123" id="G1k-WB-GUq"/>
-                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="8" id="G3A-Vg-Nd6"/>
+                            <constraint firstItem="zwC-Kz-NuC" firstAttribute="trailing" secondItem="j0q-eS-Rex" secondAttribute="trailing" constant="30" id="JpC-7b-8tb"/>
+                            <constraint firstItem="j0q-eS-Rex" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="8" id="Nsp-ZA-f5f"/>
                             <constraint firstItem="F36-qS-P5q" firstAttribute="bottom" secondItem="zwC-Kz-NuC" secondAttribute="bottom" id="TnC-7i-GgY"/>
+                            <constraint firstItem="34U-9r-0bm" firstAttribute="top" secondItem="j0q-eS-Rex" secondAttribute="bottom" constant="15" id="UdR-Dy-ZdU"/>
                             <constraint firstItem="zwC-Kz-NuC" firstAttribute="trailing" secondItem="6Be-fL-mf9" secondAttribute="trailing" constant="16" id="XGH-2c-N1L"/>
                             <constraint firstItem="6Be-fL-mf9" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="16" id="aOp-VC-s9o"/>
-                            <constraint firstItem="fNz-yX-4EA" firstAttribute="top" secondItem="y3h-Ep-CuG" secondAttribute="bottom" constant="8" id="cEz-o8-x4b"/>
                             <constraint firstItem="F36-qS-P5q" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="eBs-zc-he6"/>
                             <constraint firstItem="fNz-yX-4EA" firstAttribute="trailing" secondItem="zwC-Kz-NuC" secondAttribute="trailing" id="kVd-z4-222"/>
+                            <constraint firstItem="j0q-eS-Rex" firstAttribute="leading" secondItem="zwC-Kz-NuC" secondAttribute="leading" constant="30" id="nkv-m3-MzM"/>
                             <constraint firstItem="y3h-Ep-CuG" firstAttribute="top" secondItem="6Be-fL-mf9" secondAttribute="bottom" constant="8" id="ugd-Rz-8c8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zwC-Kz-NuC"/>
@@ -1279,11 +1290,11 @@
             <objects>
                 <viewController storyboardIdentifier="EditWorkoutViewController" title="Edit Lifts " useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fv0-sa-s2u" customClass="EditWorkoutViewController" customModule="liftbuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KSI-bj-5yG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="356"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-Ft-jQD">
-                                <rect key="frame" x="0.0" y="85" width="375" height="301"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftCell" id="dLh-5C-EBg" customClass="LiftCell" customModule="liftbuddy" customModuleProvider="target">

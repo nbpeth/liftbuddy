@@ -70,7 +70,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
             }
             
             let selectedGroup = groups[indexPath.row]
-            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
+            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}.sorted()
             
             self.exerciseNameTableView.reloadData()
             
@@ -93,11 +93,6 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
         }
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        setCellSelectionTheme(tableView,didDeselectRowAt: indexPath)
-    }
-    
-    //move table delegates outside of viewcontroller, you know, when you feel like it.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.muscleGroupTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as? LiftGroupLabelCell else { return LiftGroupLabelCell() }
@@ -122,48 +117,17 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         setCellSelectionTheme(tableView,didDeselectRowAt: indexPath)
-
-//        if tableView == self.muscleGroupTableView {
-//
-//            guard let cell = tableView.cellForRow(at: indexPath) as? LiftGroupLabelCell else { return }
-//            if cell.isSelected {
-//                cell.liftGroupLabel.textColor = .darkGray
-//            }
-//            else {
-//                cell.liftGroupLabel.textColor = Theme.inactiveCellColor
-//
-//            }
-//
-//            let selectedGroup = groups[indexPath.row]
-//            exerciseNames = allExercises.filter {$0.muscleGroup ?? "" == selectedGroup }.map{$0.name ?? ""}
-//
-//            self.exerciseNameTableView.reloadData()
-//
-//        }
-//        else if tableView == self.exerciseNameTableView {
-//
-//            guard let cell = tableView.cellForRow(at: indexPath) as? MuslcleGroupTableCell else { return }
-//            if cell.isSelected {
-//                cell.muscleGroupLabel.textColor = .darkGray
-//            }
-//            else {
-//                cell.muscleGroupLabel.textColor = .lightGray
-//
-//            }
-//            let selectedExercise = exerciseNames[indexPath.row]
-//            self.workoutNameTextField.text = selectedExercise
-//
-//            setWorkoutName()
-//
-//        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        setCellSelectionTheme(tableView,didDeselectRowAt: indexPath)
     }
 
-    
     private func setNavigationItems(){
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(popNavigationToRoutineViewController))
         self.navigationItem.rightBarButtonItem = doneButton
     }
-    @IBOutlet var viewWasTapped: UITapGestureRecognizer!
     
     @objc private func popNavigationToRoutineViewController(){
         guard let navigationController = self.navigationController else { return }
@@ -172,14 +136,14 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
     }
     
     private func getGroups(){
-        self.allExercises = RealmManager().realm.objects(ExerciseDefinition.self).map { $0 }
+        self.allExercises = ExerciseDefinitionManager.getAllExercises()
         
         self.groups = allExercises.map { $0.muscleGroup ?? "" }
             .reduce(into: [String](), { res, next in
             if res.index(of: next) == nil {
                 res.append(next)
             }
-        })
+        }).sorted()
         
         self.muscleGroupTableView.reloadData()
     }
