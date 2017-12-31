@@ -111,7 +111,7 @@ class RoutineRunnerTests: XCTestCase {
         
         assert(runner.position.coordinates() == (1,0))
 
-        runner.changeWorkoutPosition(to: 0)
+        runner.changeWorkoutPosition(to: 0, liftIndex: 0)
         
         assert(runner.position.coordinates() == (0,0))
 
@@ -127,7 +127,7 @@ class RoutineRunnerTests: XCTestCase {
         
         assert(runner.position.coordinates() == (0,0))
         
-        runner.changeWorkoutPosition(to: 2)
+        runner.changeWorkoutPosition(to: 2, liftIndex: 0)
         
         assert(runner.position.coordinates() == (2,0))
         
@@ -145,7 +145,7 @@ class RoutineRunnerTests: XCTestCase {
         assert(runner.position.coordinates() == (1,0))
         assert(!runner.isOnLastLiftOfLastWorkout())
         
-        runner.changeWorkoutPosition(to: 0)
+        runner.changeWorkoutPosition(to: 0, liftIndex: 0)
         
         assert(runner.position.coordinates() == (0,0))
         assert(!runner.isOnLastLiftOfLastWorkout())
