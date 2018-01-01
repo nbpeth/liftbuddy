@@ -103,6 +103,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "My Lift Buddy"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
