@@ -54,8 +54,11 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
         }
         
         cell.lift = liftToEdit        
-        cell.repsPickerView.selectRow(liftToEdit.reps.value ?? 0 , inComponent: 0, animated: false)
 
+        cell.repsTextField.text = String(describing: liftToEdit.reps.value ?? 0)
+        cell.weightTextField.text = String(describing: liftToEdit.weight.value ?? 0)
+        cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
+        
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
         }
@@ -63,11 +66,7 @@ class EditWorkoutViewController: BaseViewController, UITableViewDelegate, UITabl
             cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.8)
             
         }
-        
-        if let weightIndex = cell.weightArray.index(of: liftToEdit.weight.value ?? 0.0)  {
-            cell.weightPickerView.selectRow(weightIndex , inComponent: 0, animated: false)
-        }
-        
+    
         return cell
     }
     

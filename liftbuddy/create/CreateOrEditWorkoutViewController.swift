@@ -65,7 +65,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
                 cell.liftGroupLabel.textColor = .darkGray
             }
             else {
-                cell.liftGroupLabel.textColor = .white
+                cell.liftGroupLabel.textColor = Theme.linkBlue
                 
             }
             
@@ -82,9 +82,9 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
                 cell.muscleGroupLabel.textColor = .darkGray
             }
             else {
-                cell.muscleGroupLabel.textColor = .white
-                
+                cell.muscleGroupLabel.textColor = Theme.linkBlue
             }
+            
             let selectedExercise = exerciseNames[indexPath.row]
             self.workoutNameTextField.text = selectedExercise
             
@@ -97,8 +97,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
         if tableView == self.muscleGroupTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as? LiftGroupLabelCell else { return LiftGroupLabelCell() }
            
-            cell.liftGroupLabel.textColor = .white
-            
+            cell.liftGroupLabel.textColor = Theme.linkBlue
             cell.liftGroupLabel.text = groups[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor
             return cell
@@ -106,7 +105,7 @@ class CreateOrEditWorkoutViewController: BaseViewController, UIGestureRecognizer
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "muscleGroupCell") as? MuslcleGroupTableCell else { return MuslcleGroupTableCell() }
 
-            cell.muscleGroupLabel.textColor = .white
+            cell.muscleGroupLabel.textColor = Theme.linkBlue
             
             cell.muscleGroupLabel.text = exerciseNames[indexPath.row]
             cell.backgroundColor = Theme.inactiveCellColor

@@ -114,18 +114,13 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         cell.workout = workout
         cell.numberOfSetsLabel.text = "Sets: \(String(describing: workout.lifts.count))"
         cell.workoutNameLabel.text = workout.name
-        
+        cell.restTextField.text = String(describing: workout.rest.value ?? 0)
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = Theme.cellSelectedBackgroundColor.withAlphaComponent(0.8)
         }
         else {
             cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.8)
-            
         }
-        
-        guard let rest = workout.rest.value else { return cell }
-        
-        cell.restPicker.selectRow(rest / 5 , inComponent: 0, animated: false)
         
         return cell
     }
@@ -192,7 +187,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
         let workoutNamesFromStore:[String] = ExerciseDefinitionManager.getAllExercises().map{$0.name ?? ""}
         let workoutNamesFromThisRoutine:[String] = routine.workout.map { $0.name }
         
-        let unmatchedWorkouts = workoutNamesFromThisRoutine.filter { !workoutNamesFromStore.contains($0) && $0 != "New Workout" }
+        let unmatchedWorkouts = workoutNamesFromThisRoutine.filter { !workoutNamesFromStore.contains($0) && $0 != "New Lift" }
         
         ExerciseDefinitionManager.saveCustomExerciseDefinition(exerciseDefinitions:unmatchedWorkouts)
     

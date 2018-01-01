@@ -4,6 +4,7 @@ import UIKit
 class Theme {
     static let violet = UIColor(red: 108/255, green: 113/255, blue: 196/255, alpha: 1)
     static let blue = UIColor(red: 38/255, green: 139/255, blue: 210/255, alpha: 1)
+    static let linkBlue = UIColor(red: 0/255, green: 151/255, blue: 255/255, alpha: 1)
 
     static let yellow = UIColor(red: 200/255, green: 117/255, blue: 0/255, alpha: 1)
 

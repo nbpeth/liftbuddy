@@ -85,7 +85,9 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         else { return WorkoutInRunnerTableViewCell() }
         
         let liftForRow = routine.workout[indexPath.section].lifts[indexPath.row]
-        
+
+        cell.backgroundColor = Theme.tabBarColor
+        cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
         cell.repsTextField.text = String(describing: liftForRow.reps.value ?? 0)
         cell.weightTextField.text = String(describing: liftForRow.weight.value ?? 0.0)
         cell.lift = liftForRow
@@ -93,7 +95,6 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
 
         if runner.position.workoutIndex == indexPath.section && runner.position.liftIndex == indexPath.row {
             cell.backgroundColor = Theme.activeCellColor
-            
         }
         else{
             cell.backgroundColor = Theme.inactiveCellColor
@@ -137,15 +138,14 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     private func focusCurrentWorkoutInTable(){
         guard let runner = runner else { return }
-        
+        let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
+
         if(!runner.isOnLastLiftOfLastWorkout() ) {
             nextLiftButton.isEnabled = true
-            let indexPath = IndexPath(row: runner.position.liftIndex, section: runner.position.workoutIndex)
-            
-            if workoutHasLifts(row: indexPath.section) {
-                scrollTableToIndex(indexPath)
-            }
-
+        }
+        
+        if workoutHasLifts(row: indexPath.section) {
+            scrollTableToIndex(indexPath)
         }
     }
     
@@ -155,7 +155,9 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     }
     
     private func scrollTableToIndex(_ IndexPath:IndexPath){
-        workoutListTableView.scrollToRow(at: IndexPath, at: .bottom, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.workoutListTableView.scrollToRow(at: IndexPath, at: .bottom, animated: true)
+        }
     }
     
     private func configureRestTimerLabelGestureRecognizer(){

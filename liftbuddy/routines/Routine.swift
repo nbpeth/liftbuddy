@@ -83,8 +83,8 @@ class Routine: Object {
     
     func addWorkout(id:Int){
         let routine = RoutineManager.getRoutineBy(id: id)
-        let newWorkout = Workout(name:"New Workout")
-        newWorkout.lifts.append(Lift(name: "New Workout"))
+        let newWorkout = Workout(name:"New Lift")
+        newWorkout.lifts.append(Lift(name: "New Lift"))
         routine?.workout.append(newWorkout)
     }
     

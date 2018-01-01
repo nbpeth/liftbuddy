@@ -29,19 +29,29 @@ class NameYourRoutineViewController: BaseViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? EditRoutineViewController {
-            let routineName = routineNameTextField.text ?? "Unnamed Workout"
-            
-            let routine = Routine(name: routineName)
-            routine.addWorkout(id: routine.id)
-            
-            destinationViewController.routine = routine
+        if let destination = segue.destination as? EditRoutineViewController {
+            createRoutineWithName(destination)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         routineNameTextField.resignFirstResponder()
+        
+        guard let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editRoutineViewController") as? EditRoutineViewController
+            else { return true }
+        
+        createRoutineWithName(destination)
+        
+        self.navigationController?.pushViewController(destination, animated: true)
+        
         return true
+    }
+    
+    private func createRoutineWithName(_ destination:EditRoutineViewController){
+        let routineName = routineNameTextField.text ?? "Unnamed Workout"
+        let routine = Routine(name: routineName)
+        routine.addWorkout(id: routine.id)
+        destination.routine = routine
     }
 
 }

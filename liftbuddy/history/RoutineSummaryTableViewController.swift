@@ -15,10 +15,10 @@ class RoutineSummaryTableViewController: UITableViewController {
         
         let liftForRow = completedRoutine.workout[indexPath.section].lifts[indexPath.row]
 
-        cell.repsLabel.text = "\(String(describing: liftForRow.reps.value ?? 0)) reps. "
+        cell.repsLabel.text = "\(String(describing: liftForRow.reps.value ?? 0)) reps "
         cell.weightLabel.text = "\(String(describing: liftForRow.weight.value ?? 0.0)) lbs "
         
-        cell.setNumberLabel.text = ""
+        cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
 
         cell.backgroundColor = Theme.alternateCellSelectedBackgroundColor.withAlphaComponent(0.1)
         

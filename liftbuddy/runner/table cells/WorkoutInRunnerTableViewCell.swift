@@ -1,21 +1,12 @@
 import UIKit
 import Foundation
 
-extension WorkoutInRunnerTableViewCell: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        repsTextField.resignFirstResponder()
-        weightTextField.resignFirstResponder()
-
-        return true
-    }
-}
-
 class WorkoutInRunnerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var doneIndicator: UIButton!
     @IBOutlet weak var repsTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var setNumberLabel: UILabel!
     
     @IBAction func doneViewWasPressed(_ sender: Any) {
         guard let lift = lift else { return }
@@ -28,11 +19,6 @@ class WorkoutInRunnerTableViewCell: UITableViewCell {
         guard let lift = lift else { return }
         doneIndicator.backgroundColor = lift.completed ? Theme.blue : Theme.tabBarColor
 
-    }
-    
-    override func awakeFromNib() {
-        repsTextField.delegate = self
-        weightTextField.delegate = self
     }
     
     @IBAction func repsForLiftValueChanged(_ sender: Any) {

@@ -1,89 +1,61 @@
 import Foundation
 import UIKit
 
-extension LiftCell: UIPickerViewDataSource, UIPickerViewDelegate {
-        
-    var repsArray: [Int] {
-        var numbers = [Int]()
-        for i in 0 ... 100 {
-            numbers.append(i)
-        }
-        return numbers
-    }
-    
-    var weightArray: [Double] {
-        var numbers = [Double]()
-        for i in stride(from: 0.0, to: 1000, by: 2.5) {
-            numbers.append(i)
-        }
-        return numbers
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 0 {
-            return repsArray.count
-        }
-        else {
-            return weightArray.count
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 0 {
-            return String(describing:repsArray[row])
-        }
-        else {
-            return String(describing:weightArray[row])
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let thisLift = lift else { return }
-        
-        if pickerView.tag == 0 {
-            thisLift.reps.value = repsArray[row]
-        }
-        else {
-            thisLift.weight.value = weightArray[row]
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var title = ""
-        if pickerView.tag == 0 {
-            title = String(describing:repsArray[row])
-        }
-        else {
-            title =  String(describing:weightArray[row])
-        }
-        
-        let pickerLabel = UILabel()
-        let titleData = title
-        let font = UIFont.boldSystemFont(ofSize: 20.0)
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:Theme.yellow])
-        pickerLabel.attributedText = myTitle
-        return pickerLabel
-    }
-}
-
 class LiftCell: UITableViewCell {
     @IBOutlet weak var repsPickerView: UIPickerView!
     @IBOutlet weak var weightPickerView: UIPickerView!
-
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var repsTextField: UITextField!
+    @IBOutlet weak var setNumberLabel: UILabel!
     var lift:Lift?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        repsPickerView.dataSource = self
-        repsPickerView.delegate = self
-        
-        weightPickerView.dataSource = self
-        weightPickerView.delegate = self
     
     }
     
+    @IBAction func repsTextFieldChanged(_ sender: Any) {
+        guard let lift = lift, let reps = repsTextField.text else { return }
+        lift.reps.value = Int(reps)
+        self.lift = lift
+    }
+    
+    @IBAction func weightTextFieldChanged(_ sender: Any) {
+        guard let lift = lift, let weight = weightTextField.text else { return }
+        lift.weight.value = Double(weight)
+        self.lift = lift
+    }
+}
+
+extension UITextField {
+    @IBInspectable var doneAccessory: Bool{
+        get{
+            return self.doneAccessory
+        }
+        set (hasDone) {
+            if hasDone{
+                addDoneButtonOnKeyboard()
+            }
+        }
+    }
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction()
+    {
+        self.resignFirstResponder()
+    }
 }
