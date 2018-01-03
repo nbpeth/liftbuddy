@@ -1138,21 +1138,27 @@
                                             <action selector="addWorkoutButtonWasPressed:" destination="Sgg-rO-hwk" eventType="touchUpInside" id="MYF-YN-t53"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPu-BO-JnJ">
-                                        <rect key="frame" x="18" y="8" width="339" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rxk-aa-3UH">
+                                        <rect key="frame" x="5" y="8" width="365" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="routineNameTextFieldChanged:" destination="Sgg-rO-hwk" eventType="editingChanged" id="a7S-TI-0FV"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WPu-BO-JnJ" secondAttribute="trailing" constant="18" id="BSR-LL-t7o"/>
-                                    <constraint firstItem="rQj-o9-QKy" firstAttribute="top" secondItem="WPu-BO-JnJ" secondAttribute="bottom" constant="24" id="EZZ-d8-2EU"/>
+                                    <constraint firstAttribute="trailing" secondItem="rxk-aa-3UH" secondAttribute="trailing" constant="5" id="Fgy-xi-XeX"/>
                                     <constraint firstAttribute="height" constant="95" id="Ipr-fs-44Q"/>
-                                    <constraint firstItem="WPu-BO-JnJ" firstAttribute="top" secondItem="hnb-t1-Nlw" secondAttribute="top" constant="8" id="KrK-F5-p9I"/>
+                                    <constraint firstItem="rxk-aa-3UH" firstAttribute="leading" secondItem="hnb-t1-Nlw" secondAttribute="leading" constant="5" id="O4b-x4-rHb"/>
                                     <constraint firstItem="rQj-o9-QKy" firstAttribute="centerX" secondItem="hnb-t1-Nlw" secondAttribute="centerX" id="UoO-1V-ZJQ"/>
-                                    <constraint firstItem="WPu-BO-JnJ" firstAttribute="centerX" secondItem="hnb-t1-Nlw" secondAttribute="centerX" id="ZIx-Xg-rdO"/>
+                                    <constraint firstItem="rQj-o9-QKy" firstAttribute="top" secondItem="rxk-aa-3UH" secondAttribute="bottom" constant="15" id="cep-ws-qMU"/>
+                                    <constraint firstItem="rxk-aa-3UH" firstAttribute="top" secondItem="hnb-t1-Nlw" secondAttribute="top" constant="8" id="sJC-G7-1Q9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1177,7 +1183,7 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="f3d-sg-YLS"/>
                     <connections>
                         <outlet property="headerView" destination="hnb-t1-Nlw" id="LVZ-lU-ASv"/>
-                        <outlet property="routineNameLabel" destination="WPu-BO-JnJ" id="H8v-bm-zkk"/>
+                        <outlet property="routineNameTextField" destination="rxk-aa-3UH" id="iCm-uO-0aa"/>
                         <outlet property="routineTableView" destination="mQ5-7h-KjD" id="NUX-hg-cWv"/>
                         <outlet property="toolbar" destination="Cs6-zA-PWh" id="kJH-X4-aNI"/>
                     </connections>
@@ -1212,7 +1218,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEr-aw-mNe">
-                                                    <rect key="frame" x="14" y="12" width="111" height="21"/>
+                                                    <rect key="frame" x="14" y="11" width="111" height="13"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1258,7 +1264,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSe-pc-5QS">
-                                                    <rect key="frame" x="14" y="-9" width="238" height="61"/>
+                                                    <rect key="frame" x="14" y="-9" width="238" height="53"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

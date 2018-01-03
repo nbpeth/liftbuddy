@@ -13,7 +13,7 @@ class RoutineManager {
     }
     
     static func getAllRoutines() -> [Routine] {
-        return RealmManager.shared.realm.objects(Routine.self).map { routine in return routine }
+        return RealmManager.shared.realm.objects(Routine.self).sorted(byKeyPath: "name").map { routine in return routine }
     }
     
     static func getRoutineBy(id:Int) -> Routine? {

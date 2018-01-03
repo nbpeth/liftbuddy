@@ -1,16 +1,22 @@
 import Foundation
 import UIKit
 
-class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class EditRoutineViewController: BaseViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     var routine: Routine?
     var routineId: Int?
     var editButton:UIBarButtonItem!
     
     @IBOutlet weak var routineTableView: UITableView!
     @IBOutlet weak var routineNameLabel: UILabel!
-    @IBOutlet weak var workoutNameLabel: UILabel!
+    @IBOutlet weak var routineNameTextField: UITextField!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var toolbar: UIToolbar!
+    
+    @IBAction func routineNameTextFieldChanged(_ sender: Any) {
+        guard let routine = routine, let routineName = routineNameTextField.text else { return }
+        routine.name = routineName
+        self.routine = routine
+    }
     
     @IBAction func saveButtonWasPressed(_ sender: Any) {
         
@@ -167,7 +173,7 @@ class EditRoutineViewController: BaseViewController, UITableViewDelegate, UITabl
     
     private func setLabels(){
         guard let routineName = routine?.name else { return }
-        routineNameLabel.text = routineName
+        routineNameTextField.text = routineName
     }
     
     private func setDelegates(){
