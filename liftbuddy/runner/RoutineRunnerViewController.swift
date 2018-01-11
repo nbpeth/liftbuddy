@@ -117,8 +117,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     }
     
     private func startElapsedTimer(){
-        let elapsedTimer = IncrementingTimer(labelToUpdate: elapsedTimeLabel)
-        elapsedTimer.start()
+        IncrementingTimer.shared.start(labelToUpdate: elapsedTimeLabel)
     }
     
     private func setupTheme(){

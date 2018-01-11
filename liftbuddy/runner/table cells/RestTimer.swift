@@ -1,6 +1,7 @@
 import UIKit
 
 class CustomTimer {
+    
     var timer:Timer!
 
     func ft(_ component:Int) -> String {
@@ -62,16 +63,14 @@ class RestTimer:CustomTimer {
 }
 
 class IncrementingTimer: CustomTimer {
+    static let shared = IncrementingTimer()
+
     var timerStartAt:Date?
-    
     var labelToUpdate:UILabel?
     
-    init(labelToUpdate:UILabel){
-        self.labelToUpdate = labelToUpdate
+    func start(labelToUpdate:UILabel){
         self.timerStartAt = Date()
-    }
-    
-    func start(){
+        self.labelToUpdate = labelToUpdate
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(updateRestTimer), userInfo: nil, repeats: true)
         timer?.fire()
     }
