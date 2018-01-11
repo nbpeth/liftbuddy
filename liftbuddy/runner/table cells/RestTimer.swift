@@ -53,7 +53,7 @@ class RestTimer:CustomTimer {
         labelToUpdate.text = timeText
         
         
-        if second <= 0 {
+        if minute <= 0 && second <= 0 {
             timer.invalidate()
             labelToUpdate.text = "∞"
         }
