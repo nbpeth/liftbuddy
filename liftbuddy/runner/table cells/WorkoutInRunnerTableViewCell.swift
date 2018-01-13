@@ -7,6 +7,7 @@ class WorkoutInRunnerTableViewCell: UITableViewCell {
     @IBOutlet weak var repsTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var setNumberLabel: UILabel!
+    @IBOutlet weak var coolXLabel: UILabel!
     
     @IBAction func doneViewWasPressed(_ sender: Any) {
         guard let lift = lift else { return }

@@ -8,6 +8,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     @IBOutlet weak var hudView: UIView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
+
     
     var timer:RestTimer!
     var routine:RoutineInProgress?
@@ -60,16 +61,15 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         self.workoutListTableView.reloadData()
     }
    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let routine = self.routine else { return "" }
+        return routine.workout[section].name
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let routine = self.routine else { return 0 }
         
-        return routine.workout[section].lifts.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let routine = self.routine else { return "" }
-        return routine.workout[section].name
+        return routine.workout[section].lifts.count + 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,24 +83,52 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
             let runner = runner,
             let routine = runner.routine
         else { return WorkoutInRunnerTableViewCell() }
+    
+        let workout = routine.workout[indexPath.section]
+    
+        if workout.lifts.count > indexPath.row {
+            configureLift(cell: cell, workout: workout, indexPath: indexPath)
+        }
+        else{
+            configureWorkoutEditing(cell: cell)
+        }
         
-        let liftForRow = routine.workout[indexPath.section].lifts[indexPath.row]
+        return cell
+    }
+    
+    func configureWorkoutEditing(cell:WorkoutInRunnerTableViewCell){
+        cell.backgroundColor = Theme.tabBarColor
+        cell.coolXLabel.isHidden = true
+        cell.setNumberLabel.isHidden = true
+        cell.repsTextField.isHidden = true
+        cell.weightTextField.isHidden = true
+        cell.doneIndicator.isHidden = true
+        
+    }
+    
+    func configureLift(cell:WorkoutInRunnerTableViewCell, workout:WorkoutInProgress, indexPath:IndexPath){
+        let liftForRow = workout.lifts[indexPath.row]
+        
+        cell.setNumberLabel.isHidden = false
+        cell.repsTextField.isHidden = false
+        cell.weightTextField.isHidden = false
+        cell.doneIndicator.isHidden = false
+        cell.coolXLabel.isHidden = false
 
+        
         cell.backgroundColor = Theme.tabBarColor
         cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
         cell.repsTextField.text = String(describing: liftForRow.reps.value ?? 0)
         cell.weightTextField.text = String(describing: liftForRow.weight.value ?? 0.0)
         cell.lift = liftForRow
         cell.setDoneIndicatorColor()
-
-        if runner.position.workoutIndex == indexPath.section && runner.position.liftIndex == indexPath.row {
+        
+        if runner?.position.workoutIndex == indexPath.section && runner?.position.liftIndex == indexPath.row {
             cell.backgroundColor = Theme.activeCellColor
         }
         else{
             cell.backgroundColor = Theme.inactiveCellColor
         }
-        
-        return cell
     }
     
     
@@ -111,7 +139,6 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         runner = RoutineRunner(routine: routine)
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
-        configureRestTimerLabelGestureRecognizer()
         startElapsedTimer()
         setupTheme()
     }
@@ -157,15 +184,5 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             self.workoutListTableView.scrollToRow(at: IndexPath, at: .bottom, animated: true)
         }
-    }
-    
-    private func configureRestTimerLabelGestureRecognizer(){
-        let tap = UITapGestureRecognizer(target:self, action: #selector(RoutineRunnerViewController.tapRestTimer))
-        restTimerLabel.isUserInteractionEnabled = true
-        restTimerLabel.addGestureRecognizer(tap)
-    }
-    
-    @objc private func tapRestTimer(){
-        resetTimer()
     }
 }

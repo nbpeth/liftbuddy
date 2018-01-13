@@ -261,6 +261,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="coolXLabel" destination="x35-ow-h9T" id="7y0-Bk-a72"/>
                                             <outlet property="doneIndicator" destination="GYu-Yi-YoE" id="kyt-c0-GYV"/>
                                             <outlet property="repsTextField" destination="Qr1-ZH-zjG" id="soD-Cb-Cbd"/>
                                             <outlet property="setNumberLabel" destination="38t-Z5-ZqY" id="LVw-Vn-cnh"/>
