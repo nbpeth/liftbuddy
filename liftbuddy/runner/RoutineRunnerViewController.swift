@@ -1,14 +1,13 @@
 import UIKit
 import Foundation
 
-class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITableViewDataSource, LiftRefresher {
     @IBOutlet weak var workoutListTableView: UITableView!
     @IBOutlet weak var nextLiftButton: UIBarButtonItem!
     @IBOutlet weak var restTimerLabel: UILabel!
     @IBOutlet weak var hudView: UIView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
-
     
     var timer:RestTimer!
     var routine:RoutineInProgress?
@@ -85,7 +84,9 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         else { return WorkoutInRunnerTableViewCell() }
     
         let workout = routine.workout[indexPath.section]
-    
+        cell.workout = workout
+        cell.delegate = self
+        
         if workout.lifts.count > indexPath.row {
             configureLift(cell: cell, workout: workout, indexPath: indexPath)
         }
@@ -104,6 +105,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.weightTextField.isHidden = true
         cell.doneIndicator.isHidden = true
         
+        cell.addSetButton.isHidden = false
     }
     
     func configureLift(cell:WorkoutInRunnerTableViewCell, workout:WorkoutInProgress, indexPath:IndexPath){
@@ -114,7 +116,7 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.weightTextField.isHidden = false
         cell.doneIndicator.isHidden = false
         cell.coolXLabel.isHidden = false
-
+        cell.addSetButton.isHidden = true
         
         cell.backgroundColor = Theme.tabBarColor
         cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
@@ -184,5 +186,9 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             self.workoutListTableView.scrollToRow(at: IndexPath, at: .bottom, animated: true)
         }
+    }
+    
+    func reload(){
+        self.workoutListTableView.reloadData()
     }
 }

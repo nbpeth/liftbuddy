@@ -238,6 +238,13 @@
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXb-K2-wYb">
+                                                    <rect key="frame" x="160" y="13" width="55" height="30"/>
+                                                    <state key="normal" title="Add Set"/>
+                                                    <connections>
+                                                        <action selector="addSetButtonWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="T1Z-k6-WcX"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -247,6 +254,7 @@
                                                 <constraint firstItem="38t-Z5-ZqY" firstAttribute="leading" secondItem="9kE-PO-ke6" secondAttribute="leadingMargin" id="4fv-WJ-YfG"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ona-rw-8FU" secondAttribute="bottom" constant="3" id="4kQ-kY-1hH"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="leading" secondItem="Qr1-ZH-zjG" secondAttribute="trailing" constant="16" id="6kx-zf-OAm"/>
+                                                <constraint firstItem="xXb-K2-wYb" firstAttribute="centerX" secondItem="9kE-PO-ke6" secondAttribute="centerX" id="6v3-Kx-RVq"/>
                                                 <constraint firstItem="x35-ow-h9T" firstAttribute="top" secondItem="9kE-PO-ke6" secondAttribute="topMargin" constant="7" id="9mR-8j-RXb"/>
                                                 <constraint firstItem="Qr1-ZH-zjG" firstAttribute="top" secondItem="9kE-PO-ke6" secondAttribute="topMargin" constant="2" id="C38-q0-mE7"/>
                                                 <constraint firstAttribute="bottom" secondItem="Os3-r2-RDX" secondAttribute="bottom" id="DWo-eV-5nZ"/>
@@ -254,6 +262,7 @@
                                                 <constraint firstItem="Os3-r2-RDX" firstAttribute="top" secondItem="9kE-PO-ke6" secondAttribute="top" id="LRf-NX-zAp"/>
                                                 <constraint firstItem="38t-Z5-ZqY" firstAttribute="top" secondItem="9kE-PO-ke6" secondAttribute="topMargin" constant="7" id="PvB-9Q-q5y"/>
                                                 <constraint firstAttribute="trailing" secondItem="Os3-r2-RDX" secondAttribute="trailing" id="alo-rP-UDe"/>
+                                                <constraint firstItem="xXb-K2-wYb" firstAttribute="centerY" secondItem="9kE-PO-ke6" secondAttribute="centerY" id="fky-HV-9nT"/>
                                                 <constraint firstItem="Ona-rw-8FU" firstAttribute="leading" secondItem="x35-ow-h9T" secondAttribute="trailing" constant="17" id="g3r-GH-zpF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="38t-Z5-ZqY" secondAttribute="bottom" constant="7" id="u5h-t7-5PT"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Qr1-ZH-zjG" secondAttribute="bottom" constant="3" id="uuS-7z-p2G"/>
@@ -261,6 +270,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addSetButton" destination="xXb-K2-wYb" id="mbl-tB-pOo"/>
                                             <outlet property="coolXLabel" destination="x35-ow-h9T" id="7y0-Bk-a72"/>
                                             <outlet property="doneIndicator" destination="GYu-Yi-YoE" id="kyt-c0-GYV"/>
                                             <outlet property="repsTextField" destination="Qr1-ZH-zjG" id="soD-Cb-Cbd"/>
