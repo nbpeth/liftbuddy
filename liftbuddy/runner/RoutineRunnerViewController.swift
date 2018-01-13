@@ -51,6 +51,21 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         timer.fireRestTimer()
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard let routine = routine else { return }
+        if editingStyle == .delete {
+            
+            let workout = routine.workout[indexPath.section]
+            workout.removeLift(at: indexPath.row)
+            self.workoutListTableView.reloadData()
+        }
+    }
+    
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let runner = self.runner else { return }
         
