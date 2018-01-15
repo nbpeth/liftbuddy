@@ -121,6 +121,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.doneIndicator.isHidden = true
         
         cell.addSetButton.isHidden = false
+        cell.changeWorkoutButton.isHidden = false
+
     }
     
     func configureLift(cell:WorkoutInRunnerTableViewCell, workout:WorkoutInProgress, indexPath:IndexPath){
@@ -132,7 +134,8 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         cell.doneIndicator.isHidden = false
         cell.coolXLabel.isHidden = false
         cell.addSetButton.isHidden = true
-        
+        cell.changeWorkoutButton.isHidden = true
+
         cell.backgroundColor = Theme.tabBarColor
         cell.setNumberLabel.text = "\(String(describing: indexPath.row + 1))."
         cell.repsTextField.text = String(describing: liftForRow.reps.value ?? 0)
@@ -148,14 +151,14 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         guard let routine = routine else { return }
         
         runner = RoutineRunner(routine: routine)
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
+        workoutListTableView.reloadData()
         startElapsedTimer()
         setupTheme()
     }
@@ -205,5 +208,12 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
     func reload(){
         self.workoutListTableView.reloadData()
+    }
+    
+    func changeWorkout(workout: WorkoutInProgress) {
+        guard let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "listOfWorkoutsViewController") as? ListOfWorkoutsViewController else { return }
+        destination.modalPresentationStyle = .fullScreen
+        destination.workout = workout
+        self.navigationController?.present(destination, animated: true, completion: nil)
     }
 }

@@ -3,6 +3,7 @@ import Foundation
 
 protocol LiftRefresher {
     func reload()
+    func changeWorkout(workout:WorkoutInProgress)
 }
 
 class WorkoutInRunnerTableViewCell: UITableViewCell {
@@ -13,8 +14,9 @@ class WorkoutInRunnerTableViewCell: UITableViewCell {
     @IBOutlet weak var setNumberLabel: UILabel!
     @IBOutlet weak var coolXLabel: UILabel!
     @IBOutlet weak var addSetButton: UIButton!
+    @IBOutlet weak var changeWorkoutButton: UIButton!
     
-    weak var delegate:RoutineRunnerViewController?
+    var delegate:LiftRefresher?
     
     @IBAction func doneViewWasPressed(_ sender: Any) {
         guard let lift = lift else { return }
@@ -35,6 +37,10 @@ class WorkoutInRunnerTableViewCell: UITableViewCell {
         workout.addLift()
         delegate?.reload()
         
+    }
+    @IBAction func changeWorkoutbuttonWasPressed(_ sender: Any) {
+        guard let workout = workout else { return }
+        delegate?.changeWorkout(workout: workout)
     }
     
     @IBAction func repsForLiftValueChanged(_ sender: Any) {
