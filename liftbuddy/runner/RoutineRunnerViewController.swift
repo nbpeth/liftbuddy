@@ -160,6 +160,11 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
         workoutListTableView.delegate = self
         workoutListTableView.dataSource = self
         workoutListTableView.reloadData()
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         startElapsedTimer()
         setupTheme()
     }
