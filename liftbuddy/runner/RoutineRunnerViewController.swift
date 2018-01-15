@@ -67,12 +67,13 @@ class RoutineRunnerViewController:BaseViewController, UITableViewDelegate, UITab
     
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let runner = self.runner else { return }
+        guard let runner = self.runner, let routine = self.routine else { return }
         
-        runner.changeWorkoutPosition(to: indexPath.section, liftIndex: indexPath.row)
-        
-        focusCurrentWorkoutInTable()
-        self.workoutListTableView.reloadData()
+        if routine.workout[indexPath.section].lifts.count > indexPath.row {
+            runner.changeWorkoutPosition(to: indexPath.section, liftIndex: indexPath.row)
+            focusCurrentWorkoutInTable()
+            self.workoutListTableView.reloadData()
+        }
     }
    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

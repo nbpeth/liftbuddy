@@ -177,9 +177,9 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-Dd-gt0">
-                                                            <rect key="frame" x="-17" y="-14" width="107" height="68"/>
+                                                            <rect key="frame" x="16" y="-14" width="74" height="68"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="107" id="zU2-q3-N8A"/>
+                                                                <constraint firstAttribute="width" constant="74" id="zU2-q3-N8A"/>
                                                             </constraints>
                                                             <connections>
                                                                 <action selector="doneViewWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="nob-MP-h1a"/>
@@ -191,7 +191,7 @@
                                                         <constraint firstItem="GNm-Dd-gt0" firstAttribute="top" secondItem="Os3-r2-RDX" secondAttribute="top" constant="-14" id="4BQ-c5-gPc"/>
                                                         <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="Os3-r2-RDX" secondAttribute="centerX" id="6ni-WO-cZM"/>
                                                         <constraint firstAttribute="bottom" secondItem="GNm-Dd-gt0" secondAttribute="bottom" constant="-14" id="RZj-Tt-TXc"/>
-                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="GNm-Dd-gt0" secondAttribute="centerX" constant="9" id="c0I-Kb-gZl"/>
+                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="GNm-Dd-gt0" secondAttribute="centerX" constant="-8" id="c0I-Kb-gZl"/>
                                                         <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerY" secondItem="Os3-r2-RDX" secondAttribute="centerY" id="rNd-Gi-CCl"/>
                                                     </constraints>
                                                 </view>
