@@ -162,6 +162,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Os3-r2-RDX">
+                                                    <rect key="frame" x="285" y="0.0" width="90" height="40"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-Yi-YoE" customClass="UIButton">
+                                                            <rect key="frame" x="35" y="10" width="20" height="20"/>
+                                                            <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" button="YES"/>
+                                                            </accessibility>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="nJ9-d9-z9k"/>
+                                                                <constraint firstAttribute="width" constant="20" id="xas-fS-qf3"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-Dd-gt0">
+                                                            <rect key="frame" x="-17" y="-14" width="107" height="68"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="107" id="zU2-q3-N8A"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="doneViewWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="nob-MP-h1a"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="GNm-Dd-gt0" firstAttribute="top" secondItem="Os3-r2-RDX" secondAttribute="top" constant="-14" id="4BQ-c5-gPc"/>
+                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="Os3-r2-RDX" secondAttribute="centerX" id="6ni-WO-cZM"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GNm-Dd-gt0" secondAttribute="bottom" constant="-14" id="RZj-Tt-TXc"/>
+                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="GNm-Dd-gt0" secondAttribute="centerX" constant="9" id="c0I-Kb-gZl"/>
+                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerY" secondItem="Os3-r2-RDX" secondAttribute="centerY" id="rNd-Gi-CCl"/>
+                                                    </constraints>
+                                                </view>
                                                 <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qr1-ZH-zjG">
                                                     <rect key="frame" x="51" y="13" width="70" height="13"/>
                                                     <constraints>
@@ -198,36 +231,6 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Os3-r2-RDX">
-                                                    <rect key="frame" x="285" y="0.0" width="90" height="40"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-Dd-gt0">
-                                                            <rect key="frame" x="30" y="0.0" width="30" height="40"/>
-                                                            <connections>
-                                                                <action selector="doneViewWasPressed:" destination="NP6-Ha-rjS" eventType="touchUpInside" id="nob-MP-h1a"/>
-                                                            </connections>
-                                                        </button>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-Yi-YoE" customClass="UIButton">
-                                                            <rect key="frame" x="35.5" y="10" width="20" height="20"/>
-                                                            <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <accessibility key="accessibilityConfiguration">
-                                                                <accessibilityTraits key="traits" button="YES"/>
-                                                            </accessibility>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="nJ9-d9-z9k"/>
-                                                                <constraint firstAttribute="width" constant="20" id="xas-fS-qf3"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="GNm-Dd-gt0" firstAttribute="top" secondItem="Os3-r2-RDX" secondAttribute="top" id="4BQ-c5-gPc"/>
-                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="Os3-r2-RDX" secondAttribute="centerX" id="6ni-WO-cZM"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GNm-Dd-gt0" secondAttribute="bottom" id="RZj-Tt-TXc"/>
-                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerX" secondItem="GNm-Dd-gt0" secondAttribute="centerX" id="c0I-Kb-gZl"/>
-                                                        <constraint firstItem="GYu-Yi-YoE" firstAttribute="centerY" secondItem="Os3-r2-RDX" secondAttribute="centerY" id="rNd-Gi-CCl"/>
-                                                    </constraints>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="12." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38t-Z5-ZqY">
                                                     <rect key="frame" x="15" y="18" width="16" height="4"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
